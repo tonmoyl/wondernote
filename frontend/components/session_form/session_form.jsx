@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -35,37 +36,62 @@ export default class SessionForm extends React.Component {
     )
   }
 
+  renderFooter() {
+    if (this.props.formType === 'login'){
+      return (
+        <div className="session-footer-login">
+          Don't have an account? Please
+          <Link to="/signup"> Sign up!</Link>
+        </div>
+      )
+    } else {
+      return (
+        <div className="session-footer-signup">
+          Already have an account? Please
+          <Link to="/login"> Sign in!</Link>
+        </div>
+      )
+    }
+  }
+
   render() {
+    const footer = this.renderFooter();
+
     return (
       <div className='login-form-container'>
+        <h1 className="session-title">{this.props.formType}</h1>
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Wondernote!
-          <br/>
-          Please {this.props.formType} or {this.props.navLink}
-          {this.renderErrors()}
           <div className="login-form">
             <br/>
-            <label>Username
+            <label>
               <input
                 type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
                 className="login-input"
+                placeholder="Email address or username"
               />
             </label>
             <br/>
-            <label>Password
+            <label>
               <input
                 type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="password-input"
+                placeholder="Password"
               />
             </label>
             <br/>
-            <input className="session-submmit" type="submit" value={this.props.formType} />
+            <input className="session-submit" type="submit" value={this.props.formType} />
+            <h5 className="errors">
+              {this.renderErrors()}
+            </h5>
           </div>
         </form>
+        <footer className="session-footer">
+          {footer}
+        </footer>
       </div>
     )
   }

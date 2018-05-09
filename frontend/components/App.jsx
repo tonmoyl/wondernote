@@ -9,19 +9,22 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => {
   return (
     <div>
       <header>
         <Link to="/" className="header-link">
-          <h1>Wondernote</h1>
-        </Link>
-        <GreetingContainer />
-      </header>
 
-      <Route path="/login" component={LoginFormContainer} />
-      <Route path="/signup" component={SignupFormContainer} />
+        </Link>
+      </header>
+      <Switch>
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
+        <AuthRoute exact path="/signup" component={SignupFormContainer} />
+
+      </Switch>
+
     </div>
   );
 };
