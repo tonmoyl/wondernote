@@ -3,6 +3,7 @@ import GreetingContainer from './greeting/greeting_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import Note from './note/note';
+import CreateNote from './note/create_note';
 
 
 import {
@@ -20,7 +21,8 @@ const App = () => {
       <Route exact path="/" component={GreetingContainer} />
       <Route exact path="/login" component={LoginFormContainer} />
       <Route exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute exact path="/note" component={Note} />
+      <ProtectedRoute path="/" component={Note} />
+      <ProtectedRoute exact path="/note/new" component={CreateNote} />
 
     </div>
   );

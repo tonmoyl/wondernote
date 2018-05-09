@@ -24,10 +24,44 @@
   bottom: 80px;
 }
 
-.new-note {
-  background-image: image-url("newnote.png");
+.button-list div {
   background-repeat: no-repeat;
   background-size: auto;
-  height: 90px;
-  width: 100%;
+  height: 40px;
+  width: 40px;
+  margin:auto;
+  padding: 10px;
+  background-position: center;
+}
+
+.new-note-btn {
+  background-image: image-url("newnote.png");
+}
+
+.new-note-btn:hover {
+  background-image: image-url("newnote_hover.png");
+}
+
+.new-meeting-btn {
+  background-image: image-url("meeting_note.png");
+}
+
+.new-meeting-btn:hover {
+  background-image: image-url("meeting_note_hover.png");
+}
+
+.search-btn {
+  background-image: image-url("search.png");
+}
+
+.search-btn:hover {
+  background-image: image-url("search_hover.png");
+}
+
+.workchat-btn {
+  background-image: image-url("workchat.png");
+}
+
+.workchat-btn:hover {
+  background-image: image-url("workchat_hover.png");
 }
