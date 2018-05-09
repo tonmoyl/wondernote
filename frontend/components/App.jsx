@@ -2,6 +2,7 @@ import React from 'react';
 import GreetingContainer from './greeting/greeting_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
+import Sidebar from './sidebar/sidebar'
 import Note from './note/note';
 import CreateNote from './note/create_note';
 
@@ -21,7 +22,7 @@ const App = () => {
       <Route exact path="/" component={GreetingContainer} />
       <Route exact path="/login" component={LoginFormContainer} />
       <Route exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute path="/" component={Note} />
+      <ProtectedRoute path="/" component={Sidebar} />
       <ProtectedRoute exact path="/note/new" component={CreateNote} />
 
     </div>

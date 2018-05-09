@@ -10,11 +10,9 @@ export default class Sidebar extends React.Component {
     return(
       <div className="sidebar">
         <div className="button-list top">
-          <div className="new-note-btn">
-            <Link to="/note/new">
-              
+            <Link  to="/note/new">
+              <div className="new-note-btn" />
             </Link>
-          </div>
           <div className="new-meeting-btn"></div>
           <div className="search-btn"></div>
           <div className="workchat-btn"></div>

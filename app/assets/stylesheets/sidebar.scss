@@ -25,13 +25,16 @@
 }
 
 .button-list div {
+  display: block;
   background-repeat: no-repeat;
   background-size: auto;
   height: 40px;
   width: 40px;
   margin:auto;
   padding: 10px;
+  cursor: pointer;
   background-position: center;
+
 }
 
 .new-note-btn {
