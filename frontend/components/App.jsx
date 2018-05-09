@@ -1,9 +1,11 @@
 import React from 'react';
+import GreetingContainer from './greeting/greeting_container';
 
 const App = () => {
   return (
     <div>
-      <h1>this is coming from app jsx</h1>
+      <h1>Wondernote</h1>
+      <GreetingContainer />
     </div>
   );
 };
