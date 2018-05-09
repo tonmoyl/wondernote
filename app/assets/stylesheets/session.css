@@ -1,0 +1,52 @@
+body {
+  background-color: #f3f3f3;
+}
+
+.session-title {
+  margin: auto;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.login-form {
+  background-color: white;
+  width: 400px;
+  margin: auto;
+  border: 1px solid lightgray;
+  padding: 30px 0px;
+}
+
+.login-form input {
+  display: flex;
+  margin: auto;
+  border-radius: 7px;
+  border: 1px solid lightgray;
+  padding: 9.5px 12px;
+  width: 300px;
+}
+
+.session-submit {
+  background-color: #2dbe60;
+  cursor: pointer;
+  font-family: helvetica;
+  font-style: normal;
+  font-weight: 500;
+  color: white;
+  border-color: #1fae52;
+  border: none;
+  text-align: center;
+  font-size: 18px;
+}
+
+.session-submit:hover {
+  background-color: #24914a;
+}
+
+.session-footer {
+  margin: 30px;
+  text-align: center;
+}
+
+.errors {
+  color: red;
+}
