@@ -5,7 +5,7 @@ export default class Navbar extends React.Component {
   render() {
     return (
       <nav>
-
+        Just going to have some information
       </nav>
     );
   };

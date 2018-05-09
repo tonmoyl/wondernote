@@ -1,0 +1,33 @@
+.sidebar {
+  height: 100%;
+  width: 75px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #f8f8f8;
+  padding-top: 20px;
+  overflow: hidden;
+
+}
+
+.sidebar {
+  margin: auto;
+  text-align: center;
+}
+
+.button-list {
+  padding: 20px 0px;
+}
+
+.sidebar > bottom {
+  bottom: 80px;
+}
+
+.new-note {
+  background-image: image-url("newnote.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  height: 90px;
+  width: 100%;
+}

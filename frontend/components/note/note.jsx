@@ -1,5 +1,7 @@
 import React from 'react';
 import Sidebar from '../sidebar/sidebar';
+import NoteList from '../note_list/note_list';
+
 
 export default class Note extends React.Component{
   constructor(props){
@@ -8,9 +10,9 @@ export default class Note extends React.Component{
 
   render(){
     return (
-      <div className='sidebar'>
-        <h1>This is coming from noteacscsds jsx</h1>
+      <div className='workspace'>
         <Sidebar />
+        <NoteList />
       </div>
 
     )
