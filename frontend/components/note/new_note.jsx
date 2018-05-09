@@ -1,20 +1,30 @@
 import React from 'react';
 
 
-export default class Paper extends React.Component{
+export default class NewNote extends React.Component{
   constructor(props){
     super(props)
     this.state = {
       title: "",
       body: ""
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e => {
+      this.setState({
+        [field]: e.currentTarget.value
+      });
+      console.log(this.state);
+    }
   };
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const note = Object.assign({}, this.state);
+    this.props.processForm(note);
+  }
 
   render(){
     return (
@@ -46,9 +56,6 @@ export default class Paper extends React.Component{
         </form>
 
       </div>
-
-
-
     )
   }
 }
