@@ -20,7 +20,7 @@ export default class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.precessForm(user);
+    this.props.processForm(user);
   }
 
   renderErrors() {
