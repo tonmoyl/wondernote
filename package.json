@@ -28,8 +28,8 @@
     "postinstall": "webpack"
   },
   "engines": {
-    "node": "6.7.0",
-    "npm": "3.10.7"
+    "node": "10.1.0",
+    "npm": "5.6.0"
   },
   "repository": {
     "type": "git",
