@@ -21,13 +21,14 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => {
   return (
     <div>
-      <Route exact path="/" component={LandingContainer} />
-      <Route exact path="/login" component={LoginFormContainer} />
-      <Route exact path="/signup" component={SignupFormContainer} />
-      <AuthRoute path="/" component={Sidebar} />
-      <ProtectedRoute exact path="/note/new" component={NewNoteContainer} />
-      <ProtectedRoute exact path="/notes" component={NoteIndexContainer} />
-
+      <Switch>
+        <Route exact path="/" component={LandingContainer} />
+        <Route exact path="/login" component={LoginFormContainer} />
+        <Route exact path="/signup" component={SignupFormContainer} />
+        <AuthRoute path="/" component={Sidebar} />
+        <ProtectedRoute exact path="/note/new" component={NewNoteContainer} />
+        <ProtectedRoute exact path="/notes" component={NoteIndexContainer} />
+      </Switch>
     </div>
   );
 };

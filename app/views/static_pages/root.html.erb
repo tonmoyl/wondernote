@@ -1,3 +1,10 @@
+<script>
+  window.staticAssets = {
+    landing: "<%= image_url('landing/landing.png') %>"
+  }
+</script>
+
+
 <% if logged_in? %>
   <script id="bootstrap-current-user" type="text/javascript">
   	window.currentUser = <%= render("api/users/user.json.jbuilder",

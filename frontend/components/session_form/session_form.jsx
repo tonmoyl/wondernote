@@ -60,6 +60,8 @@ export default class SessionForm extends React.Component {
 
     return (
       <div className='login-form-container'>
+        <div className="logo"></div>
+        <br/>
         <h1 className="session-title">{this.props.formType}</h1>
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="login-form">

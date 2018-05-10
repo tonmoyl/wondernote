@@ -1,0 +1,39 @@
+header {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 20px;
+}
+
+.header-landing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-landing .left{
+  margin: 0px 150px;
+}
+
+.header-landing .right{
+  display: flex;
+  margin: 30px 150px 0px 150px;
+}
+
+.title {
+  color: green;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.right-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.right-list > li {
+  list-style: none;
+}
+
+.landing-photo {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
