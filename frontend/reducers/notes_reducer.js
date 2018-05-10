@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_NOTE, RECEIVE_NOTES } from '../actions/notes';
+import { RECEIVE_NOTE, RECEIVE_NOTES } from '../actions/note_actions';
 
 const notesReducer = (state = {}, action) => {
   Object.freeze(state);

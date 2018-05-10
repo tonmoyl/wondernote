@@ -1,4 +1,4 @@
-import { connect } from 'redux';
+import { connect } from 'react-redux';
 import React from 'react';
 import NewNote from './new_note';
 import { createNote } from '../../actions/note_actions';

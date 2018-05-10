@@ -6,7 +6,8 @@ export default class NewNote extends React.Component{
     super(props)
     this.state = {
       title: "",
-      body: ""
+      body: "",
+      notebook_id: 1
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -28,7 +29,7 @@ export default class NewNote extends React.Component{
 
   render(){
     return (
-      <div className='create-note'>
+      <div className='create-note' onSubmit={this.handleSubmit}>
         <p>This is coming from create note jsx</p>
 
         <form className="create-note">
@@ -52,7 +53,8 @@ export default class NewNote extends React.Component{
               {this.state.body}
             </textarea>
           </label>
-          <input className="session-submit" type="submit" />
+          <input className="create-note-btn" type="submit" value="Create Note" />
+
         </form>
 
       </div>
