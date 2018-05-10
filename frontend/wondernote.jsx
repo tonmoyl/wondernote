@@ -10,6 +10,11 @@ window.signup = signup;
 window.logout = logout;
 //test
 
+//test
+import { createNote } from './util/note_api_util';
+window.createNote = createNote;
+//test
+
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   let store;
