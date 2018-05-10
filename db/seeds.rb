@@ -8,5 +8,6 @@
 
 
 User.destroy_all
+demoUser = User.create(username: "Demo", password: 'starwars')
 user1 = User.create(username: 'Lifazul', password: 'starwars')
 user2 = User.create(username: 'Tonmoy', password: 'starwars')

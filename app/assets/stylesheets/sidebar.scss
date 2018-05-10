@@ -38,33 +38,37 @@
 }
 
 .new-note-btn {
-  background-image: image-url("newnote.png");
+  background-image: image-url("sidebar_buttons/newnote.png");
 }
 
 .new-note-btn:hover {
-  background-image: image-url("newnote_hover.png");
+  background-image: image-url("sidebar_buttons/newnote_hover.png");
 }
 
 .new-meeting-btn {
-  background-image: image-url("meeting_note.png");
+  background-image: image-url("sidebar_buttons/meeting_note.png");
 }
 
 .new-meeting-btn:hover {
-  background-image: image-url("meeting_note_hover.png");
+  background-image: image-url("sidebar_buttons/meeting_note_hover.png");
 }
 
 .search-btn {
-  background-image: image-url("search.png");
+  background-image: image-url("sidebar_buttons/search.png");
 }
 
 .search-btn:hover {
-  background-image: image-url("search_hover.png");
+  background-image: image-url("sidebar_buttons/search_hover.png");
 }
 
 .workchat-btn {
-  background-image: image-url("workchat.png");
+  background-image: image-url("sidebar_buttons/workchat.png");
 }
 
 .workchat-btn:hover {
-  background-image: image-url("workchat_hover.png");
+  background-image: image-url("sidebar_buttons/workchat_hover.png");
+}
+
+.logout {
+  background-image: image-url("sidebar_buttons/logout.png");
 }

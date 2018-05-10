@@ -4,7 +4,7 @@ import GreetingContainer from './greeting/greeting_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import NoteIndexContainer from './note/note_index_container';
-import Sidebar from './sidebar/sidebar'
+import SidebarContainer from './sidebar/sidebar_container';
 import Note from './note/note';
 import NewNoteContainer from './note/new_note_container';
 
@@ -23,14 +23,18 @@ const App = () => {
     <div>
       <Switch>
         <Route exact path="/" component={LandingContainer} />
-        <Route exact path="/login" component={LoginFormContainer} />
-        <Route exact path="/signup" component={SignupFormContainer} />
-        <AuthRoute path="/" component={Sidebar} />
-        <ProtectedRoute exact path="/note/new" component={NewNoteContainer} />
-        <ProtectedRoute exact path="/notes" component={NoteIndexContainer} />
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
+        <AuthRoute exact path="/signup" component={SignupFormContainer} />
       </Switch>
+
+      <ProtectedRoute path="/" component={SidebarContainer} />
+      <ProtectedRoute exact path="/main/new" component={NewNoteContainer} />
+      <ProtectedRoute exact path="/main" component={NoteIndexContainer} />
+
     </div>
   );
 };
+
+
 
 export default App;

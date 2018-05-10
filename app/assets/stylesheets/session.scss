@@ -5,10 +5,11 @@ body {
 .session-title {
   margin: auto;
   text-align: center;
-  margin-top: 100px;
+  margin: 25px 0px;
+
 }
 
-.login-form {
+.session-form {
   background-color: white;
   width: 400px;
   margin: auto;
@@ -16,7 +17,7 @@ body {
   padding: 30px 0px;
 }
 
-.login-form input {
+.session-form input {
   display: flex;
   margin: auto;
   border-radius: 7px;
@@ -25,17 +26,23 @@ body {
   width: 300px;
 }
 
+.demo {
+  display: flex;
+  margin: auto;
+  border-radius: 7px;
+  border: 1px solid lightgray;
+  padding: 9.5px 12px;
+  width: 300px;
+  margin-top: 20px;
+}
+
 .session-submit {
-  background-color: #2dbe60;
   cursor: pointer;
-  font-family: helvetica;
   font-style: normal;
   font-weight: 500;
   color: white;
   border-color: #1fae52;
-  border: none;
   text-align: center;
-  font-size: 18px;
 }
 
 .session-submit:hover {

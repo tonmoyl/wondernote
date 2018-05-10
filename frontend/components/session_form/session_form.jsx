@@ -10,6 +10,7 @@ export default class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   update(field) {
@@ -22,7 +23,13 @@ export default class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    this.props.history.push(`/note`);
+    this.props.history.push(`/main/new`);
+  }
+
+  demoLogin(e) {
+    e.preventDefault();
+    this.props.processForm({username: 'Demo', password: 'starwars'})
+    this.props.history.push(`/main`);
   }
 
   renderErrors() {
@@ -38,9 +45,9 @@ export default class SessionForm extends React.Component {
   }
 
   renderFooter() {
-    if (this.props.formType === 'login'){
+    if (this.props.formType === 'Log In'){
       return (
-        <div className="session-footer-login">
+        <div className="session-footer-session">
           Don't have an account? Please
           <Link to="/signup"> Sign up!</Link>
         </div>
@@ -59,19 +66,20 @@ export default class SessionForm extends React.Component {
     const footer = this.renderFooter();
 
     return (
-      <div className='login-form-container'>
+      <div className='session-form-container'>
         <div className="logo"></div>
         <br/>
         <h1 className="session-title">{this.props.formType}</h1>
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <div className="login-form">
+
+        <form onSubmit={this.handleSubmit} className="session-form-box">
+          <div className="session-form">
             <br/>
             <label>
               <input
                 type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
-                className="login-input"
+                className="session-input"
                 placeholder="Email address or username"
               />
             </label>
@@ -86,10 +94,11 @@ export default class SessionForm extends React.Component {
               />
             </label>
             <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <input className="session-submit btn" type="submit" value={this.props.formType} />
             <h5 className="errors">
               {this.renderErrors()}
             </h5>
+            <button className="demo btn" onClick={this.demoLogin}>Demo Login</button>
           </div>
         </form>
         <footer className="session-footer">
