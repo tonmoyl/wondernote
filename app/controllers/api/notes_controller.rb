@@ -18,7 +18,9 @@ class Api::NotesController < ApplicationController
     end
   end
 
-
+  def show
+    @note = Note.find(params[:id])
+  end
 
   private
 

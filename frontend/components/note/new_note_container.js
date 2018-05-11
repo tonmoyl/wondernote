@@ -1,23 +1,27 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import NewNote from './new_note';
-import { createNote } from '../../actions/note_actions';
+import NoteForm from './note_form';
+import { createNote, fetchNote } from '../../actions/note_actions';
+import { Link, withRouter } from 'react-router-dom';
 
-// const mapStateToProps = ({  }) => {
-//   return {
-//
-//   }
-// }
-const mapStateToProps = null;
+const mapStateToProps = (state, ownProps) => {
+  // console.log(ownProps.match.params.noteId)
+  return {
+    currentNote: state.entities.currentNote,
+    formType: "create_note",
+    globalstate: state
+  }
+};
 
 
 const mapDispatchToProps = dispatch => {
   return {
-    processForm: (note) => dispatch(createNote(note))
+    processForm: (note) => dispatch(createNote(note)),
+    fetchNote: (noteid) => dispatch(fetchNote(noteid))
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(NewNote);
+)(NoteForm));

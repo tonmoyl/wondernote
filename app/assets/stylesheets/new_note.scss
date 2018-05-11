@@ -1,6 +1,54 @@
 .new-note {
   position: fixed;
-  left: 430px;
+  left: 425px;
   background-color: white;
   border: 1px solid lightgray;
+  height: 100%;
+  width: 100%
+}
+
+.new-note-header {
+  border-bottom: 1px solid lightgray;
+  padding: 20px;
+}
+
+.font-toolbar {
+  border-bottom: 1px solid lightgray;
+  padding: 20px;
+}
+
+.note-document {
+  border-bottom: 1px solid lightgray;
+  padding: 20px;
+}
+
+.note-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  color: #1dba60;
+  border: none;
+  margin: 30px 40px;
+  outline: none;
+}
+
+.note-body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: black;
+  border: none;
+  margin: 30px 40px;
+  outline: none;
+}
+
+.create-note {
+  display: block;
+  position: fixed;
+  right: 100px;
+  top: 150px;
+}
+
+
+
+::placeholder {
+  color: #1dba60;
 }

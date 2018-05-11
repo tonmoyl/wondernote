@@ -69,6 +69,40 @@
   background-image: image-url("sidebar_buttons/workchat_hover.png");
 }
 
+.shortcuts-btn {
+  background-image: image-url("sidebar_buttons/shortcuts.png");
+}
+
+.shortcuts-btn:hover {
+  background-image: image-url("sidebar_buttons/shortcuts_hover.png");
+}
+
+.notes-btn {
+  background-image: image-url("sidebar_buttons/notes.png");
+}
+
+.notes-btn:hover {
+  background-image: image-url("sidebar_buttons/notes_hover.png");
+}
+
+.notebooks-btn {
+  background-image: image-url("sidebar_buttons/notebook.png");
+}
+
+.notebooks-btn:hover {
+  background-image: image-url("sidebar_buttons/notebook_hover.png");
+}
+
+.tags-btn {
+  background-image: image-url("sidebar_buttons/tags.png");
+}
+
+.tags-btn:hover {
+  background-image: image-url("sidebar_buttons/tags_hover.png");
+}
+
+
+
 .logout {
   background-image: image-url("sidebar_buttons/logout.png");
 }

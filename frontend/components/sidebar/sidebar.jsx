@@ -17,7 +17,7 @@ export default class Sidebar extends React.Component {
     return(
       <div className="sidebar">
         <div className="button-list top">
-            <Link  to="/note/new">
+            <Link  to="/main/new">
               <div className="new-note-btn" />
             </Link>
           <div className="new-meeting-btn"></div>
@@ -26,10 +26,10 @@ export default class Sidebar extends React.Component {
         </div>
 
         <div className="button-list bottom">
-          <div className="shortcuts-btn">Shortcuts</div>
-          <div className="notes-btn">Notes</div>
-          <div className="notebooks-btn">Notebooks</div>
-          <div className="tags-btn">Tags</div>
+          <div className="shortcuts-btn"></div>
+          <div className="notes-btn"></div>
+          <div className="notebooks-btn"></div>
+          <div className="tags-btn"></div>
         </div>
 
         <div className="button-list" onClick={this.handleSubmit}>

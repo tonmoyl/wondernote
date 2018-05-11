@@ -20,7 +20,6 @@ export default class NoteIndex extends React.Component{
       )
     })
 
-    console.log(this.props.notes)
     return(
       <div className="note-index">
         <div className="note-index-header">
