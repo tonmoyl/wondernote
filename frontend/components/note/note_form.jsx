@@ -13,10 +13,10 @@ export default class NoteForm extends React.Component{
   };
 
   componentDidMount(){
+    const noteId = this.props.match.params.noteId
     if (noteId) {
       this.props.fetchNote(this.props.match.params.noteId);
     };
-
   };
 
   update(field) {
@@ -34,6 +34,7 @@ export default class NoteForm extends React.Component{
   }
 
   render(){
+    debugger
     return (
       <div className='new-note' onSubmit={this.handleSubmit}>
         <div className='new-note-header'>Top header</div>

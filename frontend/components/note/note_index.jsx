@@ -5,11 +5,13 @@ import NoteItem from './note_item'
 export default class NoteIndex extends React.Component{
   constructor(props) {
     super(props);
+       this.props.fetchNotes();
+
   }
 
-  componentDidMount(){
-    this.props.fetchNotes();
-  }
+  // componentDidMount(){
+  //   this.props.fetchNotes();
+  // }
 
   render(){
     const notes = Object.keys(this.props.notes).map( (id) => {

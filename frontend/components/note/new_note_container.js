@@ -5,9 +5,9 @@ import { createNote, fetchNote } from '../../actions/note_actions';
 import { Link, withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(ownProps.match.params.noteId)
+  // console.log(ownProps.match.params.noteId)s
   return {
-    currentNote: state.entities.currentNote,
+    currentNote: state.entities.currentNote.currentNote,
     formType: "create_note",
     globalstate: state
   }
