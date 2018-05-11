@@ -29,10 +29,10 @@ export default class NewNote extends React.Component{
 
   render(){
     return (
-      <div className='create-note' onSubmit={this.handleSubmit}>
-        <p>This is coming from create note jsx</p>
+      <div className='new-note' onSubmit={this.handleSubmit}>
+        <p>This is coming from new note jsx</p>
 
-        <form className="create-note">
+        <form className="new-note-form">
 
           <label>Title
             <input

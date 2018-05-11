@@ -23,11 +23,20 @@ export default class NoteIndex extends React.Component{
     console.log(this.props.notes)
     return(
       <div className="note-index">
-        This is coming from the index
-        <h1>Notes: </h1>
+        <div className="note-index-header">
+          <h2>NOTES</h2>
+          <div className="noteslist-footer">
+            <h4>7 notes</h4>
+            <div className="options-list">
+              <h4>Options</h4>
+            </div>
+          </div>
+        </div>
+        <div className="note-list">
           <ul>
             {notes}
           </ul>
+        </div>
       </div>
     )
   }
