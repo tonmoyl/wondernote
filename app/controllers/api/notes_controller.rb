@@ -2,6 +2,11 @@ class Api::NotesController < ApplicationController
 
   before_action :require_logged_in
 
+  def index
+    @notes = current_user.notes
+    render :index
+  end
+
   def create
     @note = Note.new(note_params)
     @note.author_id = current_user.id
@@ -12,6 +17,8 @@ class Api::NotesController < ApplicationController
       render json: @note, status: :unprocessable_entity
     end
   end
+
+
 
   private
 

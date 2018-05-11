@@ -1,26 +1,33 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import NoteItem from './note_item'
 
-export default class NoteForm extends React.Component{
+export default class NoteIndex extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {
-      title: "",
-      body: "",
-      notebook_id: 1
-    }
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-
+  componentDidMount(){
+    this.props.fetchNotes();
   }
 
   render(){
+    const notes = Object.keys(this.props.notes).map( (id) => {
+      return (
+        <li key={id}>
+          <NoteItem note={this.props.notes[id]}/>
+        </li>
+      )
+    })
+
+    console.log(this.props.notes)
     return(
-      <div>
-        This is coming from the note index
+      <div className="note-index">
+        This is coming from the index
+        <h1>Notes: </h1>
+          <ul>
+            {notes}
+          </ul>
       </div>
     )
   }
