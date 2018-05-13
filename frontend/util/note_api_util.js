@@ -20,5 +20,13 @@ export const fetchNote = (id) => {
   });
 };
 
+export const updateNote = note => (
+  $.ajax({
+    url: `api/notes/${note.id}`,
+    type: 'patch',
+    data: { note },
+  })
+);
+
 
 //data: { note: { title: "Fiiirsst note", body: "some body", notebook_id: 2, author_id: 1} }

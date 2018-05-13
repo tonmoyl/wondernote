@@ -14,10 +14,11 @@ export default class Note extends React.Component{
         <Link to={`/main/${this.props.note.id}`} >
           <div className='note-item'>
             <h3>{this.note.title}</h3>
-            <h4>{this.note.updated_at}</h4>
             <h5>{this.note.body}</h5>
           </div>
         </Link>
+
+
       </div>
     )
   }

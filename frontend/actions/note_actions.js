@@ -31,6 +31,14 @@ export const createNote = (note) => {
   };
 };
 
+export const updateNote = (note) => {
+  return dispatch => {
+    return APIUtil.updateNote(note).then(note => {
+      return dispatch(receiveNote(note));
+    })
+  }
+}
+
 export const fetchNotes = () => {
   return dispatch => {
     return APIUtil.fetchNotes().then(notes => {

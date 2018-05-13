@@ -6,42 +6,36 @@ export default class NoteForm extends React.Component{
   constructor(props){
     super(props)
     this.state = {
+      id: "",
       title: "",
       body: "",
       notebook_id: 1
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+
   };
 
   componentWillMount() {
     const noteId = this.props.match.params.noteId;
-    if (noteId) {
+    if (this.props.formType === "Update") {
       this.props.fetchNote(this.props.match.params.noteId).then( ({note}) => {
-        this.setState({title: note.title, body: note.body});
+        this.setState({id: note.id, title: note.title, body: note.body});
       });
     };
 
-
-
-
   };
 
-  componentDidMount(){
-
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.noteId !== nextProps.match.params.noteId) {
+      this.props.fetchNote(nextProps.match.params.noteId).then( ({note}) => {
+        this.setState({title: note.title, body: note.body});
+      });
+    }
   }
 
   update(property) {
     return e => this.setState({ [property]: e.target.value })
   };
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (this.props.match.params.noteId !== nextProps.match.params.noteId) {
-  //     this.props.fetchNote(nextProps.match.params.noteId);
-  //   }
-  // }
-
-
-
 
   handleSubmit(e) {
     e.preventDefault();
@@ -50,8 +44,7 @@ export default class NoteForm extends React.Component{
   }
 
   render(){
-
-
+    console.log(this.state)
     return (
       <div className='new-note' onSubmit={this.handleSubmit}>
         <div className='new-note-header'>{this.state.title}</div>
@@ -80,7 +73,7 @@ export default class NoteForm extends React.Component{
               </textarea>
             </label>
 
-            <input className="create-note btn" type="submit" value="Create Note" />
+            <input className={`create-note btn`} type="submit" value={this.props.formType} />
           </form>
         </div>
 

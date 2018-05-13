@@ -6,6 +6,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import NoteIndexContainer from './note/note_index_container';
 import SidebarContainer from './sidebar/sidebar_container';
 import NewNoteContainer from './note/new_note_container';
+import EditNoteContainer from './note/edit_note_container';
 
 
 import {
@@ -32,7 +33,11 @@ const App = () => {
 
       <ProtectedRoute exact path="/main/:noteId" component={SidebarContainer} />
       <ProtectedRoute exact path="/main/:noteId" component={NoteIndexContainer} />
-      <ProtectedRoute exact path="/main/:noteId" component={NewNoteContainer} />
+
+      <Switch>
+        <ProtectedRoute exact path="/main/new" component={NewNoteContainer} />
+        <ProtectedRoute exact path="/main/:noteId" component={EditNoteContainer} />
+      </Switch>
 
     </div>
   );

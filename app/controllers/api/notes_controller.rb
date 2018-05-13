@@ -22,6 +22,18 @@ class Api::NotesController < ApplicationController
     @note = Note.find(params[:id])
   end
 
+  def update
+    @note = current_user.notes.find(params[:id])
+
+    if @note.update(note_params)
+      render :show
+    else
+      render @note.errors.full_messages, status: :unprocessable_entity
+    end
+  rescue
+    render json: ['Report not found'], status: :not_found
+  end
+
   private
 
   def note_params
