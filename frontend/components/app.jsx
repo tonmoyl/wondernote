@@ -7,6 +7,7 @@ import NoteIndexContainer from './note/note_index_container';
 import SidebarContainer from './sidebar/sidebar_container';
 import NewNoteContainer from './note/new_note_container';
 import EditNoteContainer from './note/edit_note_container';
+import Notebook from './sidebar/notebook';
 
 
 import {
@@ -30,6 +31,7 @@ const App = () => {
       <ProtectedRoute exact path="/" component={SidebarContainer} />
       <ProtectedRoute exact path="/" component={NoteIndexContainer} />
       <ProtectedRoute exact path="/" component={NewNoteContainer} />
+      <ProtectedRoute path="/" component={Notebook} />
 
       <ProtectedRoute exact path="/main/:noteId" component={SidebarContainer} />
       <ProtectedRoute exact path="/main/:noteId" component={NoteIndexContainer} />

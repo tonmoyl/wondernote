@@ -12,6 +12,10 @@ class User < ApplicationRecord
   class_name: :Note,
   foreign_key: :author_id
 
+  has_many :notebooks,
+  through: :notes,
+  source: :notebooks
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user
