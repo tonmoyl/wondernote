@@ -1,4 +1,5 @@
 import React from 'react';
+import Route from 'react-router-dom';
 
 
 export default class NoteForm extends React.Component{
@@ -12,20 +13,35 @@ export default class NoteForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
-  componentDidMount(){
-    const noteId = this.props.match.params.noteId
+  componentWillMount() {
+    const noteId = this.props.match.params.noteId;
     if (noteId) {
-      this.props.fetchNote(this.props.match.params.noteId);
+      this.props.fetchNote(this.props.match.params.noteId).then( ({note}) => {
+        this.setState({title: note.title, body: note.body});
+      });
     };
+
+
+
+
   };
 
-  update(field) {
-    return e => {
-      this.setState({
-        [field]: e.currentTarget.value
-      });
-    }
+  componentDidMount(){
+
+  }
+
+  update(property) {
+    return e => this.setState({ [property]: e.target.value })
   };
+
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.match.params.noteId !== nextProps.match.params.noteId) {
+  //     this.props.fetchNote(nextProps.match.params.noteId);
+  //   }
+  // }
+
+
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -34,10 +50,11 @@ export default class NoteForm extends React.Component{
   }
 
   render(){
-    debugger
+
+
     return (
       <div className='new-note' onSubmit={this.handleSubmit}>
-        <div className='new-note-header'>Top header</div>
+        <div className='new-note-header'>{this.state.title}</div>
         <div className='font-toolbar'>Font format toolbar</div>
         <div className='note-document'>
           <form className="new-note-form">
