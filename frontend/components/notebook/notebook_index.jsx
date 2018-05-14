@@ -4,12 +4,15 @@ import NotebookItem from './notebook_item';
 export default class NoteBookIndex extends React.Component{
   constructor(props) {
     super(props);
-
+    this.state = {
+      title: ""
+    }
   }
 
   componentWillMount(){
     this.props.fetchNotebooks();
   }
+
 
   render(){
     const notebooks = Object.keys(this.props.notebooks).map( (id) => {

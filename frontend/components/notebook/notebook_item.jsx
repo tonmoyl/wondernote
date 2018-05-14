@@ -1,4 +1,5 @@
 import React from 'react';
+import NotebookShow from './notebook_show';
 
 export default class NotebookItem extends React.Component {
   constructor(props){
@@ -11,6 +12,7 @@ export default class NotebookItem extends React.Component {
     e.preventDefault();
     console.log('clicked');
     document.getElementById("notebook-side").style.width = "0px";
+    document.getElementById("notebook-show").style.zIndex = "4";
   }
 
   render() {
