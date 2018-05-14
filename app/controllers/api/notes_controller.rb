@@ -10,6 +10,7 @@ class Api::NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.author_id = current_user.id
+    @note.notebook_id = Notebook.last.id
 
     if @note.save
       render :show
@@ -31,13 +32,13 @@ class Api::NotesController < ApplicationController
       render @note.errors.full_messages, status: :unprocessable_entity
     end
   rescue
-    render json: ['Report not found'], status: :not_found
+    render json: ['Note not found'], status: :not_found
   end
 
   private
 
   def note_params
-    params.require(:note).permit(:title, :body, :notebook_id, :author_id)
+    params.require(:note).permit(:title, :body)
   end
 
 end

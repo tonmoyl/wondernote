@@ -1,0 +1,32 @@
+.notebook-title input {
+  border: none;
+  color: darkgray;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  outline: none;
+  font-size: 20px;
+  letter-spacing: 1.3px;
+}
+
+.notebook-form {
+  text-align: center;
+}
+
+
+.adj-buttons {
+  display: flex;
+  margin: 20px;
+}
+
+.notebook-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  color: #1dba60;
+  border: none;
+  margin: 30px 40px;
+  outline: none;
+  display: flex;
+  justify-content: center;
+}

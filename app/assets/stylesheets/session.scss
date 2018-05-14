@@ -24,9 +24,10 @@ body {
   border: 1px solid lightgray;
   padding: 9.5px 12px;
   width: 300px;
+  justify-content: center;
 }
 
-.demo {
+.session-form .demo{
   display: flex;
   margin: auto;
   border-radius: 7px;
@@ -34,7 +35,11 @@ body {
   padding: 9.5px 12px;
   width: 300px;
   margin-top: 20px;
+  width: 75%;
+  justify-content: center;
 }
+
+
 
 .session-submit {
   cursor: pointer;

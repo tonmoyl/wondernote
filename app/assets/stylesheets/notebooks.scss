@@ -1,0 +1,23 @@
+// Place all the styles related to the Notebooks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#create-notebook {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  z-index: 200;
+  background-color: white;
+  justify-content: center;
+  padding: 150px 0px;
+
+
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+     -o-animation: fadein 2s; /* Opera < 12.1 */
+        animation: fadein 2s;
+}

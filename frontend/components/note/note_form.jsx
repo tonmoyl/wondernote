@@ -1,5 +1,6 @@
 import React from 'react';
 import Route from 'react-router-dom';
+import NotebookIndex from '../notebook/notebook_index';
 
 
 export default class NoteForm extends React.Component{
@@ -73,7 +74,7 @@ export default class NoteForm extends React.Component{
               </textarea>
             </label>
 
-            <input className={`create-note btn`} type="submit" value={this.props.formType} />
+            <input className="create-note submit-btn" type="submit" value={this.props.formType} />
           </form>
         </div>
 

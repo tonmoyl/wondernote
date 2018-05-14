@@ -33,14 +33,33 @@ h5 {
   color: lightgray;
 }
 
-.btn {
+h6 {
   font-size: 16px;
-  color: white;
-  background-color: #37bc58;
-  margin: 0px;
+  color: darkgray;
 }
 
-.input {
+input[class*="-btn"], button[class*="-btn"] {
   font-size: 16px;
-  color: gray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  width: 200px;
+  margin: 0px 4px;
+  border-radius: 5px;
+  padding: 7px;
+  text-align: center;
+}
+
+
+.cancel-btn {
+  color: darkgray;
+  background-color: white;
+  background-color: #ececec;
+  color: darkgray;
+
+}
+
+.submit-btn{
+  background-color: #2dbe60;
+  opacity: 0.75;
+  color: white;
 }

@@ -46,7 +46,7 @@ export default class Sidebar extends React.Component {
           <div className="tags-btn"></div>
         </div>
 
-        <div className="button-list" onClick={this.openNav}>
+        <div className="button-list" onClick={this.handleSubmit}>
           <div className="logout"></div>
         </div>
 

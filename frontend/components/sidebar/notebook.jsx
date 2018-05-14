@@ -5,15 +5,15 @@ export default class Notebook extends React.Component{
     super(props)
   }
 
-  closeNav() {
-    document.getElementById("notebook-side").style.width = "0px";
+  openForm() {
+    document.getElementById("create-notebook").style.display = "flex";
   }
 
   render(){
     return(
       <div id="notebook-side" className="notebook-side sidenav">
 
-        <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
+        <a href="javascript:void(0)" className="addnotebook" onClick={this.openForm}>+</a>
         <p>Some information about the side</p>
 
       </div>

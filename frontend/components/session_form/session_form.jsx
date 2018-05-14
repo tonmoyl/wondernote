@@ -94,11 +94,11 @@ export default class SessionForm extends React.Component {
               />
             </label>
             <br/>
-            <input className="session-submit btn" type="submit" value={this.props.formType} />
+            <input className="session-submit submit-btn" type="submit" value={this.props.formType} />
             <h5 className="errors">
               {this.renderErrors()}
             </h5>
-            <button className="demo btn" onClick={this.demoLogin}>Demo Login</button>
+            <button className="demo submit-btn" onClick={this.demoLogin}>Demo Login</button>
           </div>
         </form>
         <footer className="session-footer">
