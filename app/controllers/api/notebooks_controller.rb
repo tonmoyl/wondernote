@@ -3,15 +3,14 @@ class Api::NotebooksController < ApplicationController
   before_action :require_logged_in
 
   def index
-    debugger
     @notebooks = current_user.notebooks
-    render :notebook
+    debugger
+    render :index
   end
 
   def create
     @notebook = Notebook.new(notebook_params)
     @notebook.author_id = current_user.id
-    debugger
     if @notebook.save
       render :show
     else
@@ -20,12 +19,10 @@ class Api::NotebooksController < ApplicationController
   end
 
   def show
-    debugger
     @notebook = Notebook.find(params[:id])
   end
 
   def update
-debugger
     @notebook = current_user.notebooks.find(params[:id])
 
     if @notebook.update(notebook_params)

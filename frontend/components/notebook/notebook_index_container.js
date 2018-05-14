@@ -1,21 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import NoteIndex from './note_index';
-import { fetchNotes } from '../../actions/note_actions';
+import NotebookIndex from './notebook_index';
+import { fetchNotebooks } from '../../actions/notebook_actions';
 
 const mapStateToProps = ({ entities }) => {
+  debugger
   return {
-    notes: entities.notes
+    notebooks: entities.notebooks
   };
 };
 
 const mapDispatchToProps = dispatch => {
+  debugger
   return {
-    fetchNotes: () => dispatch(fetchNotes())
+    fetchNotebooks: () => dispatch(fetchNotebooks())
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NoteIndex);
+)(NotebookIndex);

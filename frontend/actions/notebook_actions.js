@@ -23,6 +23,7 @@ debugger
 };
 
 export const fetchNotebooks = () => {
+  debugger
   return dispatch => {
     return APIUtil.fetchNotebooks().then(notebooks => {
       return dispatch(receiveNotebooks(notebooks));

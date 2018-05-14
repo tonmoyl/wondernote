@@ -1,1 +1,32 @@
 import React from 'react';
+import NotebookItem from './notebook_item';
+
+export default class NoteBookIndex extends React.Component{
+  constructor(props) {
+    super(props);
+
+  }
+
+  componentWillMount(){
+    this.props.fetchNotebooks();
+  }
+
+  render(){
+    const notebooks = Object.keys(this.props.notebooks).map( (id) => {
+      return (
+        <li key={id}>
+          <NotebookItem notebook={this.props.notebooks[id]}/>
+        </li>
+      )
+    });
+
+    return(
+      <div className="notebook-index">
+        <ul>
+          {notebooks}
+        </ul>
+      </div>
+    );
+  };
+
+};
