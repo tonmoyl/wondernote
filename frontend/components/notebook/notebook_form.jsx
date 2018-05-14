@@ -3,12 +3,26 @@ import React from 'react';
 export default class NotebookForm extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      title: ""
+    };
     this.closeForm = this.closeForm.bind(this.closeForm);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  update(property) {
+    return e => this.setState({ [property]: e.target.value })
+  };
 
   closeForm(e) {
     e.preventDefault();
     document.getElementById("create-notebook").style.display = "none";
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const notebook = Object.assign({}, this.state);
+    this.props.processForm(notebook);
   }
 
   render() {
@@ -21,18 +35,17 @@ export default class NotebookForm extends React.Component {
             <input
               type="text"
               className="notebook-title"
-              placeholder="Title your notebook"/>
+              placeholder="Title your notebook"
+              onChange={this.update('title')}/>
           </label>
+          <button onClick={this.closeForm} className="cancel-btn">
+            Cancel
+          </button>
 
-          <div className="adj-buttons">
-            <button onClick={this.closeForm} className="cancel-btn">
-              Cancel
-            </button>
-            <input
-              className="create-notebook submit-btn"
-              type="submit"
-              value="Create notebook" />
-          </div>
+          <input
+            className="create-notebook submit-btn"
+            type="submit"
+            value="Create notebook" />
         </form>
       </div>
     );

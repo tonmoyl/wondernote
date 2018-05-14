@@ -74,7 +74,10 @@ export default class NoteForm extends React.Component{
               </textarea>
             </label>
 
-            <input className="create-note submit-btn" type="submit" value={this.props.formType} />
+            <input
+              className="create-note submit-btn"
+              type="submit"
+              value={this.props.formType} />
           </form>
         </div>
 
