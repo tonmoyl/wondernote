@@ -23,6 +23,7 @@ export default class NotebookForm extends React.Component {
     e.preventDefault();
     const notebook = Object.assign({}, this.state);
     this.props.processForm(notebook);
+    document.getElementById("create-notebook").style.display = "none";
   }
 
   render() {
@@ -34,7 +35,7 @@ export default class NotebookForm extends React.Component {
           <label>
             <input
               type="text"
-              className="notebook-title"
+              className="notebook-title notebook-title-create"
               placeholder="Title your notebook"
               onChange={this.update('title')}/>
           </label>

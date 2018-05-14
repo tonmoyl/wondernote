@@ -10,6 +10,7 @@ export default class NotebookItem extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log('clicked');
+    document.getElementById("notebook-side").style.width = "0px";
   }
 
   render() {

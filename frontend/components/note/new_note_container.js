@@ -8,10 +8,11 @@ const mapStateToProps = (state, ownProps) => {
 
   // ownProps.match.params.noteId
   // console.log(ownProps.match.params.noteId)
+
   return {
     currentNote: state.entities.currentNote.currentNote,
     formType: "Create",
-    globalstate: state
+    notebooks: state.entities.notebooks
   }
 };
 

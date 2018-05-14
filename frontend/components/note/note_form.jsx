@@ -20,7 +20,7 @@ export default class NoteForm extends React.Component{
     const noteId = this.props.match.params.noteId;
     if (this.props.formType === "Update") {
       this.props.fetchNote(this.props.match.params.noteId).then( ({note}) => {
-        this.setState({id: note.id, title: note.title, body: note.body});
+        this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
       });
     };
 
@@ -29,7 +29,7 @@ export default class NoteForm extends React.Component{
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.noteId !== nextProps.match.params.noteId) {
       this.props.fetchNote(nextProps.match.params.noteId).then( ({note}) => {
-        this.setState({title: note.title, body: note.body});
+        this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
       });
     }
   }
@@ -45,14 +45,30 @@ export default class NoteForm extends React.Component{
   }
 
   render(){
-    console.log(this.state)
+    const notebook_id = this.state.notebook_id;
+    const notebooks = Object.keys(this.props.notebooks).map( (id) => {
+      if (id === this.state.notebook_id) {
+        return (
+          <option key={id} value={id} selected>{this.props.notebooks[id].title}</option>
+        )
+      }
+      else {
+        return (
+          <option className="select-items" key={id} value={id}>{this.props.notebooks[id].title}</option>
+        )
+      }
+    })
+
     return (
       <div className='new-note' onSubmit={this.handleSubmit}>
         <div className='new-note-header'>{this.state.title}</div>
         <div className='font-toolbar'>Font format toolbar</div>
         <div className='note-document'>
           <form className="new-note-form">
-
+            <select className="notebook-dropdown">
+              {notebooks}
+            </select>
+            <br />
             <label>
               <input
                 type="text"

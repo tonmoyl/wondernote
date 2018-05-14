@@ -5,9 +5,9 @@ export default class Sidebar extends React.Component {
   constructor(props){
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {
-      sidebar: "closed"
-    };
+    // this.state = {
+    //   sidebar: "closed"
+    // };
     this.openNav = this.openNav.bind(this);
   };
 
@@ -17,13 +17,22 @@ export default class Sidebar extends React.Component {
     this.props.history.push(`/login`);
   }
 
+  // openNav() {
+  //   if (this.state.sidebar === "closed") {
+  //     document.getElementById("notebook-side").style.width = "430px";
+  //     this.setState({sidebar: "opened"});
+  //   } else {
+  //     document.getElementById("notebook-side").style.width = "0px";
+  //     this.setState({sidebar: "closed"});
+  //   }
+  // }
+
   openNav() {
-    if (this.state.sidebar === "closed") {
+    const sidebarWidth = document.getElementById("notebook-side").style.width
+    if (sidebarWidth === "0px") {
       document.getElementById("notebook-side").style.width = "430px";
-      this.setState({sidebar: "opened"});
     } else {
       document.getElementById("notebook-side").style.width = "0px";
-      this.setState({sidebar: "closed"});
     }
   }
 

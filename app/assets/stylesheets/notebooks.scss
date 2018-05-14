@@ -3,11 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #create-notebook {
-
   position: fixed;
   left: 0;
   right: 0;
-  display: flex;
   width: 100%;
   min-height: 100%;
   z-index: 200;
@@ -15,12 +13,6 @@
   justify-content: center;
   padding: 150px 0px;
   display: none;
-
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-   -moz-animation: fadein 2s; /* Firefox < 16 */
-    -ms-animation: fadein 2s; /* Internet Explorer */
-     -o-animation: fadein 2s; /* Opera < 12.1 */
-        animation: fadein 2s;
 }
 
 .notebook-title input {
@@ -35,10 +27,16 @@
   letter-spacing: 1.3px;
 }
 
-.notebook-item {
-  cursor: pointer;
+.notebook-form .notebook-title {
+  margin: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 .notebook-item {
   cursor: pointer;
+}
+
+.notebook-inner {
+  width: 430px;
 }
