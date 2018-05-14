@@ -13,8 +13,8 @@ class User < ApplicationRecord
   foreign_key: :author_id
 
   has_many :notebooks,
-  through: :notes,
-  source: :notebook
+  class_name: :Notebook,
+  foreign_key: :author_id
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

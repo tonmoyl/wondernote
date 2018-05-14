@@ -10,7 +10,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => {
-  debugger
   return {
     processForm: (note) => dispatch(createNotebook(note))
   }

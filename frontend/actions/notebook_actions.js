@@ -14,7 +14,7 @@ export const receiveNotebook = notebook => ({
 });
 
 export const createNotebook = (notebook) => {
-debugger
+
   return dispatch => {
     return APIUtil.createNotebook(notebook).then(notebook => {
       return dispatch(receiveNotebook(notebook));
@@ -23,7 +23,6 @@ debugger
 };
 
 export const fetchNotebooks = () => {
-  debugger
   return dispatch => {
     return APIUtil.fetchNotebooks().then(notebooks => {
       return dispatch(receiveNotebooks(notebooks));

@@ -4,7 +4,6 @@ class Api::NotebooksController < ApplicationController
 
   def index
     @notebooks = current_user.notebooks
-    debugger
     render :index
   end
 

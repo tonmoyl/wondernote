@@ -12,7 +12,7 @@ export default class Note extends React.Component{
     return (
       <div>
         <Link to={`/main/${this.props.note.id}`} >
-          <div className='note-item'>
+          <div className='list-item'>
             <h3>{this.note.title}</h3>
             <h5>{this.note.body}</h5>
           </div>
