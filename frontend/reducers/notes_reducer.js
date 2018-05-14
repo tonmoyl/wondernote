@@ -8,7 +8,8 @@ const notesReducer = (state = {}, action) => {
     case RECEIVE_NOTES:
       return merge({}, state, action.notes);
     case RECEIVE_NOTE:
-      return action.note;
+      const newNote = { [action.note.id]: action.note };
+      return merge({}, state, newNote);
     default:
       return state;
   }

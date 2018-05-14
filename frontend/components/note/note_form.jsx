@@ -1,6 +1,7 @@
 import React from 'react';
 import Route from 'react-router-dom';
 import NotebookIndex from '../notebook/notebook_index';
+import NoteIndex from './note_index_container';
 
 
 export default class NoteForm extends React.Component{
@@ -49,12 +50,20 @@ export default class NoteForm extends React.Component{
     const notebooks = Object.keys(this.props.notebooks).map( (id) => {
       if (id === this.state.notebook_id) {
         return (
-          <option key={id} value={id} selected>{this.props.notebooks[id].title}</option>
+          <option
+            key={id}
+            value={id}
+            selected>{this.props.notebooks[id].title}
+          </option>
         )
       }
       else {
         return (
-          <option className="select-items" key={id} value={id}>{this.props.notebooks[id].title}</option>
+          <option
+            className="select-items"
+            key={id}
+            value={id}>{this.props.notebooks[id].title}
+          </option>
         )
       }
     })
@@ -65,7 +74,7 @@ export default class NoteForm extends React.Component{
         <div className='font-toolbar'>Font format toolbar</div>
         <div className='note-document'>
           <form className="new-note-form">
-            <select className="notebook-dropdown">
+            <select className="notebook-dropdown" onChange={this.update('notebook_id')}>
               {notebooks}
             </select>
             <br />

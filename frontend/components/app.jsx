@@ -30,13 +30,13 @@ const App = () => {
       </Switch>
 
       <ProtectedRoute exact path="/" component={SidebarContainer} />
-      <ProtectedRoute exact path="/" component={NoteIndexContainer} />
+      // <ProtectedRoute exact path="/" component={NoteIndexContainer} />
       <ProtectedRoute exact path="/" component={NewNoteContainer} />
       <ProtectedRoute path="/" component={NotebookContainer} />
 
       <ProtectedRoute path="/main" component={SidebarContainer} />
       <ProtectedRoute path="/main" component={NotebookFormContainer} />
-      <ProtectedRoute exact path="/main/:noteId" component={NoteIndexContainer} />
+      // <ProtectedRoute exact path="/main/:noteId" component={NoteIndexContainer} />
 
       <Switch>
         <ProtectedRoute exact path="/main/new" component={NewNoteContainer} />
