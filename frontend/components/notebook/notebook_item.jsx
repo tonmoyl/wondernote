@@ -1,5 +1,6 @@
 import React from 'react';
 import NotebookShow from './notebook_show';
+import { Link } from 'react-router-dom';
 
 export default class NotebookItem extends React.Component {
   constructor(props){
@@ -9,16 +10,20 @@ export default class NotebookItem extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    console.log('clicked');
-    document.getElementById("notebook-side").style.width = "0px";
-    document.getElementById("notebook-show").style.zIndex = "4";
+    // e.preventDefault();
+    // document.getElementById("notebook-side").style.width = "0px";
+    // document.getElementById("notebook-show").style.zIndex = "4";
+    // debugger
   }
 
   render() {
     return (
-      <div className="list-item notebook-item" onClick={this.handleSubmit}>
-        {this.notebook.title}
+      <div>
+        <Link to={`/main/${this.props.noteId}/${this.notebook.id}`}>
+          <div className="list-item notebook-item" >
+            {this.notebook.title}
+          </div>
+        </Link>
       </div>
     )
   }

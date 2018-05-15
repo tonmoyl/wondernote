@@ -18,7 +18,7 @@ export default class NoteBookIndex extends React.Component{
     const notebooks = Object.keys(this.props.notebooks).map( (id) => {
       return (
         <li key={id}>
-          <NotebookItem notebook={this.props.notebooks[id]}/>
+          <NotebookItem notebook={this.props.notebooks[id]} noteId={this.props.noteId}/>
         </li>
       )
     });

@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import Notebook from './notebook';
 import { fetchNotebooks } from '../../actions/notebook_actions';
 
-const mapStateToProps = ({ entities }) => {
+const mapStateToProps = ({ entities }, ownProps) => {
+  
+
   return {
+    noteId: ownProps.match.params.noteId,
     notebooks: entities.notebooks
   };
 };
