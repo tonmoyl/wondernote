@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { toggleNav } from '../../util/ui_util';
 
 export default class Sidebar extends React.Component {
   constructor(props){
@@ -8,16 +9,17 @@ export default class Sidebar extends React.Component {
     // this.state = {
     //   sidebar: "closed"
     // };
-    this.openNav = this.openNav.bind(this);
+    this.toggleNav = toggleNav.bind(this);
   };
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.logout();
     this.props.history.push(`/login`);
+    this.toggleNav;
   }
 
-  // openNav() {
+  // toggleNav() {
   //   if (this.state.sidebar === "closed") {
   //     document.getElementById("notebook-side").style.width = "430px";
   //     this.setState({sidebar: "opened"});
@@ -27,14 +29,14 @@ export default class Sidebar extends React.Component {
   //   }
   // }
 
-  openNav() {
-    const sidebarWidth = document.getElementById("notebook-side").style.width;
-    if (sidebarWidth === "0px") {
-      document.getElementById("notebook-side").style.width = "430px";
-    } else {
-      document.getElementById("notebook-side").style.width = "0px";
-    }
-  }
+  // toggleNav() {
+  //   const sidebarWidth = document.getElementById("notebook-side").style.width;
+  //   if (sidebarWidth === "0px") {
+  //     document.getElementById("notebook-side").style.width = "430px";
+  //   } else {
+  //     document.getElementById("notebook-side").style.width = "0px";
+  //   }
+  // }
 
   render(){
     return(
@@ -51,7 +53,7 @@ export default class Sidebar extends React.Component {
         <div className="button-list bottom">
           <div className="shortcuts-btn"></div>
           <div className="notes-btn"></div>
-          <div className="notebooks-btn" onClick={this.openNav}></div>
+          <div className="notebooks-btn" onClick={this.toggleNav}></div>
           <div className="tags-btn"></div>
         </div>
 

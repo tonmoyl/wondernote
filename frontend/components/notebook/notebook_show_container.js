@@ -15,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
     });
   };
   return {
+    currentNotebook,
     currentNotes
   }
 };

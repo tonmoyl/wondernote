@@ -1,8 +1,10 @@
 import merge from 'lodash/merge';
 
 import { RECEIVE_NOTE, RECEIVE_NOTES, REMOVE_NOTE } from '../actions/note_actions';
+import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
-const notesReducer = (state = {}, action) => {
+const predefinedState = {};
+const notesReducer = (state = predefinedState, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_NOTES:
@@ -14,6 +16,8 @@ const notesReducer = (state = {}, action) => {
       const newState = merge({}, state);
       delete newState[action.noteId];
       return newState;
+    case LOGOUT_CURRENT_USER:
+      return predefinedState;
     default:
       return state;
   }

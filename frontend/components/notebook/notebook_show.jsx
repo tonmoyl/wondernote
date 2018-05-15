@@ -37,11 +37,17 @@ export default class NotebookShow extends React.Component {
       });
     }
 
+    let currentNotebookTitle;
+    if (this.props.currentNotebook) { currentNotebookTitle = this.props.currentNotebook.title}
+
     return (
       <div id="notebook-show">
+        <div className="notebook-title">
+          <h6>{currentNotebookTitle}</h6>
+        </div>
         <Link to={`/main/${this.props.match.params.noteId}`}>
           <div className="note-index-header">
-            <h2>View all Notes</h2>
+            <h4>View all Notes</h4>
           </div>
         </Link>
         <ul>
