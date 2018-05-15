@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import NoteItem from './note_item'
+import NoteItem from './note_item';
 
 export default class NoteIndex extends React.Component{
   constructor(props) {

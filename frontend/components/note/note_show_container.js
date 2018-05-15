@@ -7,7 +7,7 @@ const mapStateToProps = () => {
   return {
     formType: "note_show",
 
-  }
+  };
 };
 
 
@@ -20,4 +20,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NoteForm)
+)(NoteForm);

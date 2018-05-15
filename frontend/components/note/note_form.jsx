@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import NotebookIndex from '../notebook/notebook_index';
 import NoteIndex from './note_index_container';
-import Toolbar from '../toolbar/toolbar';
+import ToolbarContainer from '../toolbar/toolbar_container';
 import NoteIndexContainer from './note_index_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 
@@ -50,11 +50,11 @@ export default class NoteForm extends React.Component{
   }
 
   render(){
-    console.log(this.state);
     const notebook_id = this.state.notebook_id;
     const notebooks = Object.keys(this.props.notebooks).map( (id) => {
-      if (id === this.state.notebook_id) {
+      if (id == this.state.notebook_id) {
         return (
+
           <option
             key={id}
             value={id}
@@ -69,15 +69,23 @@ export default class NoteForm extends React.Component{
             key={id}
             value={id}>{this.props.notebooks[id].title}
           </option>
-        )
-      }
-    })
+        );
+      };
+    });
+
+    let display;
+    if (this.props.formType === "Create") {
+      display = false;
+
+    } else {
+      display = true;
+    }
 
     return (
       <div className='new-note' onSubmit={this.handleSubmit}>
         <div className='new-note-header'>
           <div className='toolbar-container'>
-            <Toolbar />
+            <ToolbarContainer itemType="note" display={display}/>
           </div>
         </div>
         <div className='font-toolbar'>Font format toolbar</div>

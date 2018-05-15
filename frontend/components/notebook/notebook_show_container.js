@@ -14,7 +14,6 @@ const mapStateToProps = (state, ownProps) => {
       return state.entities.notes[noteId];
     });
   };
-  
   return {
     currentNotes
   }

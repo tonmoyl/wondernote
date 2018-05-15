@@ -24,20 +24,26 @@ export default class NotebookShow extends React.Component {
   }
 
   render(){
-
-    const currentNotes = this.props.currentNotes.map( (note, idx) => {
-      if (note) {
-        return (
-          <li key={idx}>
-            <NoteItem note={note}/>
-          </li>
-        );
-      };
-    });
+    let currentNotes
+    if (this.props.currentNotes) {
+      currentNotes = this.props.currentNotes.map( (note, idx) => {
+        if (note) {
+          return (
+            <li key={idx}>
+              <NoteItem note={note} notebookId={this.props.match.params.notebookId}/>
+            </li>
+          );
+        };
+      });
+    }
 
     return (
       <div id="notebook-show">
-        <Link to={`/main/${this.props.match.params.noteId}`}>&times;</Link>
+        <Link to={`/main/${this.props.match.params.noteId}`}>
+          <div className="note-index-header">
+            <h2>View all Notes</h2>
+          </div>
+        </Link>
         <ul>
           {currentNotes}
         </ul>
