@@ -1,3 +1,7 @@
+.new-note{
+  width: calc(100% - 425px);
+}
+
 .notebook-title input {
   border: none;
   color: darkgray;
@@ -14,6 +18,15 @@
 .notebook-form {
   text-align: center;
   width: 50%;
+  padding-right: 3%;
+}
+
+.new-note textarea{
+  width: 100%;
+  padding-right: 10%;
+  -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+        box-sizing: border-box;
 }
 
 

@@ -34,6 +34,13 @@ class Api::NotesController < ApplicationController
     render json: ['Note not found'], status: :not_found
   end
 
+  def destroy
+    @note = Report.find(params[:id])
+    @note.destroy
+
+    head :no_content
+  end
+
   private
 
   def note_params

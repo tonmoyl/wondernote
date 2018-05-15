@@ -1,7 +1,10 @@
 import React from 'react';
-import Route from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import NotebookIndex from '../notebook/notebook_index';
 import NoteIndex from './note_index_container';
+import Toolbar from '../toolbar/toolbar';
+import NoteIndexContainer from './note_index_container';
+import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 
 
 export default class NoteForm extends React.Component{
@@ -43,9 +46,11 @@ export default class NoteForm extends React.Component{
     e.preventDefault();
     const note = Object.assign({}, this.state);
     this.props.processForm(note);
+
   }
 
   render(){
+    console.log(this.state);
     const notebook_id = this.state.notebook_id;
     const notebooks = Object.keys(this.props.notebooks).map( (id) => {
       if (id === this.state.notebook_id) {
@@ -70,7 +75,11 @@ export default class NoteForm extends React.Component{
 
     return (
       <div className='new-note' onSubmit={this.handleSubmit}>
-        <div className='new-note-header'>{this.state.title}</div>
+        <div className='new-note-header'>
+          <div className='toolbar-container'>
+            <Toolbar />
+          </div>
+        </div>
         <div className='font-toolbar'>Font format toolbar</div>
         <div className='note-document'>
           <form className="new-note-form">
@@ -105,8 +114,6 @@ export default class NoteForm extends React.Component{
               value={this.props.formType} />
           </form>
         </div>
-
-
       </div>
     )
   }

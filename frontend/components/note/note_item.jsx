@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default class Note extends React.Component{
   constructor(props){
     super(props)
-    this.note = this.props.note;
+
   }
 
   render(){
@@ -13,9 +13,9 @@ export default class Note extends React.Component{
       <div>
         <Link to={`/main/${this.props.note.id}`} >
           <div className='list-item'>
-            <h3>{this.note.title}</h3>
+            <h3>{this.props.note.title}</h3>
             <div className='list-body-container'>
-              <h5>{this.note.body}</h5>
+              <h5>{this.props.note.body}</h5>
             </div>
           </div>
         </Link>
