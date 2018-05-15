@@ -44,7 +44,7 @@ export default class NotebookForm extends React.Component {
           </button>
 
           <input
-            className="create-notebook submit-btn"
+            className="submit-btn"
             type="submit"
             value="Create notebook" />
         </form>

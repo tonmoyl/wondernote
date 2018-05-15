@@ -100,7 +100,7 @@ export default class NoteForm extends React.Component{
             </label>
 
             <input
-              className="create-note submit-btn"
+              className="note-action-btn submit-btn"
               type="submit"
               value={this.props.formType} />
           </form>

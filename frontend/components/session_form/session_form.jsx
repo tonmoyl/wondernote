@@ -11,26 +11,35 @@ export default class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
-  }
+  };
 
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
-  }
+  };
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
-    this.props.history.push(`/main/new`);
-  }
+
+    // this.props.processForm(user);
+
+    this.props.processForm(user).then(() => {
+      if (this.props.formType === "Sign Up") {
+        this.props.createNotebook({title: "First Notebook"});
+      };
+    }).then(() => {
+      this.props.history.push(`/main/new`);
+    });
+
+  };
 
   demoLogin(e) {
     e.preventDefault();
     this.props.processForm({username: 'Demo', password: 'starwars'})
     this.props.history.push(`/main`);
-  }
+  };
 
   renderErrors() {
     return (

@@ -2,3 +2,21 @@
   position: fixed;
   left: 75px;
 }
+
+.list-item h3 {
+  padding-bottom: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-body-container {
+  height: 20px;
+}
+
+.list-item h5 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

@@ -28,7 +28,7 @@ export default class Sidebar extends React.Component {
   // }
 
   openNav() {
-    const sidebarWidth = document.getElementById("notebook-side").style.width
+    const sidebarWidth = document.getElementById("notebook-side").style.width;
     if (sidebarWidth === "0px") {
       document.getElementById("notebook-side").style.width = "430px";
     } else {

@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { signup } from '../../actions/session_actions';
 import SessionForm from './session_form';
+import { createNotebook } from '../../actions/notebook_actions.js';
 
 const mapStateToProps = ({errors}) => {
   return {
@@ -14,7 +15,8 @@ const mapStateToProps = ({errors}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    processForm: (user) => dispatch( signup(user) )
+    processForm: (user) => dispatch(signup(user)),
+    createNotebook: (notebook) => dispatch(createNotebook(notebook))
   }
 }
 
