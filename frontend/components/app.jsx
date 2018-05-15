@@ -25,17 +25,17 @@ const App = () => {
   return (
     <div>
       <Switch>
-        <AuthRoute exact path="/" component={LandingContainer} />
+        <Route exact path="/landing" component={LandingContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
       </Switch>
 
-      <ProtectedRoute exact path="/" component={SidebarContainer} />
+      <ProtectedRoute exact path="/main/:noteId" component={SidebarContainer} />
       <ProtectedRoute exact path="/" component={NoteIndexContainer} />
       <ProtectedRoute exact path="/" component={NewNoteContainer} />
       <ProtectedRoute path="/main/:noteId" component={NotebookContainer} />
 
-      <ProtectedRoute path="/main" component={SidebarContainer} />
+      <ProtectedRoute path="/main/:noteId" component={SidebarContainer} />
       <ProtectedRoute path="/main" component={NotebookFormContainer} />
       <ProtectedRoute path="/main/:noteId/:notebookId" component={NotebookShowContainer} />
       <ProtectedRoute exact path="/main/:noteId" component={NoteIndexContainer} />

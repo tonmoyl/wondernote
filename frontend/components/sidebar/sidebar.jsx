@@ -6,9 +6,6 @@ export default class Sidebar extends React.Component {
   constructor(props){
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.state = {
-    //   sidebar: "closed"
-    // };
     this.toggleNav = toggleNav.bind(this);
   };
 
@@ -19,26 +16,9 @@ export default class Sidebar extends React.Component {
     this.toggleNav;
   }
 
-  // toggleNav() {
-  //   if (this.state.sidebar === "closed") {
-  //     document.getElementById("notebook-side").style.width = "430px";
-  //     this.setState({sidebar: "opened"});
-  //   } else {
-  //     document.getElementById("notebook-side").style.width = "0px";
-  //     this.setState({sidebar: "closed"});
-  //   }
-  // }
-
-  // toggleNav() {
-  //   const sidebarWidth = document.getElementById("notebook-side").style.width;
-  //   if (sidebarWidth === "0px") {
-  //     document.getElementById("notebook-side").style.width = "430px";
-  //   } else {
-  //     document.getElementById("notebook-side").style.width = "0px";
-  //   }
-  // }
-
   render(){
+
+
     return(
       <div className="sidebar">
         <div className="button-list top">
@@ -52,7 +32,9 @@ export default class Sidebar extends React.Component {
 
         <div className="button-list bottom">
           <div className="shortcuts-btn"></div>
-          <div className="notes-btn"></div>
+            <Link to={`/main/${this.props.match.params.noteId}`}>
+              <div className="notes-btn"></div>
+            </Link>
           <div className="notebooks-btn" onClick={this.toggleNav}></div>
           <div className="tags-btn"></div>
         </div>
