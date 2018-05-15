@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NoteItem from '../note/note_item';
 
 export default class NotebookShow extends React.Component {
   constructor(props){
@@ -8,7 +9,8 @@ export default class NotebookShow extends React.Component {
   };
 
   componentDidMount(){
-    if (document.getElementById("notebook-side") && document.getElementById("notebook-show")) {
+    if (document.getElementById("notebook-side") &&
+    document.getElementById("notebook-show")) {
       document.getElementById("notebook-side").style.width = "0px";
       document.getElementById("notebook-show").style.zIndex = "4";
     }
@@ -22,11 +24,23 @@ export default class NotebookShow extends React.Component {
   }
 
   render(){
+
+    const currentNotes = this.props.currentNotes.map( (note, idx) => {
+      if (note) {
+        return (
+          <li key={idx}>
+            <NoteItem note={note}/>
+          </li>
+        );
+      };
+    });
+
     return (
       <div id="notebook-show">
-        This is coming from the notebook show
-        {this.props.notebookId}
         <Link to={`/main/${this.props.match.params.noteId}`}>&times;</Link>
+        <ul>
+          {currentNotes}
+        </ul>
       </div>
     )
   }

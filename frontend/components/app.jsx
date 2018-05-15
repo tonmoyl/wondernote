@@ -9,7 +9,7 @@ import NewNoteContainer from './note/new_note_container';
 import EditNoteContainer from './note/edit_note_container';
 import NotebookContainer from './sidebar/notebook_container';
 import NotebookFormContainer from './notebook/notebook_form_container';
-import NotebookShowContainer from './notebook/notebook_show';
+import NotebookShowContainer from './notebook/notebook_show_container';
 
 
 import {

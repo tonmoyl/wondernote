@@ -18,8 +18,8 @@ export default class NoteIndex extends React.Component{
         <li key={id}>
           <NoteItem note={this.props.notes[id]}/>
         </li>
-      )
-    })
+      );
+    });
 
     return(
       <div className="note-index">
