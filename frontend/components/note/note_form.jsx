@@ -5,6 +5,7 @@ import NoteIndex from './note_index_container';
 import ToolbarContainer from '../toolbar/toolbar_container';
 import NoteIndexContainer from './note_index_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
+import merge from 'lodash/merge';
 
 
 export default class NoteForm extends React.Component{
@@ -17,18 +18,18 @@ export default class NoteForm extends React.Component{
       notebook_id: 1
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.initializeQuill = this.initializeQuill.bind(this);
   };
 
-  componentWillMount() {
+  componentDidMount(){
     const noteId = this.props.match.params.noteId;
     if (this.props.formType === "Update") {
       this.props.fetchNote(this.props.match.params.noteId).then( ({note}) => {
         this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
       });
     };
-
-  };
+    this.initializeQuill();
+  }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.noteId !== nextProps.match.params.noteId) {
@@ -38,63 +39,84 @@ export default class NoteForm extends React.Component{
     }
   }
 
+  initializeQuill() {
+    var toolbarOptions = [
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+      ['blockquote', 'code-block', 'link'],
+
+      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+      [{ 'direction': 'rtl' }],                         // text direction
+
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+
+      ['clean']
+    ];
+
+    var quill = new Quill('#editor', {
+      modules: {
+        toolbar: toolbarOptions
+      },
+      theme: 'snow'
+    });
+
+    this.quill = quill;
+  };
+
   update(property) {
     return e => this.setState({ [property]: e.target.value })
   };
 
   handleSubmit(e) {
     e.preventDefault();
-    const note = Object.assign({}, this.state);
+    const body = JSON.stringify(this.quill.getContents());
+    this.setState({body: body});
+    const note = merge({}, this.state, {body: body});
     this.props.processForm(note);
-
   }
 
   render(){
-    const notebook_id = this.state.notebook_id;
     const notebooks = Object.keys(this.props.notebooks).map( (id) => {
-      if (id == this.state.notebook_id) {
-        return (
-
-          <option
-            key={id}
-            value={id}
-            selected>{this.props.notebooks[id].title}
-          </option>
-        )
-      }
-      else {
-        return (
-          <option
-            className="select-items"
-            key={id}
-            value={id}>{this.props.notebooks[id].title}
-          </option>
-        );
-      };
+      return (
+        <option
+          className="select-items"
+          key={id}
+          value={id}>{this.props.notebooks[id].title}
+        </option>
+      );
     });
 
     let display;
-    if (this.props.formType === "Create") {
-      display = false;
+    if (this.props.formType === "Create") { display = false }
+    else { display = true };
 
-    } else {
-      display = true;
+    if (this.state.body) {
+      this.quill.setContents(JSON.parse(this.state.body))
     }
 
     return (
-      <div className='new-note' onSubmit={this.handleSubmit}>
+      <div id="note-document" className='new-note'>
+
         <div className='new-note-header'>
           <div className='toolbar-container'>
             <ToolbarContainer itemType="note" display={display}/>
           </div>
         </div>
-        <div className='font-toolbar'>Font format toolbar</div>
-        <div className='note-document'>
-          <form className="new-note-form">
-            <select className="notebook-dropdown" onChange={this.update('notebook_id')}>
-              {notebooks}
-            </select>
-            <br />
+
+
+        <form className="new-note-form" onSubmit={this.handleSubmit}>
+          <select
+            className="notebook-dropdown"
+            onChange={this.update('notebook_id')}
+            value={this.state.notebook_id}>
+            {notebooks}
+          </select>
+          <br />
+          <div className="form-group">
             <label>
               <input
                 type="text"
@@ -104,24 +126,19 @@ export default class NoteForm extends React.Component{
                 placeholder="Title your note"
                 />
             </label>
-            <br/>
-            <label>
-              <textarea
-                rows="100" cols="1200"
-                value={this.state.body}
-                onChange={this.update('body')}
-                className="note-body"
-                >
-                {this.state.body}
-              </textarea>
-            </label>
 
-            <input
-              className="note-action-btn submit-btn"
-              type="submit"
-              value={this.props.formType} />
-          </form>
-        </div>
+            <div id="editor">
+
+            </div>
+
+          </div>
+
+          <input
+            className="note-action-btn submit-btn"
+            type="submit"
+            value={this.props.formType} />
+        </form>
+
       </div>
     )
   }
