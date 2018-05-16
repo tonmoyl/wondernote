@@ -73,10 +73,15 @@ export default class NoteForm extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    const body = JSON.stringify(this.quill.getContents());
-    this.setState({body: body});
-    const note = merge({}, this.state, {body: body});
+    let body = {};
+    body["quillText"] = this.quill.getContents();
+    body["plainText"] = this.quill.getText();
+    let parsedBody = JSON.stringify(body);
+
+    this.setState({body: parsedBody});
+    const note = merge({}, this.state, {body: parsedBody});
     this.props.processForm(note);
+    debugger
   }
 
   render(){
@@ -95,7 +100,7 @@ export default class NoteForm extends React.Component{
     else { display = true };
 
     if (this.state.body) {
-      this.quill.setContents(JSON.parse(this.state.body))
+      this.quill.setContents(JSON.parse(this.state.body).quillText)
     }
 
     return (
