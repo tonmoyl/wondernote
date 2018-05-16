@@ -8,19 +8,12 @@ export default class Note extends React.Component{
   }
 
   render(){
-    let linkURL
-    if (this.props.notebookId) {
-      linkURL = `/main/${this.props.note.id}/${this.props.notebookId}`;
-    } else {
-      linkURL = `/main/${this.props.note.id}`;
-    };
-
     const renderBody = JSON.parse(this.props.note.body).plainText;
-  
+
 
     return (
       <div>
-        <Link to={`${linkURL}`} >
+        <Link to={`/main/${this.props.note.id}`} >
           <div className='list-item'>
             <h3>{this.props.note.title}</h3>
             <div className='list-body-container'>

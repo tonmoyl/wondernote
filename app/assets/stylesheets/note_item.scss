@@ -4,14 +4,18 @@
   padding: 20px 30px;
   border-top: 1px solid lightgray;
   box-sizing: border-box;
+  
 }
 
 .list-item:hover {
   background-color: #32bf6b;
   color: white;
+
+
 }
 
 .list-item:hover h3, .list-item:hover h5{
   background-color: #32bf6b;
   color: white;
+
 }

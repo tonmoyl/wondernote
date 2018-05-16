@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NotebookShow from './notebook_show';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
 

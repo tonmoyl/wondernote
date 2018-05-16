@@ -8,6 +8,7 @@ import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import merge from 'lodash/merge';
 
 
+
 export default class NoteForm extends React.Component{
   constructor(props){
     super(props)
@@ -81,8 +82,9 @@ export default class NoteForm extends React.Component{
     this.setState({body: parsedBody});
     const note = merge({}, this.state, {body: parsedBody});
     this.props.processForm(note);
-    debugger
   }
+
+
 
   render(){
     const notebooks = Object.keys(this.props.notebooks).map( (id) => {
@@ -103,6 +105,11 @@ export default class NoteForm extends React.Component{
       this.quill.setContents(JSON.parse(this.state.body).quillText)
     }
 
+    let selectedOption = "";
+    if (this.props.currentNote){
+      selectedOption = this.props.currentNote.notebook_id;
+    }
+
     return (
       <div id="note-document" className='new-note'>
 
@@ -117,7 +124,7 @@ export default class NoteForm extends React.Component{
           <select
             className="notebook-dropdown"
             onChange={this.update('notebook_id')}
-            value={this.state.notebook_id}>
+            value={selectedOption}>
             {notebooks}
           </select>
           <br />

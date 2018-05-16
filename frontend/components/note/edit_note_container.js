@@ -7,11 +7,11 @@ import { Link, withRouter } from 'react-router-dom';
 const mapStateToProps = (state, ownProps) => {
   // ownProps.match.params.noteId
   // console.log(ownProps.match.params.noteId)
-
   return {
     currentNote: state.entities.currentNote.currentNote,
     formType: "Update",
-    notebooks: state.entities.notebooks
+    notebooks: state.entities.notebooks,
+    currentNotebookId: ownProps.match.params.notebookId
   }
 };
 

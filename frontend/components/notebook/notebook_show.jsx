@@ -17,6 +17,7 @@ export default class NotebookShow extends React.Component {
   }
 
 
+
   closeNav() {
     // if (document.getElementById("notebook-show")){
       document.getElementById("notebook-show").style.zIndex = "0";
