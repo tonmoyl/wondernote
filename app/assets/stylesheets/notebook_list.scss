@@ -38,7 +38,7 @@
 }
 
 .notebook-inner {
-  width: 430px;
+  width: 435px;
 }
 
 a {
@@ -48,4 +48,19 @@ a {
 .notebook-title-create{
   position: relative;
   left: -20px;
+}
+
+.list-item {
+  color: black;
+}
+
+.list-item h5 {
+  padding-top: 10px;
+  color: #ececec;
+}
+
+.notebook-inner h2{
+  position: absolute;
+  top: 0px;
+  padding: 20px;
 }

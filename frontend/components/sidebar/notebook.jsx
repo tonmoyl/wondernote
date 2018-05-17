@@ -17,7 +17,7 @@ export default class Notebook extends React.Component{
       <div id="notebook-side" className="notebook-side sidenav">
         <div className="notebook-inner">
           <a href="javascript:void(0)" className="addnotebook" onClick={this.openForm}>+</a>
-          <p>Some information about the side</p>
+          <h2>NOTEBOOKS</h2>
           <NotebookIndexContainer noteId={this.props.noteId}/>
         </div>
       </div>

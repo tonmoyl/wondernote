@@ -25,6 +25,7 @@ export default class NoteBookIndex extends React.Component{
 
     return(
       <div className="notebook-index">
+        <div id="modal" className="modal"></div>
         <ul>
           {notebooks}
         </ul>
