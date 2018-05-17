@@ -135,7 +135,7 @@ export default class NoteForm extends React.Component{
           <select
             className="notebook-dropdown"
             onChange={this.update('notebook_id')}
-            value={selectedOption}>
+            selected={selectedOption}>
             {notebooks}
           </select>
           <br />
