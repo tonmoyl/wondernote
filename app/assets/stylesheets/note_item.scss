@@ -1,21 +1,22 @@
 .list-item {
   width: 100%;
-  height: 120px;
+  height: 100%;
   padding: 20px 30px;
   border-top: 1px solid lightgray;
   box-sizing: border-box;
-  
 }
 
-.list-item:hover {
+.list-item h3, .list-item h5 {
+
+}
+
+.list-item:hover, .list-item:hover h3, .list-item:hover h5{
   background-color: #32bf6b;
   color: white;
-
-
 }
 
-.list-item:hover h3, .list-item:hover h5{
-  background-color: #32bf6b;
-  color: white;
-
-}
+// .list-item:hover h3, .list-item:hover h5{
+//   background-color: #32bf6b;
+//   color: white;
+//
+// }

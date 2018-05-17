@@ -57,8 +57,9 @@ export default class SessionForm extends React.Component {
     if (this.props.formType === 'Log In'){
       return (
         <div className="session-footer-session">
-          Don't have an account? Please
-          <Link to="/signup"> Sign up!</Link>
+          Don't have an account?
+          <br />
+          <Link to="/signup" className="session-link">Create Account</Link>
         </div>
       )
     } else {

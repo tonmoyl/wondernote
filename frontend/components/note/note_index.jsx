@@ -13,7 +13,9 @@ export default class NoteIndex extends React.Component{
   }
 
   render(){
+    let count = 0;
     const notes = Object.keys(this.props.notes).map( (id) => {
+      count ++
       return (
         <li key={id}>
           <NoteItem
@@ -29,9 +31,9 @@ export default class NoteIndex extends React.Component{
         <div className="note-index-header">
           <h2>NOTES</h2>
           <div className="noteslist-footer">
-            <h4>7 notes</h4>
+            <h4>{count} notes</h4>
             <div className="options-list">
-              <h4>Options</h4>
+
             </div>
           </div>
         </div>

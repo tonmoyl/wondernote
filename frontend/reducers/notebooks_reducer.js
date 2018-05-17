@@ -15,7 +15,7 @@ const notebooksReducer = ( state = predefinedState, action) => {
     case RECEIVE_NOTE:
       const newState = merge({}, state);
       if (!newState[action.note.notebook_id].noteIds.includes(action.note.id)) {
-        newState[action.note.notebook_id].noteIds.push(action.note.id)
+        newState[action.note.notebook_id].noteIds.shift(action.note.id)
       }
       return newState;
     case LOGOUT_CURRENT_USER:

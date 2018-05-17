@@ -82,16 +82,19 @@
 }
 
 .form-group .ql-toolbar {
-  display: flex;
-  justify-content: center;
+  opacity: 0.5;
   border: none;
-}
+  margin: auto;
+  display: flex;
+  justify-content: center;}
 
 .form-group .ql-editor {
   width: 95%;
   margin: auto;
 }
 
-.note-title {
+.form
+
+.form-group .note-title {
   width: 90%;
 }

@@ -41,13 +41,8 @@ body {
 
 
 
-.session-submit {
-  cursor: pointer;
-  font-style: normal;
-  font-weight: 500;
-  color: white;
-  border-color: #1fae52;
-  text-align: center;
+.session-form .session-submit, .session-form .demo {
+  width: 82%;
 }
 
 .session-submit:hover {
@@ -61,4 +56,11 @@ body {
 
 .errors {
   color: red;
+}
+
+.session-link {
+  font-size: 18px;
+  font-weight: 200;
+  color: #24914a;
+  margin-top: 5px;
 }

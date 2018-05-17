@@ -17,18 +17,12 @@ export default class Note extends React.Component{
     }
 
     return (
-      <div>
-        <Link to={followLink} >
+        <Link to={followLink}>
           <div className='list-item'>
             <h3>{this.props.note.title}</h3>
-            <div className='list-body-container'>
-              <h5>{renderBody}</h5>
-            </div>
+            <h5>{renderBody}</h5>
           </div>
         </Link>
-
-
-      </div>
     )
   }
 }
