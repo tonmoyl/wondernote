@@ -15,7 +15,7 @@ user2 = User.create(username: 'Tonmoy', password: 'starwars')
 
 Notebook.destroy_all
 first_notebook = Notebook.create(title: "First Notebook", author_id: demoUser.id);
-first_notebook = Notebook.create(title: "Sec Notebook", author_id: demoUser.id);
+second_notebook = Notebook.create(title: "Sec Notebook", author_id: demoUser.id);
 
 Note.destroy_all
 first_note = Note.create(
