@@ -19,7 +19,7 @@ export default class Toolbar extends React.Component{
     if (this.props.display) {
       return (
         <div className="toolbar">
-          <div className="delete-button" onClick={this.deleteItem}>Delete</div>
+          <i className="fa fa-trash-o" onClick={this.deleteItem}></i>
         </div>
       )
     } else {

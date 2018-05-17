@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
+
 export default class Note extends React.Component{
   constructor(props){
     super(props)
@@ -44,9 +45,14 @@ export default class Note extends React.Component{
 
     const timeAgo = this.parseTime();
 
+    let selected = "unselected";
+    if (this.props.currentNoteId == this.props.note.id) {
+      selected = "selected";
+    }
+
     return (
         <Link to={followLink}>
-          <div className='list-item'>
+          <div className={`list-item ${selected}`}>
             <h3>{this.props.note.title}</h3>
             <h4>{timeAgo}</h4>
             <h5>{renderBody}</h5>

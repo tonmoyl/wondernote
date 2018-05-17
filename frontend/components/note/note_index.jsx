@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import NoteItem from './note_item';
+import NoteItemContainer from './note_item_container';
 
 export default class NoteIndex extends React.Component{
   constructor(props) {
@@ -14,11 +14,12 @@ export default class NoteIndex extends React.Component{
 
   render(){
     let count = 0;
-    const notes = Object.keys(this.props.notes).map( (id) => {
+    const noteIds = Object.keys(this.props.notes).reverse();
+    const notes = noteIds.map( (id) => {
       count ++
       return (
         <li key={id}>
-          <NoteItem
+          <NoteItemContainer
             note={this.props.notes[id]}
             prevLink={"noteIndex"}
             parentComponent="noteIndex"/>

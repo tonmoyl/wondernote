@@ -62,7 +62,8 @@ export default class NoteForm extends React.Component{
       modules: {
         toolbar: toolbarOptions
       },
-      theme: 'snow'
+      theme: 'snow',
+      placeholder: "Just start typing..."
     });
 
     this.quill = quill;

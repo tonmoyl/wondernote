@@ -20,3 +20,8 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+.selected {
+  box-sizing: border-box;
+  border: 3px solid lightgray;
+}
