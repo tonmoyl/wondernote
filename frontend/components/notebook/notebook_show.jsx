@@ -31,7 +31,10 @@ export default class NotebookShow extends React.Component {
         if (note) {
           return (
             <li key={idx}>
-              <NoteItem note={note} notebookId={this.props.match.params.notebookId}/>
+              <NoteItem
+                note={note}
+                notebookId={this.props.match.params.notebookId}
+                parentComponent="notebookShow"/>
             </li>
           );
         };

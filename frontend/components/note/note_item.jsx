@@ -9,11 +9,16 @@ export default class Note extends React.Component{
 
   render(){
     const renderBody = JSON.parse(this.props.note.body).plainText;
-
+    let followLink
+    if (this.props.parentComponent === "noteIndex") {
+      followLink = `/main/${this.props.note.id}`;
+    } else {
+      followLink = `/main/${this.props.note.id}/${this.props.notebookId}`;
+    }
 
     return (
       <div>
-        <Link to={`/main/${this.props.note.id}`} >
+        <Link to={followLink} >
           <div className='list-item'>
             <h3>{this.props.note.title}</h3>
             <div className='list-body-container'>

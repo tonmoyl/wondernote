@@ -16,7 +16,10 @@ export default class NoteIndex extends React.Component{
     const notes = Object.keys(this.props.notes).map( (id) => {
       return (
         <li key={id}>
-          <NoteItem note={this.props.notes[id]}/>
+          <NoteItem
+            note={this.props.notes[id]}
+            prevLink={"noteIndex"}
+            parentComponent="noteIndex"/>
         </li>
       );
     });
