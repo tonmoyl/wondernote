@@ -42,7 +42,6 @@ export default class NoteForm extends React.Component{
         this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
       });
     }
-    debugger
   }
 
   initializeQuill() {
@@ -89,7 +88,7 @@ export default class NoteForm extends React.Component{
       this.setState({body: parsedBody, notebook_id: Object.keys(this.props.notebooks)[0]});
       this.state.notebook_id = Object.keys(this.props.notebooks)[0];
     }
-debugger
+
     this.state.body = parsedBody;
     const note = merge({}, this.state, {body: parsedBody});
 
@@ -131,7 +130,6 @@ debugger
             <ToolbarContainer itemType="note" display={display}/>
           </div>
         </div>
-
 
         <form className="new-note-form" onSubmit={this.handleSubmit}>
           <select

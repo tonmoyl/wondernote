@@ -15,10 +15,13 @@ export default class NoteBookIndex extends React.Component{
 
 
   render(){
-    const notebooks = Object.keys(this.props.notebooks).map( (id) => {
+    const allNotebooks = this.props.notebooks
+    const notebooks = Object.keys(allNotebooks).map( (id) => {
+    const num = parseInt(id);
+
       return (
         <li key={id}>
-          <NotebookItem notebook={this.props.notebooks[id]} noteId={this.props.noteId}/>
+          <NotebookItem notebook={allNotebooks[num]} noteId={this.props.noteId}/>
         </li>
       )
     });

@@ -17,7 +17,7 @@ export default class NotebookItem extends React.Component {
 
   render() {
     let notesLength;
-    if (this.notebook.noteIds) { notesLength = this.notebook.noteIds.length }
+    if (this.notebook.noteIds) { notesLength = this.props.notebook.noteIds.length }
     else { notesLength = 0 }
 
     return (
