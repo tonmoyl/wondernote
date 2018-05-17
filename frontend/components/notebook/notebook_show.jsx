@@ -41,6 +41,7 @@ export default class NotebookShow extends React.Component {
       });
     }
 
+
     let currentNotebookTitle;
     if (this.props.currentNotebook) { currentNotebookTitle = this.props.currentNotebook.title}
 

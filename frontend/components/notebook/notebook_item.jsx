@@ -16,13 +16,17 @@ export default class NotebookItem extends React.Component {
   }
 
   render() {
+    let notesLength;
+    if (this.notebook.noteIds) { notesLength = this.notebook.noteIds.length }
+    else { notesLength = 0 }
+
     return (
       <div>
         <Link to={`/main/${this.props.noteId}/${this.notebook.id}`} onClick={this.handleSubmit}>
           <div className="list-item notebook-item" >
             {this.notebook.title}
             <br />
-            <h5>notes {this.notebook.noteIds.length}</h5>
+            <h5>notes {notesLength}</h5>
           </div>
         </Link>
       </div>

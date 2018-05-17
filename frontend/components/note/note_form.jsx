@@ -16,7 +16,7 @@ export default class NoteForm extends React.Component{
       id: "",
       title: "",
       body: "",
-      notebook_id: 1
+      notebook_id: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.initializeQuill = this.initializeQuill.bind(this);
@@ -29,7 +29,11 @@ export default class NoteForm extends React.Component{
         this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
       });
     };
+    if (this.state.notebook_id === null){
+
+    }
     this.initializeQuill();
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -38,6 +42,7 @@ export default class NoteForm extends React.Component{
         this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
       });
     }
+    debugger
   }
 
   initializeQuill() {
@@ -80,14 +85,21 @@ export default class NoteForm extends React.Component{
     body["plainText"] = this.quill.getText();
     let parsedBody = JSON.stringify(body);
 
-    this.setState({body: parsedBody});
+    if (this.state.notebook_id === null) {
+      this.setState({body: parsedBody, notebook_id: Object.keys(this.props.notebooks)[0]});
+      this.state.notebook_id = Object.keys(this.props.notebooks)[0];
+    }
+debugger
+    this.state.body = parsedBody;
     const note = merge({}, this.state, {body: parsedBody});
+
     this.props.processForm(note);
   }
 
 
 
   render(){
+
     const notebooks = Object.keys(this.props.notebooks).map( (id) => {
       return (
         <option
