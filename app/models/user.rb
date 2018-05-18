@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   after_initialize :ensure_session_token
+  after_create :setup_notebook_note
 
   has_many :notes,
   class_name: :Note,
@@ -53,6 +54,11 @@ class User < ApplicationRecord
       self.session_token = new_session_token
     end
     self.session_token
+  end
+
+  def setup_notebook_note
+    notebook = self.notebooks.create(title: "First Notebook")
+    note = notebook.notes.create(title: "First Note", author: self)
   end
 
 end

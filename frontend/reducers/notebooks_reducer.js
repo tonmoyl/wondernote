@@ -14,12 +14,21 @@ const notebooksReducer = ( state = predefinedState, action) => {
       return merge({}, state, action.notebooks);
     case RECEIVE_NOTE:
       const newState = merge({}, state);
-      if (newState[action.note.notebook_id].noteIds){
-        if (!newState[action.note.notebook_id].noteIds.includes(action.note.id)) {
-          newState[action.note.notebook_id].noteIds.unshift(action.note.id)
+      let returnState;
+      if (newState[action.note.notebook_id]){
+        // if (!newState[action.note.notebook_id].noteIds.includes(action.note.id)) {
+        //   newState[action.note.notebook_id].noteIds.unshift(action.note.id)
+        // }
+        let allIds = newState[action.note.notebook_id].noteIds;
+        for (let i = 0; i < allIds.length; i++) {
+          if (allIds[i] === action.note.id) {
+            returnState = allIds.splice(i,1);
+          }
         }
+        newState[action.note.notebook_id].noteIds.unshift(action.note.id);
       }
       // newState[action.note.notebook_id].noteIds.shift(action.note.id)
+      // newState[action.note.notebook_id].noteIds = returnState
       return newState;
     case LOGOUT_CURRENT_USER:
       return predefinedState;

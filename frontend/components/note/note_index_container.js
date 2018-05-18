@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NoteIndex from './note_index';
-import { fetchNotes } from '../../actions/note_actions';
+import { createNote, fetchNotes } from '../../actions/note_actions';
 
 const mapStateToProps = ({ entities }) => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = ({ entities }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchNotes: () => dispatch(fetchNotes())
+    fetchNotes: () => dispatch(fetchNotes()),
+    createNote: () => dispatch(createNote())
   }
 }
 

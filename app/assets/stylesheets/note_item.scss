@@ -6,14 +6,8 @@
   box-sizing: border-box;
 }
 
-.list-item:hover, .list-item:hover h3, .list-item:hover h5{
+.list-item:hover, .list-item:hover h3, .list-item:hover h4, .list-item:hover h5{
   background-color: #32bf6b;
   color: white;
   border: none;
 }
-
-// .list-item:hover h3, .list-item:hover h5{
-//   background-color: #32bf6b;
-//   color: white;
-//
-// }

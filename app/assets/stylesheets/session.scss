@@ -52,10 +52,12 @@ body {
 .session-footer {
   margin: 30px;
   text-align: center;
+  line-height: 2;
 }
 
 .errors {
   color: red;
+  padding: 10px 40px 0px 40px;
 }
 
 .session-link {

@@ -11,6 +11,15 @@ const notesReducer = (state = predefinedState, action) => {
       return merge({}, state, action.notes);
     case RECEIVE_NOTE:
       const newNote = { [action.note.id]: action.note };
+      // let middleState = merge({}, state)
+      // let noteIds = Object.keys(state);
+      // for (let i = 0; i < noteIds.length; i++) {
+      //   if (middleState[noteIds[i]] == action.note.id) {
+      //
+      //     delete middleState[noteIds[i]];
+      //   }
+      // }
+      // debugger
       return merge({}, state, newNote);
     case REMOVE_NOTE:
       const newState = merge({}, state);

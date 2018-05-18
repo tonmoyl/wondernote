@@ -29,6 +29,11 @@ const App = () => {
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
       </Switch>
+      
+      <Switch>
+        <ProtectedRoute path="/main/new" component={NewNoteContainer} />
+        <ProtectedRoute path="/main/:noteId" component={EditNoteContainer} />
+      </Switch>
 
       <ProtectedRoute exact path="/" component={NoteIndexContainer} />
       <ProtectedRoute path="/main/:noteId" component={NotebookContainer} />
@@ -39,10 +44,6 @@ const App = () => {
       <ProtectedRoute exact path="/main/:noteId" component={NoteIndexContainer} />
       <ProtectedRoute path="/main/:noteId/:notebookId" component={NotebookShowContainer} />
 
-      <Switch>
-        <ProtectedRoute path="/main/new" component={NewNoteContainer} />
-        <ProtectedRoute path="/main/:noteId" component={EditNoteContainer} />
-      </Switch>
 
     </div>
   );

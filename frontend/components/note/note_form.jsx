@@ -99,15 +99,33 @@ export default class NoteForm extends React.Component{
 
   render(){
 
+    // let selectedOption = "";
+    // if (this.props.currentNote){
+    //   selectedOption = this.props.currentNote.notebook_id;
+    // }
+
     const notebooks = Object.keys(this.props.notebooks).map( (id) => {
-      return (
-        <option
-          className="select-items"
-          key={id}
-          value={id}>{this.props.notebooks[id].title}
-        </option>
-      );
+      if (!this.props.currentNote) return null;
+      if (id == this.props.currentNote.notebook_id){
+        return (
+          <option
+            className="select-items"
+            key={id}
+            value={id}
+            selected="selected">{this.props.notebooks[id].title}
+          </option>
+        );
+      } else {
+        return (
+          <option
+            className="select-items"
+            key={id}
+            value={id}>{this.props.notebooks[id].title}
+          </option>
+        );
+      }
     });
+
 
     let display;
     if (this.props.formType === "Create") { display = false }
@@ -117,10 +135,7 @@ export default class NoteForm extends React.Component{
       this.quill.setContents(JSON.parse(this.state.body).quillText)
     }
 
-    let selectedOption = "";
-    if (this.props.currentNote){
-      selectedOption = this.props.currentNote.notebook_id;
-    }
+
 
     return (
       <div id="note-document" className='new-note'>
@@ -135,7 +150,7 @@ export default class NoteForm extends React.Component{
           <select
             className="notebook-dropdown"
             onChange={this.update('notebook_id')}
-            selected={selectedOption}>
+            >
             {notebooks}
           </select>
           <br />

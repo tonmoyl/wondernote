@@ -25,14 +25,7 @@ export default class SessionForm extends React.Component {
 
     // this.props.processForm(user);
 
-    this.props.processForm(user).then(() => {
-      if (this.props.formType === "Sign Up") {
-        this.props.createNotebook({title: "First Notebook"});
-      };
-    }).then(() => {
-      this.props.history.push(`/main/new`);
-    });
-
+    this.props.processForm(user)
   };
 
   demoLogin(e) {
