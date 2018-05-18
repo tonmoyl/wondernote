@@ -22,13 +22,13 @@
   height: 100%;
 }
 
-.new-note textarea{
-  width: 100%;
-  padding-right: 10%;
-  -webkit-box-sizing: border-box;
-   -moz-box-sizing: border-box;
-        box-sizing: border-box;
-}
+// .new-note textarea{
+//   width: 100%;
+//   padding-right: 10%;
+//   -webkit-box-sizing: border-box;
+//    -moz-box-sizing: border-box;
+//         box-sizing: border-box;
+// }
 
 
 .adj-buttons {
@@ -86,7 +86,8 @@
   border: none;
   margin: auto;
   display: flex;
-  justify-content: center;}
+  justify-content: center;
+}
 
 .form-group .ql-editor {
   width: 90%;
@@ -94,7 +95,6 @@
   padding-top: 20px;
 }
 
-.form
 
 .form-group .note-title {
   width: 90%;

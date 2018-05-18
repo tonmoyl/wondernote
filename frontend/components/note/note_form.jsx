@@ -11,6 +11,7 @@ import merge from 'lodash/merge';
 
 export default class NoteForm extends React.Component{
   constructor(props){
+
     super(props)
     this.state = {
       id: "",
@@ -32,6 +33,8 @@ export default class NoteForm extends React.Component{
     if (this.state.notebook_id === null){
 
     }
+
+
     this.initializeQuill();
 
   }
@@ -51,7 +54,7 @@ export default class NoteForm extends React.Component{
 
       [{ 'header': 1 }, { 'header': 2 }],               // custom button values
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+      // [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
       [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
       [{ 'direction': 'rtl' }],                         // text direction
 
@@ -59,18 +62,22 @@ export default class NoteForm extends React.Component{
       [{ 'font': [] }],
       [{ 'align': [] }],
 
-      ['clean']
     ];
 
-    var quill = new Quill('#editor', {
+    let quill = new Quill('#editor-container', {
       modules: {
         toolbar: toolbarOptions
       },
-      theme: 'snow',
-      placeholder: "Just start typing..."
+      theme: 'snow'
     });
 
+
     this.quill = quill;
+    this.quill.on('text-change', () => {
+      const getContents = this.quill.getContents();
+      this.setState({body: getContents});
+    })
+
   };
 
   update(property) {
@@ -101,7 +108,7 @@ export default class NoteForm extends React.Component{
 
     // let selectedOption = "";
     // if (this.props.currentNote){
-    //   selectedOption = this.props.currentNote.notebook_id;
+    //   selectedOption = this.props.currentNote.notebook_id + "";
     // }
 
     const notebooks = Object.keys(this.props.notebooks).map( (id) => {
@@ -125,16 +132,23 @@ export default class NoteForm extends React.Component{
         );
       }
     });
+    //
+    // const notebooks = Object.keys(this.props.notebooks).map( (id) => {
+    //
+    //   return (
+    //     <option
+    //       className="select-items"
+    //       key={id}
+    //       value={`${id}`}>{this.props.notebooks[id].title}
+    //     </option>
+    //   );
+    // });
+
 
 
     let display;
     if (this.props.formType === "Create") { display = false }
     else { display = true };
-
-    if (this.state.body) {
-      this.quill.setContents(JSON.parse(this.state.body).quillText)
-    }
-
 
 
     return (
@@ -165,7 +179,7 @@ export default class NoteForm extends React.Component{
                 />
             </label>
 
-            <div id="editor">
+            <div id="editor-container">
 
             </div>
 
