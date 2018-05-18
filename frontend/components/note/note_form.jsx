@@ -64,19 +64,27 @@ export default class NoteForm extends React.Component{
 
     ];
 
-    let quill = new Quill('#editor-container', {
+    var quill = new Quill('#editor', {
       modules: {
         toolbar: toolbarOptions
       },
-      theme: 'snow'
+      theme: 'snow',
+      placeholder: "Just start typing..."
     });
-
 
     this.quill = quill;
     this.quill.on('text-change', () => {
       const getContents = this.quill.getContents();
       this.setState({body: getContents});
     })
+
+    // quill.on('text-change', function(delta, oldDelta, source) {
+    //   if (source == 'api') {
+    //     console.log("An API call triggered this change.");
+    //   } else if (source == 'user') {
+    //     console.log("A user action triggered this change.");
+    //   }
+    // });
 
   };
 
@@ -179,7 +187,7 @@ export default class NoteForm extends React.Component{
                 />
             </label>
 
-            <div id="editor-container">
+            <div id="editor">
 
             </div>
 
