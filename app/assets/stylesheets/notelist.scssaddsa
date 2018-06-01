@@ -16,7 +16,8 @@
 
 .list-item h5 {
   overflow: hidden;
-  display: -webkit-box;
+  display: -web
+  kit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }

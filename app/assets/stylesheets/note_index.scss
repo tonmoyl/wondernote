@@ -22,3 +22,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.note-list li {
+  border-top: 0.5px solid lightgray;
+  border-bottom: 0.5px solid lightgray;
+}
