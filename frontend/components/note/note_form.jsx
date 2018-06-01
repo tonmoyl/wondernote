@@ -28,13 +28,11 @@ export default class NoteForm extends React.Component{
     if (this.props.formType === "Update") {
       this.props.fetchNote(this.props.match.params.noteId).then( ({note}) => {
         this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
-      });
+      }).then( () => {
+        let body = JSON.parse(this.state.body).quillText;
+        this.quill.setContents(body);
+      });;
     };
-    if (this.state.notebook_id === null){
-
-    }
-
-
     this.initializeQuill();
 
   }
@@ -43,6 +41,9 @@ export default class NoteForm extends React.Component{
     if (this.props.match.params.noteId !== nextProps.match.params.noteId) {
       this.props.fetchNote(nextProps.match.params.noteId).then( ({note}) => {
         this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
+      }).then( () => {
+        let body = JSON.parse(this.state.body).quillText;
+        this.quill.setContents(body);
       });
     }
   }
@@ -78,6 +79,7 @@ export default class NoteForm extends React.Component{
       this.setState({body: getContents});
     })
 
+
     // quill.on('text-change', function(delta, oldDelta, source) {
     //   if (source == 'api') {
     //     console.log("An API call triggered this change.");
@@ -96,6 +98,7 @@ export default class NoteForm extends React.Component{
     e.preventDefault();
     let body = {};
     body["quillText"] = this.quill.getContents();
+    debugger
     body["plainText"] = this.quill.getText();
     let parsedBody = JSON.stringify(body);
 
@@ -160,7 +163,7 @@ export default class NoteForm extends React.Component{
 
 
     return (
-      <div id="note-document" className='new-note'>
+      <div id="note-document" className='note-show'>
 
         <div className='new-note-header'>
           <div className='toolbar-container'>
@@ -168,14 +171,16 @@ export default class NoteForm extends React.Component{
           </div>
         </div>
 
-        <form className="new-note-form" onSubmit={this.handleSubmit}>
-          <select
-            className="notebook-dropdown"
-            onChange={this.update('notebook_id')}
-            >
-            {notebooks}
-          </select>
-          <br />
+        <form className="note-form" onSubmit={this.handleSubmit}>
+          <div className="note-selector">
+            <select
+              className="notebook-dropdown"
+              onChange={this.update('notebook_id')}
+              >
+              {notebooks}
+            </select>
+          </div>
+
           <div className="form-group">
             <label>
               <input

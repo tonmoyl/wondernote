@@ -1,10 +1,118 @@
-.new-note {
+.note-show {
   position: fixed;
   left: 425px;
   background-color: white;
   border: 1px solid lightgray;
   height: 100%;
-  width: 100%
+  width: calc(100% - 425px);
+}
+
+.note-form {
+  height: 100%;
+  margin: 0px 50px;
+}
+
+.notebook-title input {
+  border: none;
+  color: darkgray;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  outline: none;
+  font-size: 20px;
+  letter-spacing: 1.3px;
+  width: 100%;
+}
+
+.notebook-form {
+  text-align: center;
+  width: 50%;
+  padding-right: 3%;
+  height: 100%;
+}
+
+// .note-form textarea{
+//   width: 100%;
+//   padding-right: 10%;
+//   -webkit-box-sizing: border-box;
+//    -moz-box-sizing: border-box;
+//         box-sizing: border-box;
+// }
+
+
+.adj-buttons {
+  display: flex;
+  margin: 20px;
+}
+
+.notebook-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  color: #1dba60;
+  border: none;
+  margin: 30px 40px;
+  outline: none;
+  display: flex;
+  justify-content: center;
+}
+
+.notebook-dropdown {
+  margin: 10px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: green;
+}
+
+.select_items {
+  background-color: gray;
+  font-size: 30px;
+}
+
+.note-action-btn {
+  display: block;
+  position: fixed;
+  right: 10px;
+  top: 18px;
+  text-align: left;
+}
+
+.new-note-header {
+  height: 25px;
+}
+
+.form-group {
+  height: 100%;
+}
+
+#editor {
+  border: none;
+}
+
+.form-group .ql-toolbar {
+  border: none;
+}
+
+// .form-group .ql-toolbar {
+//   opacity: 0.5;
+//   border: none;
+//   margin: auto;
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .form-group .ql-editor {
+//   width: 90%;
+//   margin: auto;
+//   border: none;
+//   // padding-top: 20px;
+// }
+
+
+.form-group .note-title {
+  width: 90%;
 }
 
 .new-note-header {
@@ -15,6 +123,10 @@
 .font-toolbar {
   border-bottom: 1px solid lightgray;
   padding: 20px;
+}
+
+.note-selector {
+  border-bottom: 1px solid lightgray;
 }
 
 .note-document {
