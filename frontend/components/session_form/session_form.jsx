@@ -108,17 +108,3 @@ export default class SessionForm extends React.Component {
     )
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-//

@@ -79,15 +79,6 @@ export default class NoteForm extends React.Component{
       this.setState({body: getContents});
     })
 
-
-    // quill.on('text-change', function(delta, oldDelta, source) {
-    //   if (source == 'api') {
-    //     console.log("An API call triggered this change.");
-    //   } else if (source == 'user') {
-    //     console.log("A user action triggered this change.");
-    //   }
-    // });
-
   };
 
   update(property) {
@@ -98,7 +89,6 @@ export default class NoteForm extends React.Component{
     e.preventDefault();
     let body = {};
     body["quillText"] = this.quill.getContents();
-    debugger
     body["plainText"] = this.quill.getText();
     let parsedBody = JSON.stringify(body);
 

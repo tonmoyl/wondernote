@@ -19,7 +19,7 @@ const notesReducer = (state = predefinedState, action) => {
       //     delete middleState[noteIds[i]];
       //   }
       // }
-      // debugger
+
       return merge({}, state, newNote);
     case REMOVE_NOTE:
       const newState = merge({}, state);

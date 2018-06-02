@@ -55,7 +55,7 @@
   width: 200px;
 }
 
-.note-list li:hover {
+.note-list li:hover, .notebook-index li:hover {
   background-color: #32bf6b;
   border: none;
   -webkit-transition: background-color 200ms linear;
