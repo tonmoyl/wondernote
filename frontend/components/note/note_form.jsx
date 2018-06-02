@@ -167,7 +167,7 @@ export default class NoteForm extends React.Component{
 
         <div className='new-note-header'>
           <div className='toolbar-container'>
-            <ToolbarContainer itemType="note" display={display}/>
+            <ToolbarContainer itemType="note" display="true"/>
           </div>
         </div>
 

@@ -5,9 +5,14 @@ import { deleteNote } from '../../actions/note_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
+  
+  let noteId;
+  if (ownProps.noteId) { noteId = ownProps.noteId }
+  else { ownProps.match.params.noteId }
+
   return {
     itemType: ownProps.itemType,
-    noteId: ownProps.match.params.noteId,
+    noteId,
     notebookId: ownProps.match.params.notebookId
   };
 };

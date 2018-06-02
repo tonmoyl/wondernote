@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-
+import ToolbarContainer from '../toolbar/toolbar_container';
 
 export default class Note extends React.Component{
   constructor(props){
@@ -51,13 +50,17 @@ export default class Note extends React.Component{
     }
 
     return (
+      <div className="note-item">
         <Link to={followLink}>
+          <ToolbarContainer itemType="note-item" display="false" noteId={`${this.props.note.id}`}/>
           <div className={`list-item ${selected}`}>
             <h3>{this.props.note.title}</h3>
             <h4>{timeAgo}</h4>
             <h5>{renderBody}</h5>
           </div>
         </Link>
+      </div>
+
     )
   }
 }

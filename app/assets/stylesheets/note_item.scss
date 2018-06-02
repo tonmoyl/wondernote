@@ -27,24 +27,57 @@
   height: 120px;
   padding: 20px 30px;
   box-sizing: border-box;
-  border: 3px solid white;
+  // border: 3px solid white;
   text-overflow: ellipsis;
   // transition: background-color 0.5s ease-in;
 }
 
-.selected, .selected:hover {
+.selected {
   box-sizing: border-box;
   border: 3px solid lightgray;
 }
 
-.list-item:hover, .list-item:hover h3, .list-item:hover h4, .list-item:hover h5{
+.selected:hover {
+  border: 3px solid #32bf6b;
+}
+
+.list-item:hover, .list-item:hover h3, .list-item:hover h4, .list-item:hover h5, .toolbar:hover{
   color: white;
 }
 
-.list-item:hover{
+.note-item .toolbar:hover + .list-item h3,
+.note-item .toolbar:hover + .list-item h4,
+.note-item .toolbar:hover + .list-item h5, {
+  color: white;
+}
+
+.list-item:hover h3, .note-item .toolbar:hover + .list-item h3 {
+  width: 200px;
+}
+
+.note-list li:hover {
   background-color: #32bf6b;
-  border: 3px solid #32bf6b;
+  border: none;
   -webkit-transition: background-color 200ms linear;
   -ms-transition: background-color 200ms linear;
   transition: background-color 200ms linear, border 200ms linear;
+}
+
+.note-item {
+  position: relative;
+}
+
+.note-list .toolbar {
+  right: 0px;
+  top: 20px;
+  visibility: hidden;
+}
+
+.note-list li:hover .toolbar {
+  color: white;
+  visibility: visible;
+}
+
+.note-list li:hover .toolbar .fa-trash-o:before{
+  color: white;
 }
