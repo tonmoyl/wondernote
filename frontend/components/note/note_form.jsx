@@ -11,7 +11,6 @@ import { isEmpty } from 'lodash';
 
 export default class NoteForm extends React.Component{
   constructor(props){
-
     super(props)
     this.state = {
       id: "",
@@ -19,6 +18,7 @@ export default class NoteForm extends React.Component{
       body: "",
       notebook_id: null
     };
+    if (this.props.formType === "Update") this.state.title = " ";
     this.handleSubmit = this.handleSubmit.bind(this);
     this.initializeQuill = this.initializeQuill.bind(this);
   };
@@ -27,6 +27,7 @@ export default class NoteForm extends React.Component{
     const noteId = this.props.match.params.noteId;
     let that = this;
     if (this.props.formType === "Update") {
+      debugger
       this.props.fetchNote(this.props.match.params.noteId).then( ({note}) => {
         this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
       }).then( () => {
@@ -107,6 +108,20 @@ export default class NoteForm extends React.Component{
     });
   }
 
+  renderErrors() {
+    if (this.props.errors) {
+      return (
+        <ul>
+          {this.props.errors.map( (error, idx) => (
+            <li key={`error-${idx}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  }
+
 
 
   render(){
@@ -183,7 +198,9 @@ export default class NoteForm extends React.Component{
                 placeholder="Title your note"
                 />
             </label>
-
+            <h5 className="errors">
+              {this.renderErrors()}
+            </h5>
             <div id="editor">
 
             </div>
@@ -194,6 +211,8 @@ export default class NoteForm extends React.Component{
             className="note-action-btn submit-btn"
             type="submit"
             value={this.props.formType} />
+
+
         </form>
 
       </div>

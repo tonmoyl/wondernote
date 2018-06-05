@@ -11,7 +11,6 @@ export default( state= predefinedState, action ) => {
     case RECEIVE_SESSION_ERRORS:
       return action.errors;
     case RECEIVE_CURRENT_USER:
-      return [];
     case LOGOUT_CURRENT_USER:
       return predefinedState;
     default:

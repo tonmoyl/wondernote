@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
     notes: state.entities.notes,
     currentNotebookId: ownProps.match.params.notebookId,
     state: state,
-    history: ownProps.history
+    history: ownProps.history,
+    errors: state.errors.notes
   }
 };
 
