@@ -10,7 +10,10 @@ const mapStateToProps = (state, ownProps) => {
     currentNote: state.entities.currentNote.currentNote,
     formType: "Create",
     notebooks: state.entities.notebooks,
-    currentNotebookId: ownProps.match.params.notebookId
+    notes: state.entities.notes,
+    currentNotebookId: ownProps.match.params.notebookId,
+    state: state,
+    history: ownProps.history
   }
 };
 

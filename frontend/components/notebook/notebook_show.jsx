@@ -46,7 +46,7 @@ export default class NotebookShow extends React.Component {
     if (this.props.currentNotebook) { currentNotebookTitle = this.props.currentNotebook.title}
 
     return (
-      <div id="notebook-show">
+      <div id="notebook-show" className="note-list">
         <div className="notebook-title">
           <h6>{currentNotebookTitle}</h6>
         </div>

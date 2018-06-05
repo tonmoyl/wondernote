@@ -6,7 +6,7 @@ import ToolbarContainer from '../toolbar/toolbar_container';
 import NoteIndexContainer from './note_index_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import merge from 'lodash/merge';
-
+import { isEmpty } from 'lodash';
 
 
 export default class NoteForm extends React.Component{
@@ -25,6 +25,7 @@ export default class NoteForm extends React.Component{
 
   componentDidMount(){
     const noteId = this.props.match.params.noteId;
+    let that = this;
     if (this.props.formType === "Update") {
       this.props.fetchNote(this.props.match.params.noteId).then( ({note}) => {
         this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
@@ -34,7 +35,6 @@ export default class NoteForm extends React.Component{
       });;
     };
     this.initializeQuill();
-
   }
 
   componentWillReceiveProps(nextProps) {
@@ -46,6 +46,7 @@ export default class NoteForm extends React.Component{
         this.quill.setContents(body);
       });
     }
+
   }
 
   initializeQuill() {
@@ -99,22 +100,23 @@ export default class NoteForm extends React.Component{
 
     this.state.body = parsedBody;
     const note = merge({}, this.state, {body: parsedBody});
-
-    this.props.processForm(note);
+    this.props.processForm(note).then( ()=> {
+      let noteIdx = Object.keys(this.props.notes);
+      let newIdx = noteIdx[noteIdx.length-1];
+      this.props.history.push(`/main/${newIdx}`);
+    });
   }
 
 
 
   render(){
-
     // let selectedOption = "";
     // if (this.props.currentNote){
     //   selectedOption = this.props.currentNote.notebook_id + "";
     // }
 
     const notebooks = Object.keys(this.props.notebooks).map( (id) => {
-      if (!this.props.currentNote) return null;
-      if (id == this.props.currentNote.notebook_id){
+      if (this.props.currentNote && id == this.props.currentNote.notebook_id){
         return (
           <option
             className="select-items"

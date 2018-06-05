@@ -51,6 +51,10 @@ input[class*="-btn"], button[class*="-btn"] {
   text-align: center;
 }
 
+.demo:hover {
+  background-color: #31a058;
+}
+
 
 .cancel-btn {
   color: darkgray;

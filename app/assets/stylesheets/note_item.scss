@@ -67,6 +67,10 @@
   position: relative;
 }
 
+.note-item a:hover {
+  text-decoration: none;
+}
+
 .note-list .toolbar {
   right: 0px;
   top: 20px;

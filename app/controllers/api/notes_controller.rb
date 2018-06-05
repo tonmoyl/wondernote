@@ -14,7 +14,7 @@ class Api::NotesController < ApplicationController
     if @note.save
       render :show
     else
-      render json: @note, status: :unprocessable_entity
+      render json: @note.errors.full_messages, status: :unprocessable_entity
     end
   end
 

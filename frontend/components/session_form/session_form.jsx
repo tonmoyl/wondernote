@@ -56,7 +56,7 @@ export default class SessionForm extends React.Component {
       return (
         <div className="session-footer-signup">
           Already have an account? Please
-          <Link to="/login"> Sign in!</Link>
+          <Link to="/login" className="link"> Sign in!</Link>
         </div>
       )
     }

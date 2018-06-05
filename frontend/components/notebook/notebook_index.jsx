@@ -9,7 +9,8 @@ export default class NoteBookIndex extends React.Component{
     }
   }
 
-  componentWillMount(){
+//componentWillMount
+  componentDidMount(){
     this.props.fetchNotebooks();
   }
 
