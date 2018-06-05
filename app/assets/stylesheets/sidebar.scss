@@ -104,3 +104,18 @@
 .logout {
   background-image: image-url("sidebar_buttons/logout.png");
 }
+
+.github-btn, .linkedin, .profile-site {
+  width: 55%;
+  height: auto;
+  margin: 20px 0px;
+  fill: #1cba5f;
+}
+
+.sidebar-bottom {
+  width: 60px;
+}
+
+.profile-site{
+  width: 40px;
+}

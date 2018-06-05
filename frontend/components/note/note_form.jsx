@@ -27,7 +27,7 @@ export default class NoteForm extends React.Component{
     const noteId = this.props.match.params.noteId;
     let that = this;
     if (this.props.formType === "Update") {
-      debugger
+      
       this.props.fetchNote(this.props.match.params.noteId).then( ({note}) => {
         this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
       }).then( () => {
