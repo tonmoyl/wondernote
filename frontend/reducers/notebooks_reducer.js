@@ -20,12 +20,14 @@ const notebooksReducer = ( state = predefinedState, action) => {
         //   newState[action.note.notebook_id].noteIds.unshift(action.note.id)
         // }
         let allIds = newState[action.note.notebook_id].noteIds;
-        for (let i = 0; i < allIds.length; i++) {
-          if (allIds[i] === action.note.id) {
-            returnState = allIds.splice(i,1);
+        if (allIds) {
+          for (let i = 0; i < allIds.length; i++) {
+            if (allIds[i] === action.note.id) {
+              returnState = allIds.splice(i,1);
+            }
           }
+          newState[action.note.notebook_id].noteIds.unshift(action.note.id);
         }
-        newState[action.note.notebook_id].noteIds.unshift(action.note.id);
       }
       // newState[action.note.notebook_id].noteIds.shift(action.note.id)
       // newState[action.note.notebook_id].noteIds = returnState
