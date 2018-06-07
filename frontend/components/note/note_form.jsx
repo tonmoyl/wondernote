@@ -27,7 +27,7 @@ export default class NoteForm extends React.Component{
     const noteId = this.props.match.params.noteId;
     let that = this;
     if (this.props.formType === "Update") {
-      
+
       this.props.fetchNote(this.props.match.params.noteId).then( ({note}) => {
         this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
       }).then( () => {
@@ -102,11 +102,13 @@ export default class NoteForm extends React.Component{
     this.state.body = parsedBody;
     const note = merge({}, this.state, {body: parsedBody});
     this.props.processForm(note).then( ()=> {
-      let noteIdx = Object.keys(this.props.notes);
-      let newIdx = noteIdx[noteIdx.length-1];
-      this.props.history.push(`/main/${newIdx}`);
+      if (this.props.formType === "Create") {
+        let noteIdx = Object.keys(this.props.notes);
+        let newIdx = noteIdx[noteIdx.length-1];
+        this.props.history.push(`/main/${newIdx}`);
+      }
     });
-  }
+  };
 
   renderErrors() {
     if (this.props.errors) {
