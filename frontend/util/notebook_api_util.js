@@ -20,3 +20,10 @@ export const fetchNotebook = (id) => {
     url: `api/notebooks/${id}`
   });
 };
+
+export const deleteNotebook = (id) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `api/notebooks/${id}`
+  });
+};

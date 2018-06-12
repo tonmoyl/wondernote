@@ -33,6 +33,13 @@ class Api::NotebooksController < ApplicationController
     render json: ['Notebook not found'], status: :not_found
   end
 
+  def destroy
+    debugger
+    @notebook = current_user.notebooks.find(params[:id])
+    @notebook.destroy
+    render json: { id: notebook.id }
+  end
+
   private
 
   def notebook_params

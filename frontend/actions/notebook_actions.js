@@ -1,7 +1,8 @@
-import * as APIUtil from '../util/notebook_api_util';
+import * as NotebooksAPIUtil from '../util/notebook_api_util';
 
 export const RECEIVE_NOTEBOOKS = "RECEIVE_NOTEBOOKS";
 export const RECEIVE_NOTEBOOK = "RECEIVE_NOTEBOOK";
+export const DELETE_NOTEBOOK = "DELETE_NOTEBOOK";
 
 export const receiveNotebooks = notebooks => ({
   type: RECEIVE_NOTEBOOKS,
@@ -13,10 +14,14 @@ export const receiveNotebook = notebook => ({
   notebook
 });
 
-export const createNotebook = (notebook) => {
+export const removeNotebook = notebookID => ({
+  type: DELETE_NOTEBOOK,
+  notebookID
+})
 
+export const createNotebook = (notebook) => {
   return dispatch => {
-    return APIUtil.createNotebook(notebook).then(notebook => {
+    return NotebooksAPIUtil.createNotebook(notebook).then(notebook => {
       return dispatch(receiveNotebook(notebook));
     });
   };
@@ -24,7 +29,7 @@ export const createNotebook = (notebook) => {
 
 export const fetchNotebooks = () => {
   return dispatch => {
-    return APIUtil.fetchNotebooks().then(notebooks => {
+    return NotebooksAPIUtil.fetchNotebooks().then(notebooks => {
       return dispatch(receiveNotebooks(notebooks));
     });
   };
@@ -32,8 +37,16 @@ export const fetchNotebooks = () => {
 
 export const fetchNotebook = (id) => {
   return dispatch => {
-    return APIUtil.fetchNotebook(id).then(notebook => {
+    return NotebooksAPIUtil.fetchNotebook(id).then(notebook => {
       return dispatch(receiveCurrentNotebook(notebook));
     });
   };
 };
+
+export const deleteNotebook = (id) => {
+  return dispatch => {
+    return NotebooksAPIUtil.deleteNotebook(id).then(notebookID => {
+      return dispatch(removeNotebook(notebookId));
+    })
+  }
+}
