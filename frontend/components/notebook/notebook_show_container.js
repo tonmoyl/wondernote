@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   const currentNotebook = state.entities.notebooks[notebookId];
 
   let currentNotes;
-  if (currentNotebook) {
+  if (currentNotebook.noteIds) {
     currentNotes = currentNotebook.noteIds.map( noteId => {
       return state.entities.notes[noteId];
     });

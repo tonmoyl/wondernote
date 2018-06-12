@@ -16,7 +16,7 @@ export default class NoteBookIndex extends React.Component{
 
 
   render(){
-    const allNotebooks = this.props.notebooks
+    const allNotebooks = this.props.notebooks || []
     const notebooks = Object.keys(allNotebooks).map( (id) => {
     const num = parseInt(id);
 
