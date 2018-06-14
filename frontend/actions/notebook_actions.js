@@ -45,8 +45,8 @@ export const fetchNotebook = (id) => {
 
 export const deleteNotebook = (id) => {
   return dispatch => {
-    return NotebooksAPIUtil.deleteNotebook(id).then(notebookID => {
-      return dispatch(removeNotebook(notebookId));
+    return NotebooksAPIUtil.deleteNotebook(id).then( (notebook) => {
+      return dispatch(removeNotebook(notebook.id));
     })
   }
 }
