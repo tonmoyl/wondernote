@@ -4,7 +4,8 @@ class Notebook < ApplicationRecord
 
   has_many :notes,
   class_name: :Note,
-  foreign_key: :notebook_id
+  foreign_key: :notebook_id,
+  dependent: :destroy
 
   belongs_to :author,
   class_name: :User,
