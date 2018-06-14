@@ -12,6 +12,11 @@ export default class Toolbar extends React.Component {
       this.props.deleteNote(this.props.noteId);
       this.props.history.push('/main/new');
     }
+    else if (this.props.itemType === 'notebook-item') {
+      console.log('jey');
+      debugger
+      this.props.deleteNotebook(this.props.notebookId);
+    }
   }
 
   render() {
