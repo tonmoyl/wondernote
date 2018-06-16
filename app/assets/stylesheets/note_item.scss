@@ -54,7 +54,8 @@
   color: white;
 }
 
-.list-item:hover h3, .note-item .toolbar:hover + .list-item h3 {
+.list-item:hover h3, .note-item .toolbar:hover + a .list-item h3,
+.list-item:hover h3, .notebook-item .toolbar:hover + a .list-item h3,{
   width: 200px;
 }
 
