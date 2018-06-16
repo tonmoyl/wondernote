@@ -45,9 +45,12 @@
   color: white;
 }
 
-.note-item .toolbar:hover + .list-item h3,
-.note-item .toolbar:hover + .list-item h4,
-.note-item .toolbar:hover + .list-item h5, {
+.note-item .toolbar:hover + a .list-item h3,
+.note-item .toolbar:hover + a .list-item h4,
+.note-item .toolbar:hover + a .list-item h5,
+.notebook-item .toolbar:hover + a .list-item h3,
+.notebook-item .toolbar:hover + a .list-item h4,
+.notebook-item .toolbar:hover + a .list-item h5, {
   color: white;
 }
 

@@ -25,7 +25,7 @@ export default class NotebookItem extends React.Component {
         <ToolbarContainer itemType="notebook-item" notebookId={this.props.notebook.id}/>
         <Link to={`/main/${this.props.noteId}/${this.notebook.id}`} onClick={this.handleSubmit}>
           <div className="list-item" >
-            {this.notebook.title}
+            <h3>{this.notebook.title}</h3>
             <br />
             <h5>notes {notesLength}</h5>
           </div>
