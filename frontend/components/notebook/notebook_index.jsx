@@ -1,6 +1,5 @@
 import React from 'react';
 import NotebookItem from './notebook_item';
-import ToolbarContainer from '../toolbar/toolbar_container';
 
 export default class NoteBookIndex extends React.Component{
   constructor(props) {
@@ -21,7 +20,6 @@ export default class NoteBookIndex extends React.Component{
       return (
         <li key={num}>
           <NotebookItem notebook={allNotebooks[num]} noteId={this.props.noteId}/>
-          <ToolbarContainer itemType="notebook-item" notebookId={num}/>
         </li>
       )
     });

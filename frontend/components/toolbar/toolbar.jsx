@@ -13,7 +13,9 @@ export default class Toolbar extends React.Component {
       this.props.history.push('/main/new');
     }
     else if (this.props.itemType === 'notebook-item') {
-      this.props.deleteNotebook(this.props.notebookId);
+      this.props.deleteNotebook(this.props.notebookId).then( ()=> {
+        this.props.history.push('/main/new');
+      });
     }
   }
 

@@ -63,7 +63,7 @@
   transition: background-color 200ms linear, border 200ms linear;
 }
 
-.note-item {
+.note-item, .notebook-index li {
   position: relative;
 }
 
@@ -71,17 +71,17 @@
   text-decoration: none;
 }
 
-.note-list .toolbar {
+.note-list .toolbar, .notebook-index .toolbar {
   right: 0px;
   top: 20px;
   visibility: hidden;
 }
 
-.note-list li:hover .toolbar {
+.note-list li:hover .toolbar, .notebook-index li:hover .toolbar {
   color: white;
   visibility: visible;
 }
 
-.note-list li:hover .toolbar .fa-trash-o:before{
+.note-list li:hover .toolbar .fa-trash-o:before, .notebook-index li:hover .toolbar .fa-trash-o:before{
   color: white;
 }

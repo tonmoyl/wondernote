@@ -1,7 +1,7 @@
 import React from 'react';
-import NotebookShow from './notebook_show';
 import { Link } from 'react-router-dom';
 import { toggleNav } from '../../util/ui_util';
+import ToolbarContainer from '../toolbar/toolbar_container';
 
 export default class NotebookItem extends React.Component {
   constructor(props){
@@ -21,9 +21,10 @@ export default class NotebookItem extends React.Component {
     else { notesLength = 0 }
 
     return (
-      <div>
+      <div className="notebook-item">
+        <ToolbarContainer itemType="notebook-item" notebookId={this.props.notebook.id}/>
         <Link to={`/main/${this.props.noteId}/${this.notebook.id}`} onClick={this.handleSubmit}>
-          <div className="list-item notebook-item" >
+          <div className="list-item" >
             {this.notebook.title}
             <br />
             <h5>notes {notesLength}</h5>
