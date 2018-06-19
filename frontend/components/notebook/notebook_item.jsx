@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { toggleNav } from '../../util/ui_util';
+import { toggleNavNotebook } from '../../util/ui_util';
 import ToolbarContainer from '../toolbar/toolbar_container';
 
 export default class NotebookItem extends React.Component {
@@ -8,11 +8,11 @@ export default class NotebookItem extends React.Component {
     super(props)
     this.notebook = this.props.notebook;
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.toggleNav = toggleNav.bind(this);
+    this.toggleNavNotebook = toggleNavNotebook.bind(this);
   }
 
   handleSubmit(e) {
-    this.toggleNav();
+    this.toggleNavNotebook();
   }
 
   render() {

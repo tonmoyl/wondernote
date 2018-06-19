@@ -10,6 +10,7 @@ import EditNoteContainer from './note/edit_note_container';
 import NotebookContainer from './sidebar/notebook_container';
 import NotebookFormContainer from './notebook/notebook_form_container';
 import NotebookShowContainer from './notebook/notebook_show_container';
+import SearchContainer from './search/search_container';
 
 
 import {
@@ -36,6 +37,7 @@ const App = () => {
 
       <ProtectedRoute path="/main/:noteId" component={SidebarContainer} />
       <ProtectedRoute path="/main" component={NotebookFormContainer} />
+      <ProtectedRoute path="/main" component={SearchContainer} />
       <ProtectedRoute exact path="/main/:noteId" component={NoteIndexContainer} />
       <ProtectedRoute path="/main/:noteId/:notebookId" component={NotebookShowContainer} />
 
