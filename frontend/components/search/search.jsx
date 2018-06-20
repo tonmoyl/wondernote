@@ -34,11 +34,14 @@ export default class Search extends React.Component {
 
   render() {
     let renderNotes = this.state.noteIds.map( (id) => {
-      return (
-        <li key={id} className="search-item">
-          <Link to={`/main/${id}`} onClick={toggleSearch}>{this.props.notes[id].title}</Link>
-        </li>
-      );
+      // if statement is when a note is deleted, it will not have a value in this.props.notes
+      if (this.props.notes[id]) {
+        return (
+          <li key={id} className="search-item">
+            <Link to={`/main/${id}`} onClick={toggleSearch}>{this.props.notes[id].title}</Link>
+          </li>
+        );
+      }
     })
 
     return (

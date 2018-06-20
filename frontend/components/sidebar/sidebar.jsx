@@ -70,6 +70,7 @@ export default class Sidebar extends React.Component {
               <div className="notes-btn"></div>
             </Link>
           <div className="notebooks-btn" onClick={this.toggleNavNotebook}></div>
+          <div className="shortcuts-btn" onClick={this.toggleNavNotebook}></div>
         </div>
 
 
