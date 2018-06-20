@@ -7,3 +7,41 @@
   background-color: white;
   justify-content: center;
 }
+
+.search-input {
+  left: 150px;
+  top: 150px;
+  position: fixed;
+  border: none;
+  font-size: 40px;
+  border-bottom: 1px solid lightgray;
+  width: 800px;
+}
+
+.search-input:focus {
+  outline-width: 0;
+}
+
+.search-list {
+  position: fixed;
+  left: 150px;
+  top: 240px;
+}
+
+.search-item {
+  padding: 20px 0px;
+  cursor: pointer;
+  width: 800px;
+}
+
+.search-item a:hover {
+  text-decoration: none;
+}
+
+.search-item a{
+  color: black;
+}
+
+.search-item:hover {
+  background-color: lightgray;
+}

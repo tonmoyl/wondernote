@@ -44,8 +44,9 @@ export default class Search extends React.Component {
       <div id="search-form" className="dropdown">
         <input
           type="text"
-          placeholder="Search Notes.."
+          placeholder="Search Notes..."
           id="myInput"
+          className="search-input"
           onChange={this.updateInput}
           ></input>
         <ul className="search-list">
