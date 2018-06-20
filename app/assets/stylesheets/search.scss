@@ -1,17 +1,20 @@
 #search-form {
-  position: fixed;
+  position: absolute;
   left: 75px;
-  width: 100%;
+  width: 0px;
   min-height: 100%;
-  z-index: 0;
+  // visibility: hidden;
+  overflow-x: hidden;
+  z-index: 4;
   background-color: white;
   justify-content: center;
+  transition: 0.5s;
 }
 
 .search-input {
   left: 150px;
   top: 150px;
-  position: fixed;
+  position: relative;
   border: none;
   font-size: 40px;
   border-bottom: 1px solid lightgray;
@@ -23,12 +26,13 @@
 }
 
 .search-list {
-  position: fixed;
+  position: relative;
   left: 150px;
   top: 240px;
 }
 
-.search-item {
+.search-item a {
+  display:inline-block;
   padding: 20px 0px;
   cursor: pointer;
   width: 800px;

@@ -18,6 +18,14 @@ export default class Sidebar extends React.Component {
     // this.toggleNavNotebook();
   }
 
+  closeOtherWindows() {
+    const sidebarSearch = document.getElementById("search-form").style.width;
+    if (sidebarSearch === "100%") {
+      document.getElementById("search-form").style.width = "0px";
+      // document.getElementById("search-form").style.visibility = "hidden";
+    }
+  }
+
   // openNotebookIndex(){
   //   this.toggleNavNotebook();
   // }
@@ -50,7 +58,7 @@ export default class Sidebar extends React.Component {
     return(
       <div className="sidebar">
         <div className="button-list sidebar-top">
-            <Link  to="/main/new">
+            <Link  to="/main/new" onClick={this.closeOtherWindows}>
               <div className="new-note-btn" />
             </Link>
 
@@ -58,7 +66,7 @@ export default class Sidebar extends React.Component {
         </div>
 
         <div className="button-list sidebar-middle">
-            <Link to={`/main/${this.props.match.params.noteId}`}>
+            <Link to={`/main/${this.props.match.params.noteId}`}  onClick={this.closeOtherWindows}>
               <div className="notes-btn"></div>
             </Link>
           <div className="notebooks-btn" onClick={this.toggleNavNotebook}></div>

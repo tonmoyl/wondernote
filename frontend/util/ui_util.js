@@ -8,10 +8,12 @@ export const toggleNavNotebook = () => {
 };
 
 export const toggleSearch = () => {
-  const sidebarZ = document.getElementById("search-form").style.zIndex;
-  if (sidebarZ === "0") {
-    document.getElementById("search-form").style.zIndex = 4;
+  const sidebarZ = document.getElementById("search-form").style.width;
+  if (sidebarZ === "0px") {
+    document.getElementById("search-form").style.width = "100%";
+    // document.getElementById("search-form").style.visibility = "visible";
   } else {
-    document.getElementById("search-form").style.zIndex = 0;
+    document.getElementById("search-form").style.width = "0px";
+    // document.getElementById("search-form").style.visibility = "hidden";
   }
 }

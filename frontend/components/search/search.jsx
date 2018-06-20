@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { toggleSearch } from '../../util/ui_util';
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export default class Search extends React.Component {
     let renderNotes = this.state.noteIds.map( (id) => {
       return (
         <li key={id} className="search-item">
-          <Link to={`/main/${id}`}>{this.props.notes[id].title}</Link>
+          <Link to={`/main/${id}`} onClick={toggleSearch}>{this.props.notes[id].title}</Link>
         </li>
       );
     })
