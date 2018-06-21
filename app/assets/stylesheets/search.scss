@@ -3,7 +3,6 @@
   left: 75px;
   width: 0px;
   min-height: 100%;
-  // visibility: hidden;
   overflow-x: hidden;
   z-index: 4;
   background-color: white;
@@ -32,10 +31,11 @@
   width: 800px;
 }
 
-.search-item a {
-  display:inline-block;
+.search-item a{
+  display: block;
   padding: 20px 0px;
   cursor: pointer;
+  width: 100%;
 }
 
 .search-item a:hover {
