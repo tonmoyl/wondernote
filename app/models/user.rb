@@ -17,6 +17,15 @@ class User < ApplicationRecord
   class_name: :Notebook,
   foreign_key: :author_id
 
+  has_many :favorite_items,
+  class_name: :Favorite,
+  foreign_key: :user_id
+
+  has_many :favorite_notes,
+  through: :favorite_items,
+  source: :note
+
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user
