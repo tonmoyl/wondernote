@@ -39,7 +39,6 @@ const notebooksReducer = ( state = predefinedState, action) => {
       newState = merge({}, state);
       delete newState[action.notebookID];
       return newState;
-      debugger
     default:
       return state;
   };

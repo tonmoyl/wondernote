@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { toggleNavNotebook, toggleSearch } from '../../util/ui_util';
+import { fetchFavNotes } from '../../actions/favorite_actions';
 
 export default class Sidebar extends React.Component {
   constructor(props){
@@ -36,7 +37,6 @@ export default class Sidebar extends React.Component {
     // <div className="new-meeting-btn"></div>
     // <div className="workchat-btn"></div>
 
-    // <div className="shortcuts-btn"></div>
     // <div className="tags-btn"></div>
 
     // <div className="button-list sidebar-bottom">
@@ -70,7 +70,7 @@ export default class Sidebar extends React.Component {
               <div className="notes-btn"></div>
             </Link>
           <div className="notebooks-btn" onClick={this.toggleNavNotebook}></div>
-          <div className="shortcuts-btn" onClick={this.toggleNavNotebook}></div>
+          <div className="shortcuts-btn" onClick={fetchFavNotes}></div>
         </div>
 
 
