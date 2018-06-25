@@ -1,13 +1,22 @@
 .toolbar {
-  width: 100px;
+  width: 80px;
   height: 40px;
   color: green;
   font-weight: bold;
   cursor: pointer;
   position: absolute;
+  display: flex;
+  justify-content: space-around;
 }
 
 .fa-trash-o:before {
   font-size: 25px;
   color: lightgray;
+}
+
+.fa-star:before {
+  font-size: 25px;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: lightgray;
 }

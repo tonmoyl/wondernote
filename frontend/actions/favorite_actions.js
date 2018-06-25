@@ -11,7 +11,6 @@ export const receiveFavNote = note => {
 };
 
 export const receiveFavNotes = notes => {
-  console.log('receiveFavNotes from actions')
   return {
     type: RECEIVE_FAVS,
     notes

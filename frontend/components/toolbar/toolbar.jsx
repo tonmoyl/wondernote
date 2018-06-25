@@ -18,11 +18,16 @@ export default class Toolbar extends React.Component {
     }
   }
 
+  toggleFav() {
+    console.log("button worked")
+  }
+
   render() {
     // if (this.props.display) {
       return (
         <div className="toolbar">
           <i className="fa fa-trash-o" onClick={this.deleteItem}></i>
+          <i className="fa fa-star" onClick={this.toggleFav}></i>
         </div>
       )
     // } else {

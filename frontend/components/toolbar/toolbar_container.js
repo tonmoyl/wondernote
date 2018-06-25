@@ -4,6 +4,7 @@ import Toolbar from './toolbar';
 import { deleteNote } from '../../actions/note_actions';
 import { deleteNotebook } from '../../actions/notebook_actions';
 import { withRouter } from 'react-router-dom';
+import { createFavNote, deleteFavNote } from '../../actions/favorite_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -21,7 +22,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     deleteNote: (id) => dispatch(deleteNote(id)),
-    deleteNotebook: (id) => dispatch(deleteNotebook(id))
+    deleteNotebook: (id) => dispatch(deleteNotebook(id)),
+    createFavNote: (note) => dispatch(createFavNote(note)),
+    deleteFavNote: (id) => dispatch(deleteFavNote(id)),
   };
 };
 
