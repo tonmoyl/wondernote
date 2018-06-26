@@ -15,7 +15,9 @@ const mapStateToProps = (state, ownProps) => {
   return {
     itemType: ownProps.itemType,
     noteId,
-    notebookId: ownProps.notebookId
+    notebookId: ownProps.notebookId,
+    favoriteIds: Object.keys(state.entities.favorites),
+    notes: state.entities.notes,
   };
 };
 
