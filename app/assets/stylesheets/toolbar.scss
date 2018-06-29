@@ -18,5 +18,16 @@
   font-size: 25px;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+}
+
+#note-document .fa-star:before {
+  -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: lightgray;
+}
+
+.favorite-item.fa-star:before{
+  -webkit-text-fill-color: darkgreen;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: darkgreen;
 }

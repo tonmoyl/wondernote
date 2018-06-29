@@ -6,10 +6,20 @@ export default class Toolbar extends React.Component {
     super(props);
     this.deleteItem = this.deleteItem.bind(this);
     this.toggleFav = this.toggleFav.bind(this);
-    if (this.props.itemType === 'note' || this.props.itemType === 'note-item') {
-      this.favorite = <i className="fa fa-star" onClick={this.toggleFav}></i>
-    }
+    this.renderFavorite = this.renderFavorite.bind(this);
   };
+
+  renderFavorite() {
+
+    // Render on note-items and note; Not on notebook-item
+    if (this.props.itemType != 'notebook-item') {
+      if (this.props.favoriteIds && this.props.favoriteIds.includes(this.props.noteId)){
+        this.favorite = <i className="fa fa-star favorite-item" onClick={this.toggleFav}></i>
+      } else {
+        this.favorite = <i className="fa fa-star" onClick={this.toggleFav}></i>
+      }
+    }
+  }
 
   deleteItem() {
     if (this.props.itemType === 'note' || this.props.itemType === 'note-item') {
@@ -33,7 +43,8 @@ export default class Toolbar extends React.Component {
 
   render() {
     // if (this.props.display) {
-
+    this.renderFavorite();
+    
       return (
         <div className="toolbar">
           <i className="fa fa-trash-o" onClick={this.deleteItem}></i>
