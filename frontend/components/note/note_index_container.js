@@ -6,7 +6,9 @@ import { fetchFavNotes } from '../../actions/favorite_actions';
 
 const mapStateToProps = ({ entities }) => {
   return {
-    notes: entities.notes
+    componentType: "note-index",
+    notes: entities.notes,
+    noteIds: Object.keys(entities.notes).reverse(),
   };
 };
 

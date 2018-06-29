@@ -15,8 +15,7 @@ export default class NoteIndex extends React.Component{
 
   render(){
     let count = 0;
-    const noteIds = Object.keys(this.props.notes).reverse();
-    const notes = noteIds.map( (id) => {
+    const notes = this.props.noteIds.map( (id) => {
       count ++
       return (
         <li key={id}>
@@ -29,7 +28,7 @@ export default class NoteIndex extends React.Component{
     });
 
     return(
-      <div className="note-index">
+      <div className={this.props.componentType}>
         <div className="note-index-header">
           <h2>NOTES</h2>
           <div className="noteslist-footer">
