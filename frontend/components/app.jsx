@@ -4,6 +4,7 @@ import GreetingContainer from './greeting/greeting_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import NoteIndexContainer from './note/note_index_container';
+import FavoriteIndexContainer from './note/favorite_container';
 import SidebarContainer from './sidebar/sidebar_container';
 import NewNoteContainer from './note/new_note_container';
 import EditNoteContainer from './note/edit_note_container';
@@ -32,6 +33,7 @@ const App = () => {
       </Switch>
 
       <ProtectedRoute exact path="/" component={NoteIndexContainer} />
+      <ProtectedRoute exact path="/" component={FavoriteIndexContainer} />
       <ProtectedRoute path="/main/:noteId" component={NotebookContainer} />
       <ProtectedRoute exact path="/" component={NewNoteContainer} />
 

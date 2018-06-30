@@ -17,12 +17,12 @@ class User < ApplicationRecord
   class_name: :Notebook,
   foreign_key: :author_id
 
-  has_many :favorite_items,
+  has_many :favorite_associations,
   class_name: :Favorite,
   foreign_key: :user_id
 
   has_many :favorite_notes,
-  through: :favorite_items,
+  through: :favorite_associations,
   source: :note
 
 
