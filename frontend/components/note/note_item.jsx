@@ -34,7 +34,13 @@ export default class Note extends React.Component{
   }
 
   render() {
-    const renderBody = JSON.parse(this.props.note.body).plainText;
+    let renderBody = "";
+
+    //Use if statement in case there are no notes in favorites or notes
+    if (this.props.note){
+      renderBody = JSON.parse(this.props.note.body).plainText;
+    }
+
     let followLink
     if (this.props.parentComponent === "noteIndex") {
       followLink = `/main/${this.props.note.id}`;

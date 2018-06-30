@@ -33,7 +33,7 @@ const App = () => {
       </Switch>
 
       <ProtectedRoute exact path="/" component={NoteIndexContainer} />
-      <ProtectedRoute exact path="/" component={FavoriteIndexContainer} />
+      <ProtectedRoute path="/" component={FavoriteIndexContainer} />
       <ProtectedRoute path="/main/:noteId" component={NotebookContainer} />
       <ProtectedRoute exact path="/" component={NewNoteContainer} />
 

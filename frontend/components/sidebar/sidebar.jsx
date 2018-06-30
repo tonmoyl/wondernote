@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { toggleNavNotebook, toggleSearch } from '../../util/ui_util';
+import { toggleNavNotebook, toggleSearch, toggleFavorites } from '../../util/ui_util';
 import { fetchFavNotes } from '../../actions/favorite_actions';
 
 export default class Sidebar extends React.Component {
   constructor(props){
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.toggleNavNotebook = toggleNavNotebook.bind(this);
-    this.toggleSearch = toggleSearch.bind(this);
+    // this.toggleNavNotebook = toggleNavNotebook.bind(this);
+    // this.toggleSearch = toggleSearch.bind(this);
     // this.openNotebookIndex = this.openNotebookIndex.bind(this);
   };
 
@@ -48,15 +48,15 @@ export default class Sidebar extends React.Component {
               <div className="new-note-btn" />
             </Link>
 
-            <div className="search-btn" onClick={this.toggleSearch}></div>
+            <div className="search-btn" onClick={toggleSearch}></div>
         </div>
 
         <div className="button-list sidebar-middle">
             <Link to={`/main/${this.props.match.params.noteId}`}  onClick={this.closeOtherWindows}>
               <div className="notes-btn"></div>
             </Link>
-          <div className="notebooks-btn" onClick={this.toggleNavNotebook}></div>
-          <div className="shortcuts-btn" onClick={fetchFavNotes}></div>
+          <div className="notebooks-btn" onClick={toggleNavNotebook}></div>
+          <div className="shortcuts-btn" onClick={toggleFavorites}></div>
         </div>
 
         <div className="button-list sidebar-bottom">

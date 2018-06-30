@@ -9,8 +9,10 @@ export default class NoteIndex extends React.Component{
   }
 
   componentWillMount(){
-    this.props.fetchNotes();
-    this.props.fetchFavNotes();
+    if (this.props.componentType === "note-index") {
+      this.props.fetchNotes();
+      this.props.fetchFavNotes();
+    }
   }
 
   render(){
@@ -28,7 +30,7 @@ export default class NoteIndex extends React.Component{
     });
 
     return(
-      <div className={this.props.componentType}>
+      <div id={this.props.componentType} className={this.props.componentType}>
         <div className="note-index-header">
           <h2>NOTES {this.props.componentType}</h2>
           <div className="noteslist-footer">

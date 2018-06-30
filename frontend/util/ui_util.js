@@ -7,6 +7,15 @@ export const toggleNavNotebook = () => {
   };
 };
 
+export const toggleFavorites = () => {
+  const sidebarWidth = document.getElementById("favorite-index").style.width;
+  if (sidebarWidth === "0px") {
+    document.getElementById("favorite-index").style.width = "430px";
+  } else {
+    document.getElementById("favorite-index").style.width = "0px";
+  };
+};
+
 export const toggleSearch = () => {
   const sidebarZ = document.getElementById("search-form").style.width;
   if (sidebarZ === "0px") {
