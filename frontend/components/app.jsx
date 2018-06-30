@@ -33,7 +33,6 @@ const App = () => {
       </Switch>
 
       <ProtectedRoute exact path="/" component={NoteIndexContainer} />
-      <ProtectedRoute path="/" component={FavoriteIndexContainer} />
       <ProtectedRoute path="/main/:noteId" component={NotebookContainer} />
       <ProtectedRoute exact path="/" component={NewNoteContainer} />
 
@@ -42,6 +41,7 @@ const App = () => {
       <ProtectedRoute path="/main" component={SearchContainer} />
       <ProtectedRoute exact path="/main/:noteId" component={NoteIndexContainer} />
       <ProtectedRoute path="/main/:noteId/:notebookId" component={NotebookShowContainer} />
+      <ProtectedRoute path="/" component={FavoriteIndexContainer} />
 
       <Switch>
         <ProtectedRoute path="/main/new" component={NewNoteContainer} />

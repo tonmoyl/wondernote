@@ -34,39 +34,47 @@ export default class Note extends React.Component{
   }
 
   render() {
-    let renderBody = "";
 
-    //Use if statement in case there are no notes in favorites or notes
+    let followLink;
+
+    //Weird issue where note-item is rendering but this.props.note is not defined
+    //When issue is fixed, can delete the if/else statement
     if (this.props.note){
-      renderBody = JSON.parse(this.props.note.body).plainText;
-    }
+      let renderBody = JSON.parse(this.props.note.body).plainText;
 
-    let followLink
-    if (this.props.parentComponent === "noteIndex") {
-      followLink = `/main/${this.props.note.id}`;
+      if (this.props.parentComponent === "noteIndex") {
+        followLink = `/main/${this.props.note.id}`;
+      } else {
+        followLink = `/main/${this.props.note.id}/${this.props.notebookId}`;
+      }
+
+      let timeAgo = this.parseTime();
+      let title = this.props.note.title;
+      let selected = "unselected";
+
+      if (this.props.currentNoteId == this.props.note.id) {
+        selected = "selected";
+      }
+
+      return (
+        <div className="note-item">
+          <ToolbarContainer itemType="note-item" display="false" noteId={`${this.props.note.id}`}/>
+          <Link to={followLink}>
+            <div className={`list-item ${selected}`}>
+              <h3>{title}</h3>
+              <h4>{timeAgo}</h4>
+              <h5>{renderBody}</h5>
+            </div>
+          </Link>
+        </div>
+      )
     } else {
-      followLink = `/main/${this.props.note.id}/${this.props.notebookId}`;
+      return (
+        <div className="note-item">
+        </div>
+      )
     }
 
-    const timeAgo = this.parseTime();
 
-    let selected = "unselected";
-    if (this.props.currentNoteId == this.props.note.id) {
-      selected = "selected";
-    }
-
-    return (
-      <div className="note-item">
-        <ToolbarContainer itemType="note-item" display="false" noteId={`${this.props.note.id}`}/>
-        <Link to={followLink}>
-          <div className={`list-item ${selected}`}>
-            <h3>{this.props.note.title}</h3>
-            <h4>{timeAgo}</h4>
-            <h5>{renderBody}</h5>
-          </div>
-        </Link>
-      </div>
-
-    )
   }
 }

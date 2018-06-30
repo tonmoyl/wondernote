@@ -17,8 +17,9 @@ export default class NoteIndex extends React.Component{
 
   render(){
     let count = 0;
+
     const notes = this.props.noteIds.map( (id) => {
-      count ++
+      count ++;
       return (
         <li key={id}>
           <NoteItemContainer
@@ -26,7 +27,7 @@ export default class NoteIndex extends React.Component{
             prevLink={"noteIndex"}
             parentComponent="noteIndex"/>
         </li>
-      );
+        );
     });
 
     return(

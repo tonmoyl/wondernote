@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 
 import { RECEIVE_FAVS, RECEIVE_FAV, REMOVE_FAV } from '../actions/favorite_actions';
+import { REMOVE_NOTE } from '../actions/note_actions';
 
 const predefinedState = {};
 const favoriteReducer = ( state = predefinedState, action ) => {
@@ -13,8 +14,14 @@ const favoriteReducer = ( state = predefinedState, action ) => {
       const newNote = { [action.note.note_id]: action.note }
       return merge({}, state, newNote);
     case REMOVE_FAV:
-      let newState = merge({}, state);
+      newState = merge({}, state);
       delete newState[action.noteId];
+      return newState;
+    case REMOVE_NOTE:
+      newState = merge({}, state);
+      if (Object.keys(state).includes(action.noteId)) {
+        delete newState[action.noteId];
+      }
       return newState;
     default:
       return state;

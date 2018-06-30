@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import NoteIndex from './note_index';
 
 const mapStateToProps = ({ entities }) => {
+  let noteIds = Object.keys(entities.favorites) || [];
+
   return {
     componentType: "favorite-index",
     notes: entities.notes,
-    noteIds: Object.keys(entities.favorites),
+    noteIds
   }
 }
 
