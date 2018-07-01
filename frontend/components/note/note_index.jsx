@@ -33,7 +33,7 @@ export default class NoteIndex extends React.Component{
     return(
       <div id={this.props.componentType} className={this.props.componentType}>
         <div className="note-index-header">
-          <h2>NOTES {this.props.componentType}</h2>
+          <h2>{this.props.componentTitle}</h2>
           <div className="noteslist-footer">
             <h4>{count} notes</h4>
             <div className="options-list">
