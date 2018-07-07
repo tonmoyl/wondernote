@@ -2,7 +2,7 @@
 
 # Summary
 
-Wondernote is a single-page web application inspired by the cloud-storage app: Evernote, using Ruby on Rails, React, Redux, PostgreSQL, Quill and Webpack. The core functionality of this project was completed over two weeks (encompassing user, session, note and notebook functionality). Users are allowed to make an account, create notes that include rich-text editing, and sort their notebooks (notebooks consist of notes). Wondernote provides an elegant way to store all your information in the single page app by using drawers and sidebars to store information. Check it the [live demo](https://wondernote-aa.herokuapp.com/) and create your first note today!
+Wondernote is a single-page web application inspired by the cloud-storage app: Evernote, using Ruby on Rails, React, Redux, PostgreSQL, Quill and Webpack. The core functionality of this project was completed over two weeks (encompassing user, session, note and notebook functionality). Users are allowed to make an account, create notes that include rich-text editing, and sort their notebooks (notebooks consist of notes). Wondernote provides an elegant way to store all your information in the single page app by using drawers and sidebars to store information. Check out the [live demo](https://wondernote-aa.herokuapp.com/) and create your first note today!
 
 ![Screenshot of Wondernote](./Wireframes/readme_image.png)
 
