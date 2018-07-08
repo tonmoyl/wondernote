@@ -23,7 +23,9 @@ export default class Toolbar extends React.Component {
 
   deleteItem() {
     if (this.props.itemType === 'note' || this.props.itemType === 'note-item') {
-      this.props.deleteNote(this.props.noteId);
+      this.props.deleteNote(this.props.noteId).then( ()=> {
+        this.props.history.push('/main/new');
+      });
     }
     else if (this.props.itemType === 'notebook-item') {
       this.props.deleteNotebook(this.props.notebookId).then( ()=> {
@@ -44,7 +46,7 @@ export default class Toolbar extends React.Component {
   render() {
     // if (this.props.display) {
     this.renderFavorite();
-    
+
       return (
         <div className="toolbar">
           <i className="fa fa-trash-o" onClick={this.deleteItem}></i>
