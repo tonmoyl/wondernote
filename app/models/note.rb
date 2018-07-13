@@ -1,5 +1,8 @@
 class Note < ApplicationRecord
 
+  has_many_attached :images
+  # validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   validates :title, presence: true
 
   belongs_to :author,

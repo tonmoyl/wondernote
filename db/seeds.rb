@@ -18,6 +18,13 @@ first_notebook = Notebook.create(title: "First Notebook", author_id: demoUser.id
 second_notebook = Notebook.create(title: "Sec Notebook", author_id: demoUser.id);
 
 Note.destroy_all
+first_note = Note.create(
+  title:"First Note",
+  body:'{}',
+  author_id: demoUser.id,
+  notebook_id: first_notebook.id
+)
+
 # first_note = Note.create(
 #   title: "First Note",
 #   body: "Some information",

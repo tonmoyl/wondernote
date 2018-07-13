@@ -10,6 +10,7 @@ class Api::NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.author_id = current_user.id
+    @note.images.attach(params[:images])
 
     if @note.save
       render :show
@@ -44,7 +45,7 @@ class Api::NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :body, :notebook_id)
+    params.require(:note).permit(:title, :body, :notebook_id, images:[])
   end
 
 end
