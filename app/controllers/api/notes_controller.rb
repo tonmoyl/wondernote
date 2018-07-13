@@ -10,7 +10,7 @@ class Api::NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.author_id = current_user.id
-    @note.images.attach(params[:images])
+    @note.images.attach(io: File.open('./water.png'), filename: 'demo.png')
 
     if @note.save
       render :show

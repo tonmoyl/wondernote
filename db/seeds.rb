@@ -25,6 +25,15 @@ first_note = Note.create(
   notebook_id: first_notebook.id
 )
 
+# Rails Console.test:
+# first_note = Note.new(
+#   title:"First Note",
+#   body:'{}',
+#   author_id: User.last.id,
+#   notebook_id: Notebook.last.id
+# )
+
+
 # first_note = Note.create(
 #   title: "First Note",
 #   body: "Some information",
