@@ -28,7 +28,7 @@ export const toggleSearch = () => {
   const sidebarZ = document.getElementById("search-form").style.width;
   if (sidebarZ === "0px") {
     closeOtherWindows();
-    document.getElementById("search-form").style.width = "100%";
+    document.getElementById("search-form").style.width = "calc(100% - 75px)";
     // document.getElementById("search-form").style.visibility = "visible";
   } else {
     document.getElementById("search-form").style.width = "0px";

@@ -12,7 +12,7 @@ export default class NotebookShow extends React.Component {
     if (document.getElementById("notebook-side") &&
     document.getElementById("notebook-show")) {
       document.getElementById("notebook-side").style.width = "0px";
-      document.getElementById("notebook-show").style.zIndex = "4";
+      // document.getElementById("notebook-show").style.zIndex = "4";
     }
   }
 
