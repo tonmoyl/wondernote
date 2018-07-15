@@ -45,7 +45,7 @@ export default class Search extends React.Component {
     })
 
     return (
-      <div id="search-form" className="dropdown">
+      <div id="search-form" className="search-side dropdown">
         <input
           type="text"
           placeholder="Search Notes..."

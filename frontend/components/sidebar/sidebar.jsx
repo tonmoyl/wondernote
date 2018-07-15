@@ -12,6 +12,14 @@ export default class Sidebar extends React.Component {
     // this.openNotebookIndex = this.openNotebookIndex.bind(this);
   };
 
+  componentDidMount() {
+    console.log("no error")
+    document.getElementById("search-form").style.width = "0px";
+    document.getElementById("notebook-side").style.width = "0px";
+    document.getElementById("favorite-index").style.width = "0px";
+
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.logout();

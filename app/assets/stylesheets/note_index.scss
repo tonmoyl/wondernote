@@ -5,7 +5,6 @@
   background-color: white;
   border: 1px solid #ececec;
   height: 100%;
-  overflow-y: scroll;
   z-index: 2;
 }
 
@@ -14,8 +13,13 @@
   padding: 20px 40px;
 }
 
-.note-index h2 {
+.note-index h2, .favorite-index h2 {
   padding: 20px 0px;
+}
+
+.note-list {
+  height: calc(100% - 123px);
+  overflow-y: scroll;
 }
 
 .noteslist-footer {
