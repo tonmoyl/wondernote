@@ -13,7 +13,6 @@ export default class Sidebar extends React.Component {
   };
 
   componentDidMount() {
-    console.log("no error")
     document.getElementById("search-form").style.width = "0px";
     document.getElementById("notebook-side").style.width = "0px";
     document.getElementById("favorite-index").style.width = "0px";
@@ -23,7 +22,7 @@ export default class Sidebar extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.logout();
-    this.props.history.push(`/login`);
+    // this.props.history.push(`/login`);
     // this.toggleNavNotebook();
   }
 

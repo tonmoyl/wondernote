@@ -5,12 +5,13 @@ import ToolbarContainer from '../toolbar/toolbar_container';
 export default class Note extends React.Component{
   constructor(props){
     super(props)
+    this.parseTime = this.parseTime.bind(this);
   }
 
   parseTime() {
     const updateTime = this.props.note.updated_at;
     const currentTime = Date.now();
-    const differenceInMS = currentTime - Date.parse(updateTime);
+    const differenceInMS = 1 + currentTime - Date.parse(updateTime);
 
     const sec = Math.floor((differenceInMS / 1000) % 60);
     const min = Math.floor((differenceInMS / 1000 / 60) % 60);
@@ -20,16 +21,23 @@ export default class Note extends React.Component{
     const time = [days, hour, min, sec];
     const timeStr = ["DAYS", "HOURS", "MINS", "SEC"];
 
-    let showTime = 0;
+    let showTime = time[0];
     let idx = 0;
     let timeString = "SEC"
     while (showTime === 0) {
       idx ++;
       showTime = time[idx];
     }
+    // debugger
+    if (showTime) {
+      return `${showTime} ${timeStr[idx]} AGO`;
+    } else {
+      return "0 SEC AGO"
+    };
 
-    if (showTime) return `${showTime} ${timeStr[idx]} AGO`
-    else {return "0 SEC AGO"};
+
+    // if (showTime) return `${showTime} ${timeStr[idx]} AGO`
+    // else {return "0 SEC AGO"};
 
   }
 
