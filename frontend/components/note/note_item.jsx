@@ -23,7 +23,7 @@ export default class Note extends React.Component{
 
     let showTime = time[0];
     let idx = 0;
-    let timeString = "SEC"
+  
     while (showTime === 0) {
       idx ++;
       showTime = time[idx];

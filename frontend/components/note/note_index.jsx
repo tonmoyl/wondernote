@@ -15,6 +15,10 @@ export default class NoteIndex extends React.Component{
     }
   }
 
+  changeOrder(){
+    console.log('changing');
+  }
+
   render(){
     let count = 0;
 
@@ -37,7 +41,14 @@ export default class NoteIndex extends React.Component{
           <div className="noteslist-footer">
             <h4>{count} notes</h4>
             <div className="options-list">
-
+              Here are the options
+              <select
+                className="note-order"
+                onChange={this.changeOrder()}
+                >
+                <option>Hey</option>
+                <option>Cool</option>
+              </select>
             </div>
           </div>
         </div>
