@@ -40,16 +40,6 @@ export default class NoteIndex extends React.Component{
           <h2>{this.props.componentTitle}</h2>
           <div className="noteslist-footer">
             <h4>{count} notes</h4>
-            <div className="options-list">
-              Here are the options
-              <select
-                className="note-order"
-                onChange={this.changeOrder()}
-                >
-                <option>Hey</option>
-                <option>Cool</option>
-              </select>
-            </div>
           </div>
         </div>
         <div className="note-list">
