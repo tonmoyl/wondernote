@@ -23,7 +23,7 @@ export default class Note extends React.Component{
 
     let showTime = time[0];
     let idx = 0;
-  
+
     while (showTime === 0) {
       idx ++;
       showTime = time[idx];
@@ -49,7 +49,7 @@ export default class Note extends React.Component{
     //When issue is fixed, can delete the if/else statement
     if (this.props.note){
       let renderBody = JSON.parse(this.props.note.body).plainText;
-
+      
       if (this.props.parentComponent === "noteIndex") {
         followLink = `/main/${this.props.note.id}`;
       } else {

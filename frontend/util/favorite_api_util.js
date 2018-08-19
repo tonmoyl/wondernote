@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export const createFavNote = note => {
   return $.ajax({
     method: 'POST',
