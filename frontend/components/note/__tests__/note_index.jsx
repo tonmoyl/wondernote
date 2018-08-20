@@ -1,8 +1,8 @@
 import React from 'react';
 import * as Enzyme from 'enzyme';
-import ReactSixteenAdapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new ReactSixteenAdapter() });
+Enzyme.configure({ adapter: new Adapter() });
 import NoteIndex from '../note_index';
 
 
@@ -11,7 +11,8 @@ describe('NoteIndex', () => {
 
   beforeEach( () => {
     let notes = {
-      1: {id: 283, title: "another on", body: '{"quillText":{"ops":[{"insert":"\n"}]},"plainText":"\n"}', notebook_id: 115, author_id: 9}
+      1: {id: 283, title: "another on", body: '{"quillText":{"ops":[{"insert":"\n"}]},"plainText":"\n"}', notebook_id: 115, author_id: 9},
+      2: {id: 283, title: "another on", body: '{"quillText":{"ops":[{"insert":"\n"}]},"plainText":"\n"}', notebook_id: 115, author_id: 9}
     };
 
     const emptyFunction = () => {
@@ -22,7 +23,7 @@ describe('NoteIndex', () => {
       componentType: "note-index",
       componentTitle: "NOTES",
       notes: notes,
-      noteIds: [1],
+      noteIds: Object.keys(notes),
       notebooks: {},
       fetchNotes: emptyFunction,
       fetchFavNotes: emptyFunction
@@ -34,10 +35,13 @@ describe('NoteIndex', () => {
   it("renders Note Index", () => {
     const noteIdx = wrapper.find('.note-index');
     expect(noteIdx.length).toEqual(1);
+  });
 
+  it('renders a list of all the notes', () => {
+    const listElements = wrapper.find('li');
+    expect(listElements.length).toEqual(2);
   })
-
-
+  
   // let props;
   // let mountedNoteForm;
   // const noteForm = () => {
