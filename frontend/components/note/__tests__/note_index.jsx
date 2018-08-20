@@ -3,31 +3,39 @@ import * as Enzyme from 'enzyme';
 import ReactSixteenAdapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new ReactSixteenAdapter() });
-import NoteForm from '../note_form';
+import NoteIndex from '../note_index';
 
-describe('NoteForm', () => {
 
-  it("is running a sample test", () => {
+describe('NoteIndex', () => {
+  var wrapper;
 
-    expect(2+2).toEqual(4);
+  beforeEach( () => {
+    let notes = {
+      1: {id: 283, title: "another on", body: '{"quillText":{"ops":[{"insert":"\n"}]},"plainText":"\n"}', notebook_id: 115, author_id: 9}
+    };
+
+    const emptyFunction = () => {
+      return 2+2
+    };
+
+    var props = {
+      componentType: "note-index",
+      componentTitle: "NOTES",
+      notes: notes,
+      noteIds: [1],
+      notebooks: {},
+      fetchNotes: emptyFunction,
+      fetchFavNotes: emptyFunction
+    };
+
+    wrapper = Enzyme.shallow(<NoteIndex {...props}/>);
+  });
+
+  it("renders Note Index", () => {
+    const noteIdx = wrapper.find('.note-index');
+    expect(noteIdx.length).toEqual(1);
+
   })
-
-  // //couldn't test because of the Quill API
-  // it("let's do something with the noteform", () => {
-  //   const props = {
-  //     notebooks: {},
-  //     match: {
-  //       params: {
-  //         noteId: 1
-  //       }
-  //     }
-  //   }
-  //
-  //   const wrapper = Enzyme.shallow(<NoteForm {...props}/>);
-  //
-  //   wrapper.setState({id: 1, title: "testing", body: '{"quillText":{"ops":[{"insert":"\n"}]},"plainText":"\n"}', notebook_id: 115})
-  //   expect(wrapper.state().title).to.equal('testing');
-  // })
 
 
   // let props;
