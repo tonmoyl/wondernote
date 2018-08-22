@@ -1,8 +1,8 @@
 import React from 'react';
 import * as Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
 Enzyme.configure({ adapter: new Adapter() });
+
 import NoteIndex from '../note_index';
 
 
@@ -41,7 +41,7 @@ describe('NoteIndex', () => {
     const listElements = wrapper.find('li');
     expect(listElements.length).toEqual(2);
   })
-  
+
   // let props;
   // let mountedNoteForm;
   // const noteForm = () => {
