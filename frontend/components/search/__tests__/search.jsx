@@ -12,13 +12,12 @@ describe('Search', () => {
 
   beforeEach( () => {
     notes = {
-      1: {id: 283, title: "another one", body: '{"quillText":{"ops":[{"insert":"\n"}]},"plainText":"\n"}', notebook_id: 115, author_id: 9},
-      2: {id: 284, title: "Second message", body: '{"quillText":{"ops":[{"insert":"\n"}]},"plainText":"\n"}', notebook_id: 115, author_id: 9}
+      283: {id: 283, title: "another one", body: '{"quillText":{"ops":[{"insert":"\n"}]},"plainText":"\n"}', notebook_id: 115, author_id: 9},
+      284: {id: 284, title: "Second message", body: '{"quillText":{"ops":[{"insert":"\n"}]},"plainText":"\n"}', notebook_id: 115, author_id: 9}
     };
 
     var props = {
       notes: notes,
-      notebooks: {},
     };
 
     wrapper = Enzyme.shallow(<Search {...props}/>);
@@ -28,13 +27,14 @@ describe('Search', () => {
   it('renders the search function', () => {
     const item = wrapper.find('#search-form');
     expect(item.length).toEqual(1);
-  })
+  });
 
-  it('renders a list of all the notes', () => {
+  it('renders a list of Links for all the notes', () => {
     const listElements = wrapper.find('li');
     expect(wrapper.state('notes')).toEqual(notes);
-    expect(wrapper.state('noteIds')).toEqual(["1","2"]);
-
-  })
+    expect(wrapper.state('noteIds')).toEqual(["283", "284"]);
+    wrapper.setState({notes: notes});
+    expect(wrapper.text()).toEqual('<Link /><Link />');
+  });
 
 })

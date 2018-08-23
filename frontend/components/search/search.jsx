@@ -38,7 +38,7 @@ export default class Search extends React.Component {
       if (this.props.notes[id]) {
         return (
           <li key={id} className="search-item">
-            <Link to={`/main/${id}`} onClick={toggleSearch}>{this.props.notes[id].title}</Link>
+            <Link to={`/main/${id}`} onClick={toggleSearch}>{this.props.notes[id].title}hey</Link>
           </li>
         );
       }
