@@ -10,4 +10,8 @@ class Note < ApplicationRecord
   class_name: :Notebook,
   foreign_key: :notebook_id
 
+  has_many :photos,
+  class_name: :Photo,
+  foreign_key: :note_id
+
 end
