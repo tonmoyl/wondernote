@@ -7,6 +7,7 @@ import NoteIndexContainer from './note_index_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import merge from 'lodash/merge';
 import { isEmpty } from 'lodash';
+import PhotoIndex from '../photo/index';
 
 
 export default class NoteForm extends React.Component{
@@ -16,11 +17,16 @@ export default class NoteForm extends React.Component{
       id: "",
       title: "",
       body: "",
-      notebook_id: null
+      notebook_id: null,
+      photos: null
     };
     if (this.props.formType === "Update") this.state.title = " ";
     this.handleSubmit = this.handleSubmit.bind(this);
     this.initializeQuill = this.initializeQuill.bind(this);
+    this.viewPhotos = this.viewPhotos.bind(this);
+    this.fetchPhotos = this.fetchPhotos.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
+    this.uploadPhoto = this.uploadPhoto.bind(this);
   };
 
   componentDidMount(){
@@ -36,7 +42,32 @@ export default class NoteForm extends React.Component{
       });;
     };
     this.initializeQuill();
+    this.fetchPhotos();
   }
+
+  viewPhotos(){
+    if (this.state.photos) {
+      return (
+        <div>
+          <img className='embedded-photos' src={this.state.photos[0].photoUrl} />
+        </div>
+      )
+    } else {
+      return (
+        <h1>Not found</h1>
+      )
+    }
+  }
+
+  fetchPhotos(){
+    if (this.props.formType === "Update") {
+      $.ajax({
+        url: "/api/photos"
+      }).then( photos => {
+        this.setState({photos});
+      });
+    }
+  };
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.noteId !== nextProps.match.params.noteId) {
@@ -47,6 +78,18 @@ export default class NoteForm extends React.Component{
         this.quill.setContents(body);
       });
     }
+  }
+
+  uploadPhoto() {
+    return (
+      <form onSubmit={this.handleUpload}>
+        <input type='file' />
+        <button>Insert photo</button>
+      </form>
+    )
+  }
+
+  handleUpload() {
 
   }
 
@@ -180,6 +223,8 @@ export default class NoteForm extends React.Component{
           </div>
         </div>
 
+        {this.uploadPhoto()}
+
         <form className="note-form" onSubmit={this.handleSubmit}>
           <div className="note-selector">
             <select
@@ -203,9 +248,13 @@ export default class NoteForm extends React.Component{
             <h5 className="errors">
               {this.renderErrors()}
             </h5>
+            <div>
+              <PhotoIndex photos={this.state.photos} />
+            </div>
             <div id="editor">
 
             </div>
+
 
           </div>
 

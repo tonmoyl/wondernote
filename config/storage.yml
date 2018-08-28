@@ -1,6 +1,6 @@
 
 # a = Photo.create(location: 1, note_id: Note.first.id)
-# Photo.last.picture.attach(io: File.open('/Users/lifazul/Desktop/sample.jpg'), filename: 'sample.jpg')
+# Photo.last.url.attach(io: File.open('/Users/lifazul/Desktop/sample.jpg'), filename: 'sample.jpg')
 
 amazon:
   service: S3
