@@ -1,13 +1,23 @@
-local:
-  service: Disk
-  root: <%= Rails.root.join("storage") %>
+# local:
+#   service: Disk
+#   root: <%= Rails.root.join("storage") %>
+#
+# test:
+#   service: Disk
+#   root: <%= Rails.root.join("tmp/storage") %>
 
-test:
-  service: Disk
-  root: <%= Rails.root.join("tmp/storage") %>
+# amazon:
+#   service: S3
+#   access_key_id: "AKIAIE45RQDOTXSUTGGQ"
+#   secret_access_key: "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"
+#   region: "us-east-1"
+#   bucket: "wondernote-dev"
+
+# a = Photo.create(location: 1, note_id: Note.first.id)
+# Photo.last.picture.attach(io: File.open('/Users/lifazul/Desktop/sample.jpg'), filename: 'sample.jpg')
 
 amazon:
-  service: s3
+  service: S3
   access_key_id: <%= Rails.application.credentials.aws[:access_key_id] %>
   secret_access_key: <%= Rails.application.credentials.aws[:secret_access_key] %>
   region: <%= Rails.application.credentials.aws[:region] %>
