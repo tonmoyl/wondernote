@@ -63,6 +63,7 @@ export default class NoteForm extends React.Component{
       }).then( () => {
         let body = JSON.parse(this.state.body).quillText;
         this.quill.setContents(body);
+        this.quill.insertEmbed(1,'image', this.state.photos[0].photoUrl);
       });
     }
   }
