@@ -7,9 +7,8 @@ Rails.application.routes.draw do
     resource :user, only: [:create]
     resource :session, only: [:create, :destroy, :show]
     resources :notebooks, except: [:new, :edit]
+    resources :photos, only: [:create, :index]
   end
-
-  resources :photos, only: :show
 
   root "static_pages#root"
 end

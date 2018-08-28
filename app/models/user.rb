@@ -25,6 +25,10 @@ class User < ApplicationRecord
   through: :favorite_associations,
   source: :note
 
+  has_many :photos,
+  through: :notes,
+  source: :photos
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
