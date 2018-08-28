@@ -7,7 +7,7 @@ import NoteIndexContainer from './note_index_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import merge from 'lodash/merge';
 import { isEmpty } from 'lodash';
-import PhotoIndex from '../photo/index';
+import PhotoIndex from '../photo/preview';
 
 
 export default class NoteForm extends React.Component{
@@ -18,15 +18,16 @@ export default class NoteForm extends React.Component{
       title: "",
       body: "",
       notebook_id: null,
-      photos: null
+      photos: null,
+      uploadFile: null
     };
     if (this.props.formType === "Update") this.state.title = " ";
     this.handleSubmit = this.handleSubmit.bind(this);
     this.initializeQuill = this.initializeQuill.bind(this);
-    this.viewPhotos = this.viewPhotos.bind(this);
     this.fetchPhotos = this.fetchPhotos.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
     this.uploadPhoto = this.uploadPhoto.bind(this);
+    this.sendUpload = this.sendUpload.bind(this);
   };
 
   componentDidMount(){
@@ -43,20 +44,6 @@ export default class NoteForm extends React.Component{
     };
     this.initializeQuill();
     this.fetchPhotos();
-  }
-
-  viewPhotos(){
-    if (this.state.photos) {
-      return (
-        <div>
-          <img className='embedded-photos' src={this.state.photos[0].photoUrl} />
-        </div>
-      )
-    } else {
-      return (
-        <h1>Not found</h1>
-      )
-    }
   }
 
   fetchPhotos(){
@@ -82,15 +69,34 @@ export default class NoteForm extends React.Component{
 
   uploadPhoto() {
     return (
-      <form onSubmit={this.handleUpload}>
-        <input type='file' />
+      <form onSubmit={this.sendUpload}>
+        <input type='file' onChange={this.handleUpload.bind(this)} />
         <button>Insert photo</button>
       </form>
     )
   }
 
-  handleUpload() {
+  sendUpload(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('photo[location]',1);
+    formData.append('photo[note_id]', this.props.match.params.noteId);
+    formData.append('photo[url]', this.state.uploadFile);
 
+    $.ajax({
+      url: '/api/photos',
+      method: 'POST',
+      data: formData,
+      contentType: false,
+      processData: false
+    }).then(
+      (response) => console.log(response.message),
+      (response) => console.log(response.message)
+    )
+  }
+
+  handleUpload(e) {
+    this.setState({uploadFile: e.currentTarget.files[0]})
   }
 
   initializeQuill() {
@@ -170,6 +176,7 @@ export default class NoteForm extends React.Component{
 
 
   render(){
+    console.log(this.state.uploadFile)
     // let selectedOption = "";
     // if (this.props.currentNote){
     //   selectedOption = this.props.currentNote.notebook_id + "";

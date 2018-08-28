@@ -3,7 +3,6 @@ import React from 'react';
 export default class PhotoIndex extends React.Component {
   constructor(props){
     super(props)
-
   }
 
   render(){
@@ -15,7 +14,7 @@ export default class PhotoIndex extends React.Component {
       )
     } else {
       return (
-        <h1>Not found</h1>
+        <h1>No photos</h1>
       )
     }
   }
