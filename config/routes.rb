@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :notebooks, except: [:new, :edit]
   end
 
+  resources :photos, only: :show
+
   root "static_pages#root"
 end
