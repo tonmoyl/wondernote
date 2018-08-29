@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import NoteForm from './note_form';
 import { updateNote, fetchNote } from '../../actions/note_actions';
+import { fetchPhotos } from '../../actions/photo_actions';
 import { Link, withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,7 +21,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     processForm: (note) => dispatch(updateNote(note)),
-    fetchNote: (noteid) => dispatch(fetchNote(noteid))
+    fetchNote: (noteid) => dispatch(fetchNote(noteid)),
+    fetchPhotos: () => dispatch(fetchPhotos())
   };
 };
 

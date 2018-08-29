@@ -24,7 +24,6 @@ export default class NoteForm extends React.Component{
     if (this.props.formType === "Update") this.state.title = " ";
     this.handleSubmit = this.handleSubmit.bind(this);
     this.initializeQuill = this.initializeQuill.bind(this);
-    this.fetchPhotos = this.fetchPhotos.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
     this.uploadPhoto = this.uploadPhoto.bind(this);
     this.sendUpload = this.sendUpload.bind(this);
@@ -43,17 +42,7 @@ export default class NoteForm extends React.Component{
       });;
     };
     this.initializeQuill();
-    this.fetchPhotos();
-  }
-
-  fetchPhotos(){
-    if (this.props.formType === "Update") {
-      $.ajax({
-        url: "/api/photos"
-      }).then( photos => {
-        this.setState({photos});
-      });
-    }
+    this.props.fetchPhotos();
   };
 
   componentWillReceiveProps(nextProps) {
