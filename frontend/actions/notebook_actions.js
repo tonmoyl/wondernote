@@ -17,7 +17,7 @@ export const receiveNotebook = notebook => ({
 export const removeNotebook = notebookID => ({
   type: DELETE_NOTEBOOK,
   notebookID
-})
+});
 
 export const createNotebook = (notebook) => {
   return dispatch => {
@@ -47,6 +47,6 @@ export const deleteNotebook = (id) => {
   return dispatch => {
     return NotebooksAPIUtil.deleteNotebook(id).then( (notebook) => {
       return dispatch(removeNotebook(notebook.id));
-    })
-  }
-}
+    });
+  };
+};
