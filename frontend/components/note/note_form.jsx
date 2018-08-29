@@ -7,6 +7,8 @@ import NoteIndexContainer from './note_index_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import merge from 'lodash/merge';
 import { isEmpty } from 'lodash';
+import { createPhoto } from '../../actions/photo_actions';
+
 
 export default class NoteForm extends React.Component{
   constructor(props){
@@ -68,9 +70,8 @@ export default class NoteForm extends React.Component{
 
   uploadPhoto() {
     return (
-      <form onSubmit={this.sendUpload}>
-        <input type='file' onChange={this.handleUpload.bind(this)} />
-        <button>Insert photo</button>
+      <form>
+        <input type='file' onChange={this.sendUpload} />
       </form>
     )
   };
@@ -79,10 +80,24 @@ export default class NoteForm extends React.Component{
     e.preventDefault();
     const formData = new FormData();
     let location = this.quill.getSelection().index;
-    debugger
+
     formData.append('photo[location]',location);
     formData.append('photo[note_id]', this.props.match.params.noteId);
-    formData.append('photo[url]', this.state.uploadFile);
+    formData.append('photo[url]', e.currentTarget.files[0]);
+
+    this.props.createPhoto(formData).then( ({photo}) => {
+      this.quill.insertEmbed(photo.location, 'image', photo.photoUrl);
+    });
+  }
+
+  handleUpload(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    let location = this.quill.getSelection().index;
+
+    formData.append('photo[location]',location);
+    formData.append('photo[note_id]', this.props.match.params.noteId);
+    formData.append('photo[url]', e.currentTarget.files[0]);
 
     $.ajax({
       url: '/api/photos',
@@ -94,10 +109,6 @@ export default class NoteForm extends React.Component{
       (response) => console.log(response.message),
       (response) => console.log(response.message)
     )
-  }
-
-  handleUpload(e) {
-    this.setState({uploadFile: e.currentTarget.files[0]})
   }
 
   initializeQuill() {

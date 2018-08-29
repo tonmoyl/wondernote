@@ -2,7 +2,7 @@ import merge from 'lodash/merge';
 
 import { RECEIVE_CURRENT_NOTE } from '../actions/note_actions';
 import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
-import { RECEIVE_PHOTOS } from '../actions/photo_actions';
+import { RECEIVE_PHOTOS, RECEIVE_PHOTO } from '../actions/photo_actions';
 
 const predefinedState = {
   currentNote: null,
@@ -20,9 +20,13 @@ const currentNoteReducer = (state = predefinedState, action) => {
     case LOGOUT_CURRENT_USER:
       return predefinedState;
     case RECEIVE_PHOTOS:
-      newState = merge( {}, state)
+      newState = merge( {}, state )
       newState.photos = action.photos
       return newState
+    case RECEIVE_PHOTO:
+      newState = merge( {}, state )
+      newState.photos.push(action.photo);
+      return newState;
     default:
       return state;
   }
