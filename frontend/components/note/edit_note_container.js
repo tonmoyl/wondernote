@@ -12,8 +12,7 @@ const mapStateToProps = (state, ownProps) => {
     formType: "Update",
     notebooks: state.entities.notebooks,
     currentNotebookId: ownProps.match.params.notebookId,
-    state: state,
-    ownProps: ownProps
+    photos: state.entities.currentNote.photos
   }
 };
 

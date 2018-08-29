@@ -7,8 +7,6 @@ import NoteIndexContainer from './note_index_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import merge from 'lodash/merge';
 import { isEmpty } from 'lodash';
-import PhotoIndex from '../photo/preview';
-
 
 export default class NoteForm extends React.Component{
   constructor(props){
@@ -18,7 +16,7 @@ export default class NoteForm extends React.Component{
       title: "",
       body: "",
       notebook_id: null,
-      photos: null,
+      photos: [],
       uploadFile: null
     };
     if (this.props.formType === "Update") this.state.title = " ";
@@ -27,13 +25,24 @@ export default class NoteForm extends React.Component{
     this.handleUpload = this.handleUpload.bind(this);
     this.uploadPhoto = this.uploadPhoto.bind(this);
     this.sendUpload = this.sendUpload.bind(this);
+    this.renderPhotos = this.renderPhotos.bind(this);
   };
+
+  renderPhotos() {
+    this.state.photos.forEach( (photo) => {
+      this.quill.insertEmbed(1, 'image', photo.photoUrl);
+    })
+
+  }
 
   componentDidMount(){
     const noteId = this.props.match.params.noteId;
     let that = this;
     if (this.props.formType === "Update") {
-
+      this.props.fetchPhotos().then( ({photos}) => {
+        this.setState({photos: photos});
+        this.renderPhotos();
+      });
       this.props.fetchNote(this.props.match.params.noteId).then( ({note}) => {
         this.setState({id: note.id, title: note.title, body: note.body, notebook_id: note.notebook_id});
       }).then( () => {
@@ -42,7 +51,6 @@ export default class NoteForm extends React.Component{
       });;
     };
     this.initializeQuill();
-    this.props.fetchPhotos();
   };
 
   componentWillReceiveProps(nextProps) {
@@ -52,10 +60,10 @@ export default class NoteForm extends React.Component{
       }).then( () => {
         let body = JSON.parse(this.state.body).quillText;
         this.quill.setContents(body);
-        this.quill.insertEmbed(1,'image', this.state.photos[0].photoUrl);
+        this.renderPhotos();
       });
-    }
-  }
+    };
+  };
 
   uploadPhoto() {
     return (
@@ -64,7 +72,7 @@ export default class NoteForm extends React.Component{
         <button>Insert photo</button>
       </form>
     )
-  }
+  };
 
   sendUpload(e) {
     e.preventDefault();
@@ -166,7 +174,6 @@ export default class NoteForm extends React.Component{
 
 
   render(){
-    console.log(this.state.uploadFile)
     // let selectedOption = "";
     // if (this.props.currentNote){
     //   selectedOption = this.props.currentNote.notebook_id + "";
@@ -245,9 +252,6 @@ export default class NoteForm extends React.Component{
             <h5 className="errors">
               {this.renderErrors()}
             </h5>
-            <div>
-              <PhotoIndex photos={this.state.photos} />
-            </div>
             <div id="editor">
 
             </div>
