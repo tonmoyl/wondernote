@@ -17,7 +17,8 @@ export default class NoteForm extends React.Component{
       body: "",
       notebook_id: null,
       photos: [],
-      uploadFile: null
+      uploadFile: null,
+      location: null
     };
     if (this.props.formType === "Update") this.state.title = " ";
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,7 +31,7 @@ export default class NoteForm extends React.Component{
 
   renderPhotos() {
     this.state.photos.forEach( (photo) => {
-      this.quill.insertEmbed(1, 'image', photo.photoUrl);
+      this.quill.insertEmbed(photo.location, 'image', photo.photoUrl);
     })
 
   }
@@ -77,7 +78,9 @@ export default class NoteForm extends React.Component{
   sendUpload(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('photo[location]',1);
+    let location = this.quill.getSelection().index;
+    debugger
+    formData.append('photo[location]',location);
     formData.append('photo[note_id]', this.props.match.params.noteId);
     formData.append('photo[url]', this.state.uploadFile);
 
@@ -127,7 +130,6 @@ export default class NoteForm extends React.Component{
       const getContents = this.quill.getContents();
       this.setState({body: getContents});
     })
-
   };
 
   update(property) {
