@@ -3,7 +3,6 @@ class Api::FavoritesController < ApplicationController
   before_action :require_logged_in
 
   def create
-    debugger
     @favorite = Favorite.new(note_id: favorite_params["id"])
     @favorite.user_id = current_user.id
     if @favorite.save

@@ -25,7 +25,6 @@ export default class NoteForm extends React.Component{
     if (this.props.formType === "Update") this.state.title = " ";
     this.handleSubmit = this.handleSubmit.bind(this);
     this.initializeQuill = this.initializeQuill.bind(this);
-    this.handleUpload = this.handleUpload.bind(this);
     this.uploadPhoto = this.uploadPhoto.bind(this);
     this.sendUpload = this.sendUpload.bind(this);
     this.renderPhotos = this.renderPhotos.bind(this);
@@ -33,10 +32,11 @@ export default class NoteForm extends React.Component{
 
   renderPhotos() {
     this.state.photos.forEach( (photo) => {
-      this.quill.insertEmbed(photo.location, 'image', photo.photoUrl);
-    })
-
-  }
+      if (photo.note_id === this.props.currentNote.id) {
+        this.quill.insertEmbed(photo.location, 'image', photo.photoUrl);
+      };
+    });
+  };
 
   componentDidMount(){
     const noteId = this.props.match.params.noteId;
@@ -70,9 +70,13 @@ export default class NoteForm extends React.Component{
 
   uploadPhoto() {
     return (
-      <form>
+      // <label className="custom-file-upload">
+      //   <input type="file" onChange={this.sendUpload}/>
+      //
+      // </label>
+      <div className='custom-file-upload'>
         <input type='file' onChange={this.sendUpload} />
-      </form>
+      </div>
     )
   };
 
@@ -88,27 +92,6 @@ export default class NoteForm extends React.Component{
     this.props.createPhoto(formData).then( ({photo}) => {
       this.quill.insertEmbed(photo.location, 'image', photo.photoUrl);
     });
-  }
-
-  handleUpload(e) {
-    e.preventDefault();
-    const formData = new FormData();
-    let location = this.quill.getSelection().index;
-
-    formData.append('photo[location]',location);
-    formData.append('photo[note_id]', this.props.match.params.noteId);
-    formData.append('photo[url]', e.currentTarget.files[0]);
-
-    $.ajax({
-      url: '/api/photos',
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false
-    }).then(
-      (response) => console.log(response.message),
-      (response) => console.log(response.message)
-    )
   }
 
   initializeQuill() {
@@ -241,7 +224,6 @@ export default class NoteForm extends React.Component{
         </div>
 
         {this.uploadPhoto()}
-
         <form className="note-form" onSubmit={this.handleSubmit}>
           <div className="note-selector">
             <select
@@ -251,6 +233,7 @@ export default class NoteForm extends React.Component{
               {notebooks}
             </select>
           </div>
+
 
           <div className="form-group">
             <label>

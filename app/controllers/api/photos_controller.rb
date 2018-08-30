@@ -11,7 +11,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def index
-    @photos = Photo.all
+    @photos = current_user.photos
     render :index
   end
 
