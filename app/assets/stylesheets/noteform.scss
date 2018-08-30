@@ -3,7 +3,7 @@
   height: 100px;
 }
 
-input[type="file"] {
+input[type="file"], .gray{
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -25,5 +25,21 @@ input[type="file"] {
   background-repeat:   no-repeat;
   background-position: center center;
 }
+
+.custom-file-upload-gray {
+  position: absolute;
+  top: 185px;
+  right: 80px;
+  display: inline-block;
+  padding: 6px 12px;
+  width: 10px;
+  height: 15px;
+  background-image: image-url("upload_icon_gray.png");
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+
 
 ::-webkit-file-upload-button { cursor:pointer; }

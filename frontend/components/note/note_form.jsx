@@ -75,8 +75,18 @@ export default class NoteForm extends React.Component{
           <input type="file" onChange={this.sendUpload}/>
         </label>
       )
-    } //else if (this.props.formType === "")
+    } else {
+      return (
+        <label for="file" className="custom-file-upload-gray" onClick={this.cantUpload}>
+          <input className="gray" />
+        </label>
+      )
+    }
   };
+
+  cantUpload() {
+    alert("Create note first before uploading photo");
+  }
 
   sendUpload(e) {
     e.preventDefault();
