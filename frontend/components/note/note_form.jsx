@@ -69,15 +69,13 @@ export default class NoteForm extends React.Component{
   };
 
   uploadPhoto() {
-    return (
-      // <label className="custom-file-upload">
-      //   <input type="file" onChange={this.sendUpload}/>
-      //
-      // </label>
-      <div className='custom-file-upload'>
-        <input type='file' onChange={this.sendUpload} />
-      </div>
-    )
+    if (this.props.formType === 'Update') {
+      return (
+        <label for="file" className="custom-file-upload">
+          <input type="file" onChange={this.sendUpload}/>
+        </label>
+      )
+    } //else if (this.props.formType === "")
   };
 
   sendUpload(e) {
@@ -223,7 +221,7 @@ export default class NoteForm extends React.Component{
           </div>
         </div>
 
-        {this.uploadPhoto()}
+
         <form className="note-form" onSubmit={this.handleSubmit}>
           <div className="note-selector">
             <select
@@ -233,6 +231,7 @@ export default class NoteForm extends React.Component{
               {notebooks}
             </select>
           </div>
+
 
 
           <div className="form-group">
@@ -249,7 +248,6 @@ export default class NoteForm extends React.Component{
               {this.renderErrors()}
             </h5>
             <div id="editor">
-
             </div>
 
 
@@ -261,6 +259,7 @@ export default class NoteForm extends React.Component{
             value={this.props.formType} />
 
 
+          {this.uploadPhoto()}
         </form>
 
       </div>
