@@ -71,7 +71,7 @@ class User < ApplicationRecord
 
   def setup_notebook_note
     notebook = self.notebooks.create(title: "First Notebook")
-    note = notebook.notes.create(title: "First Note", author: self)
+    note = notebook.notes.create(title: "First Note", author: self, body: "{'quillText: {'ops': []}'}")
   end
 
 end
