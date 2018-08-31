@@ -71,7 +71,7 @@ export default class NoteForm extends React.Component{
   uploadPhoto() {
     if (this.props.formType === 'Update') {
       return (
-        <label for="file" className="custom-file-upload">
+        <label className="custom-file-upload">
           <input type="file" onChange={this.sendUpload}/>
         </label>
       )
@@ -116,7 +116,7 @@ export default class NoteForm extends React.Component{
       [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
       [{ 'font': [] }],
       [{ 'align': [] }],
-
+      ['image']
     ];
 
     var quill = new Quill('#editor', {
@@ -267,9 +267,7 @@ export default class NoteForm extends React.Component{
             className="note-action-btn submit-btn"
             type="submit"
             value={this.props.formType} />
-
-
-          {this.uploadPhoto()}
+          
         </form>
 
       </div>

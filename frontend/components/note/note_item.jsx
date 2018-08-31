@@ -6,6 +6,8 @@ export default class Note extends React.Component{
   constructor(props){
     super(props)
     this.parseTime = this.parseTime.bind(this);
+    this.parseData = JSON.parse(props.note.body);
+    this.renderImage = this.renderImage.bind(this);
   }
 
   parseTime() {
@@ -28,28 +30,41 @@ export default class Note extends React.Component{
       idx ++;
       showTime = time[idx];
     }
-    // debugger
+
     if (showTime) {
       return `${showTime} ${timeStr[idx]} AGO`;
     } else {
       return "0 SEC AGO"
     };
+  }
 
+  renderImage() {
+    this.parseData = JSON.parse(this.props.note.body);
+    let inserts = Object.values(this.parseData.quillText.ops)
+    let output;
+    inserts.forEach( (quillObj) => {
+      if (quillObj.insert.image) {
+        output = quillObj.insert.image;
+        return(
+          <img src={quillObj.insert.image}></img>
+        )
+      }
+    });
 
-    // if (showTime) return `${showTime} ${timeStr[idx]} AGO`
-    // else {return "0 SEC AGO"};
-
+    return(
+      <img className="thumbnail-photo" src={output}></img>
+    )
   }
 
   render() {
-
     let followLink;
-
     //Weird issue where note-item is rendering but this.props.note is not defined
     //When issue is fixed, can delete the if/else statement
     if (this.props.note){
+
       let renderBody = JSON.parse(this.props.note.body).plainText;
-      
+
+      let renderPic = JSON.parseTime
       if (this.props.parentComponent === "noteIndex") {
         followLink = `/main/${this.props.note.id}`;
       } else {
@@ -72,6 +87,7 @@ export default class Note extends React.Component{
               <h3>{title}</h3>
               <h4>{timeAgo}</h4>
               <h5>{renderBody}</h5>
+              {this.renderImage()}
             </div>
           </Link>
         </div>
@@ -82,7 +98,6 @@ export default class Note extends React.Component{
         </div>
       )
     }
-
 
   }
 }

@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_CURRENT_NOTE } from '../actions/note_actions';
+import { RECEIVE_NOTE, RECEIVE_CURRENT_NOTE } from '../actions/note_actions';
 import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_PHOTOS, RECEIVE_PHOTO } from '../actions/photo_actions';
 

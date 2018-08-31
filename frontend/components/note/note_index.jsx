@@ -15,10 +15,6 @@ export default class NoteIndex extends React.Component{
     }
   }
 
-  changeOrder(){
-    console.log('changing');
-  }
-
   render(){
     let count = 0;
 
