@@ -68,10 +68,13 @@ class User < ApplicationRecord
     end
     self.session_token
   end
-
   def setup_notebook_note
     notebook = self.notebooks.create(title: "First Notebook")
-    note = notebook.notes.create(title: "First Note", author: self, body: "{'quillText: {'ops': []}'}")
+    note = notebook.notes.create(
+      title: "First Note",
+      author: self,
+      body: '{"quillText":{"ops":[]}}'
+    )
   end
 
 end

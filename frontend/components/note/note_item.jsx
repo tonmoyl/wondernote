@@ -2,11 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ToolbarContainer from '../toolbar/toolbar_container';
 
-export default class Note extends React.Component{
+export default class NoteItem extends React.Component{
   constructor(props){
     super(props)
     this.parseTime = this.parseTime.bind(this);
-    this.parseData = JSON.parse(props.note.body);
+    // let this.parseData;
+    if (props.note) {
+      this.parseData = JSON.parse(props.note.body);
+    }
     this.renderImage = this.renderImage.bind(this);
   }
 
@@ -40,16 +43,18 @@ export default class Note extends React.Component{
 
   renderImage() {
     this.parseData = JSON.parse(this.props.note.body);
-    let inserts = Object.values(this.parseData.quillText.ops)
     let output;
-    inserts.forEach( (quillObj) => {
-      if (quillObj.insert.image) {
-        output = quillObj.insert.image;
-        return(
-          <img src={quillObj.insert.image}></img>
-        )
-      }
-    });
+    if (this.parseData.quillText) {
+      let inserts = Object.values(this.parseData.quillText.ops)
+      inserts.forEach( (quillObj) => {
+        if (quillObj.insert.image) {
+          output = quillObj.insert.image;
+          return(
+            <img src={quillObj.insert.image}></img>
+          )
+        }
+      });
+    }
 
     return(
       <img className="thumbnail-photo" src={output}></img>
