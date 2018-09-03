@@ -87,12 +87,9 @@
   height: 100%;
 }
 
-#editor {
+.text-document {
   border: none;
-}
-
-.form-group .ql-toolbar {
-  border: none;
+  overflow-y: scroll;
 }
 
 // .form-group .ql-toolbar {
@@ -101,13 +98,6 @@
 //   margin: auto;
 //   display: flex;
 //   justify-content: center;
-// }
-
-// .form-group .ql-editor {
-//   width: 90%;
-//   margin: auto;
-//   border: none;
-//   // padding-top: 20px;
 // }
 
 

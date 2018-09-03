@@ -257,9 +257,9 @@ export default class NoteForm extends React.Component{
             <h5 className="errors">
               {this.renderErrors()}
             </h5>
-            <div id="editor">
+            <div className='text-document'>
+              <div id="editor"></div>
             </div>
-
 
           </div>
 
@@ -267,7 +267,7 @@ export default class NoteForm extends React.Component{
             className="note-action-btn submit-btn"
             type="submit"
             value={this.props.formType} />
-          
+
         </form>
 
       </div>

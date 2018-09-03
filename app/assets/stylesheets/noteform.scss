@@ -40,6 +40,22 @@ input[type="file"], .gray{
   background-position: center center;
 }
 
+.ql-editor {
+  height: calc(100vh - 250px);
+}
 
+.ql-container.ql-snow, .ql-toolbar.ql-snow {
+  border: none;
+}
 
-::-webkit-file-upload-button { cursor:pointer; }
+.ql-toolbar.ql-snow {
+  text-align: center;
+}
+
+::-webkit-file-upload-button {
+  cursor:pointer;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
