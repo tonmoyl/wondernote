@@ -34,10 +34,10 @@ export default class NoteIndex extends React.Component{
         break
       case "alphabetical":
         console.log("hit asdl");
-        this.sortAlphabetical()
+        this.sortAlphabetical();
         break
       case "reverse-alphabetical":
-        console.log("saddsad");
+        this.sortAlphabetical().reverse();
         break
       default:
         console.log("default");
@@ -66,7 +66,7 @@ export default class NoteIndex extends React.Component{
       return item[1];
     });
     this.setState({noteIds: sorted});
-    console.log(this.state.noteIds);
+    return sorted;
   }
 
   render(){
