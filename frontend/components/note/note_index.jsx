@@ -106,9 +106,14 @@ export default class NoteIndex extends React.Component{
 
   render(){
     let count = 0;
+    let noteIds;
 // debugger
-    let notes = this.state.noteIds.map( (id) => {
-      // debugger
+    if (this.props.componentType === "note-index") {
+      noteIds = this.state.noteIds;
+    } else {
+      noteIds = this.props.noteIds;
+    }
+    let notes = noteIds.map( (id) => {
         count ++;
         return (
           <li key={id}>
