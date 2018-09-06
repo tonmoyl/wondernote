@@ -5,10 +5,11 @@
   z-index: 5;
   top: 0;
   left: 0;
-  background-color: #f8f8f8;
+  background-color: #484c65;
   padding-top: 20px;
   overflow: hidden;
-
+  font-size: 10px;
+  margin: auto;
 }
 
 .sidebar {
@@ -25,25 +26,33 @@
 }
 
 .button-list div {
+  color: white;
   display: block;
-  background-repeat: no-repeat;
-  background-size: auto;
-  height: 40px;
-  width: 40px;
-  margin:auto;
+  height: 30px;
+  width: 30px;
+  margin: 10px auto;
   padding: 10px;
   cursor: pointer;
-  background-position: center;
-
+  transition: background-color 1s ease;
+  border-radius: 10%
 }
 
-.new-note-btn {
-  background-image: image-url("sidebar_buttons/newnote.png");
+.button-list div:hover {
+  color: white;
+  background-color: #333649;
 }
 
-.new-note-btn:hover {
-  background-image: image-url("sidebar_buttons/newnote_hover.png");
+.button-list a {
+  text-decoration: none;
 }
+
+// .new-note-btn {
+//   background-image: image-url("sidebar_buttons/newnote.png");
+// }
+//
+// .new-note-btn:hover {
+//   background-image: image-url("sidebar_buttons/newnote_hover.png");
+// }
 
 .new-meeting-btn {
   background-image: image-url("sidebar_buttons/meeting_note.png");
@@ -53,13 +62,13 @@
   background-image: image-url("sidebar_buttons/meeting_note_hover.png");
 }
 
-.search-btn {
-  background-image: image-url("sidebar_buttons/search.png");
-}
-
-.search-btn:hover {
-  background-image: image-url("sidebar_buttons/search_hover.png");
-}
+// .search-btn {
+//   background-image: image-url("sidebar_buttons/search.png");
+// }
+//
+// .search-btn:hover {
+//   background-image: image-url("sidebar_buttons/search_hover.png");
+// }
 
 .workchat-btn {
   background-image: image-url("sidebar_buttons/workchat.png");
@@ -69,29 +78,29 @@
   background-image: image-url("sidebar_buttons/workchat_hover.png");
 }
 
-.shortcuts-btn {
-  background-image: image-url("sidebar_buttons/shortcuts.png");
-}
+// .shortcuts-btn {
+//   background-image: image-url("sidebar_buttons/shortcuts.png");
+// }
+//
+// .shortcuts-btn:hover {
+//   background-image: image-url("sidebar_buttons/shortcuts_hover.png");
+// }
 
-.shortcuts-btn:hover {
-  background-image: image-url("sidebar_buttons/shortcuts_hover.png");
-}
+// .notes-btn {
+//   background-image: image-url("sidebar_buttons/notes.png");
+// }
+//
+// .notes-btn:hover {
+//   background-image: image-url("sidebar_buttons/notes_hover.png");
+// }
 
-.notes-btn {
-  background-image: image-url("sidebar_buttons/notes.png");
-}
-
-.notes-btn:hover {
-  background-image: image-url("sidebar_buttons/notes_hover.png");
-}
-
-.notebooks-btn {
-  background-image: image-url("sidebar_buttons/notebook.png");
-}
-
-.notebooks-btn:hover {
-  background-image: image-url("sidebar_buttons/notebook_hover.png");
-}
+// .notebooks-btn {
+//   background-image: image-url("sidebar_buttons/notebook.png");
+// }
+//
+// .notebooks-btn:hover {
+//   background-image: image-url("sidebar_buttons/notebook_hover.png");
+// }
 
 .tags-btn {
   background-image: image-url("sidebar_buttons/tags.png");

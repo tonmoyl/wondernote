@@ -52,18 +52,33 @@ export default class Sidebar extends React.Component {
       <div className="sidebar">
         <div className="button-list sidebar-top">
             <Link  to="/main/new" onClick={this.closeOtherWindows}>
-              <div className="new-note-btn" />
+              <div className="new-note-btn" >
+                <i class="material-icons">note_add</i>
+                New
+              </div>
             </Link>
 
-            <div className="search-btn" onClick={toggleSearch}></div>
+            <div className="search-btn" onClick={toggleSearch}>
+              <i class="material-icons">search</i>
+              Search
+            </div>
         </div>
 
         <div className="button-list sidebar-middle">
             <Link to={`/main/${this.props.match.params.noteId}`}  onClick={this.closeOtherWindows}>
-              <div className="notes-btn"></div>
+              <div className="notes-btn">
+                <i class="material-icons">library_books</i>
+                Notes
+              </div>
             </Link>
-          <div className="notebooks-btn" onClick={toggleNavNotebook}></div>
-          <div className="shortcuts-btn" onClick={toggleFavorites}></div>
+          <div className="notebooks-btn" onClick={toggleNavNotebook}>
+            <i class="material-icons">book</i>
+            Books
+          </div>
+          <div className="shortcuts-btn" onClick={toggleFavorites}>
+            <i class="material-icons">bookmark</i>
+            Saved
+          </div>
         </div>
 
         <div className="button-list sidebar-bottom">
