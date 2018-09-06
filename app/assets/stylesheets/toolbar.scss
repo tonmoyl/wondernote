@@ -1,7 +1,7 @@
 .toolbar {
   width: 80px;
   height: 40px;
-  color: green;
+  color: purple;
   font-weight: bold;
   cursor: pointer;
   position: absolute;
@@ -27,9 +27,9 @@
 }
 
 .favorite-item.fa-star:before{
-  -webkit-text-fill-color: darkgreen;
+  -webkit-text-fill-color: purple;
   -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: darkgreen;
+  -webkit-text-stroke-color: purple;
 }
 
 .thumbnail-photo {

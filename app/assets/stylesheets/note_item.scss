@@ -34,11 +34,12 @@
 
 .selected {
   box-sizing: border-box;
-  border: 3px solid lightgray;
+  // border: 3px solid lightgray;
+  background-color: #adafc98c;
 }
 
-.selected:hover {
-  border: 3px solid #32bf6b;
+.selected h4 {
+  color: black;
 }
 
 .list-item:hover, .list-item:hover h3, .list-item:hover h4, .list-item:hover h5, .toolbar:hover{
@@ -60,7 +61,7 @@
 }
 
 .note-list li:hover, .notebook-index li:hover {
-  background-color: #32bf6b;
+  background-color: #8bb6dc;
   border: none;
   -webkit-transition: background-color 200ms linear;
   -ms-transition: background-color 200ms linear;

@@ -63,7 +63,9 @@ select[class*="-dropdown"] {
   border: none;
   cursor: pointer;
   font-size: 14px;
-  color: green;
+  color: #5e267b;
+  height: 30px;
+  border: 1px solid black;
 }
 
 .select_items {
@@ -115,10 +117,6 @@ select[class*="-dropdown"] {
   padding: 20px;
 }
 
-.note-selector {
-  border-bottom: 1px solid lightgray;
-}
-
 .note-document {
   border-bottom: 1px solid lightgray;
   padding: 20px;
@@ -128,7 +126,7 @@ select[class*="-dropdown"] {
   width: 90%;
   font-family: 'Montserrat', sans-serif;
   font-size: 28px;
-  color: #1dba60;
+  color: purple;
   border: none;
   margin: 30px 40px;
   outline: none;
@@ -144,5 +142,5 @@ select[class*="-dropdown"] {
 }
 
 ::placeholder {
-  color: #1dba60;
+  color: purple;
 }

@@ -3,7 +3,6 @@
   left: 75px;
   width: 350px;
   background-color: white;
-  border: 1px solid #ececec;
   height: 100%;
   z-index: 2;
 }
@@ -11,10 +10,19 @@
 .note-index-header {
   box-sizing: border-box;
   padding: 20px 40px;
+  background-color: #855c9e
 }
 
-.note-index h2, .favorite-index h2 {
+.note-index h2, .favorite-index h2{
   padding: 20px 0px;
+  color: white;
+}
+.note-index h4:first-child, .favorite-index h4:first-child {
+  color: white;
+}
+
+.note-index h4, .favorite-index h4:first-child {
+  color: #ccc;
 }
 
 .note-list {
@@ -34,6 +42,6 @@
 
 .notes-dropdown {
   position: absolute;
-  right: 10px;
-  top: 70px;
+  right: 0px;
+  top: 60px;
 }
