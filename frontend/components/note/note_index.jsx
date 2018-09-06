@@ -22,12 +22,11 @@ export default class NoteIndex extends React.Component{
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if(this.state.noteIds.length !== nextProps.noteIds.length) {
-      nextState.noteIds = nextProps.noteIds
-      this.updateOrder();
+  componentDidUpdate() {
+    let noteIds = Object.keys(this.props.notes)
+    if(noteIds.length !== this.state.noteIds.length) {
+      this.setState({noteIds: this.updateOrder()});
     }
-    return true;
   }
 
   renderOrder(){
@@ -40,22 +39,19 @@ export default class NoteIndex extends React.Component{
 
     switch(order){
       case "newest":
-        this.sortUpdate();
-        break
+        return this.sortUpdate();
       case "oldest":
-        this.sortUpdate().reverse();
-        break
+        return this.sortUpdate().reverse();
       case "alphabetical":
-        this.sortAlphabetical();
-        break
+        return this.sortAlphabetical();
       case "reverse-alphabetical":
-        this.sortAlphabetical().reverse();
-        break
+        return this.sortAlphabetical().reverse();
       default:
         break
     }
+
     this.state.order = order;
-    return order
+    return null;
   }
 
   sortAlphabetical() {
@@ -109,9 +105,10 @@ export default class NoteIndex extends React.Component{
   }
 
   render(){
-    debugger
     let count = 0;
+// debugger
     let notes = this.state.noteIds.map( (id) => {
+      // debugger
         count ++;
         return (
           <li key={id}>
@@ -125,7 +122,7 @@ export default class NoteIndex extends React.Component{
 
     return(
       <div id={this.props.componentType} className={this.props.componentType}>
-        <select id="dropdown-order" className="notes-dropdown" onChange={this.renderOrder}>
+        <select id="dropdown-order" className="notes-dropdown" onChange={this.renderOrder} defaultValue="newest">
           <option className="value-order" value="newest">Most Recent</option>
           <option className="value-order" value="oldest">Least Recent</option>
           <option className="value-order" value="alphabetical">Sort by Title (a-z)</option>
