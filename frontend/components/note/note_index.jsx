@@ -6,11 +6,12 @@ export default class NoteIndex extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      order: "update",
-      noteIds: this.props.noteIds
+      order: "newest",
+      noteIds: []
     }
     this.updateOrder = this.updateOrder.bind(this);
     this.sortAlphabetical = this.sortAlphabetical.bind(this);
+    this.sortUpdate = this.sortUpdate.bind(this);
   }
 
   componentWillMount(){
@@ -21,7 +22,9 @@ export default class NoteIndex extends React.Component{
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    this.state.noteIds = nextProps.noteIds;
+    if(this.state.noteIds.length !== nextProps.noteIds.length) {
+      nextState.noteIds = nextProps.noteIds
+    }
     return true;
   }
 
@@ -29,18 +32,19 @@ export default class NoteIndex extends React.Component{
     const order = document.getElementById("dropdown-order").value;
 
     switch(order){
-      case "update":
-        console.log("hit switch update");
+      case "newest":
+        this.sortUpdate();
+        break
+      case "oldest":
+        this.sortUpdate().reverse();
         break
       case "alphabetical":
-        console.log("hit asdl");
         this.sortAlphabetical();
         break
       case "reverse-alphabetical":
         this.sortAlphabetical().reverse();
         break
       default:
-        console.log("default");
         break
     }
     this.state.order = order;
@@ -69,6 +73,31 @@ export default class NoteIndex extends React.Component{
     return sorted;
   }
 
+  sortUpdate() {
+    let notes = this.props.notes;
+    let sorted = [];
+
+    for (var id in notes) {
+      let noteUpdate = Date.parse(this.props.notes[id].updated_at);
+
+      sorted.push([noteUpdate, id]);
+    }
+
+    function comparator(a,b) {
+      if (a[0] < b[0]) return -1;
+      if (a[0] > b[0]) return 1;
+      if (a[0] === b[0]) return 0;
+    }
+
+
+    sorted = sorted.sort(comparator);
+    sorted = sorted.map( (item) => {
+      return item[1];
+    });
+    this.setState({noteIds: sorted});
+    return sorted.reverse();
+  }
+
   render(){
     let count = 0;
     let notes = this.state.noteIds.map( (id) => {
@@ -85,8 +114,9 @@ export default class NoteIndex extends React.Component{
 
     return(
       <div id={this.props.componentType} className={this.props.componentType}>
-        <select id="dropdown-order" className="dropdown-order" onChange={this.updateOrder}>
-          <option className="value-order" value="update">Last Updated</option>
+        <select id="dropdown-order" className="notes-dropdown" onChange={this.updateOrder}>
+          <option className="value-order" value="newest">Most Recent</option>
+          <option className="value-order" value="oldest">Least Recent</option>
           <option className="value-order" value="alphabetical">Sort by Title (a-z)</option>
           <option className="value-order" value="reverse-alphabetical">Sort by Title (z-a)</option>
         </select>

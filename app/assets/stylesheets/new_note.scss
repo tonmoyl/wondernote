@@ -57,7 +57,7 @@
   justify-content: center;
 }
 
-.notebook-dropdown {
+select[class*="-dropdown"] {
   margin: 10px;
   background-color: white;
   border: none;

@@ -9,7 +9,7 @@ const mapStateToProps = ({ entities }) => {
     componentType: "note-index",
     componentTitle: "NOTES",
     notes: entities.notes,
-    noteIds: Object.keys(entities.notes).reverse(),
+    noteIds: Object.keys(entities.notes)
   };
 };
 
