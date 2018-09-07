@@ -84,19 +84,19 @@ export default class Sidebar extends React.Component {
         <div className="button-list sidebar-bottom">
           <a href="http://lifazul.com">
             <div>
-              <i class="material-icons">public</i>
+              <i className="material-icons">public</i>
               web
             </div>
           </a>
           <div>
             <a href="https://github.com/tonmoyl">
-              <i class="material-icons">code</i>
+              <i className="material-icons">code</i>
               github
             </a>
           </div>
           <div>
             <a href="https://www.linkedin.com/in/lifazultonmoy/">
-              <i class="material-icons">people_outline</i>
+              <i className="material-icons">people_outline</i>
               linkedin
             </a>
           </div>

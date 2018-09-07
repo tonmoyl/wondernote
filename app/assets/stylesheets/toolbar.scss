@@ -1,7 +1,7 @@
 .toolbar {
   width: 80px;
   height: 40px;
-  color: purple;
+  color: lightgray;
   font-weight: bold;
   cursor: pointer;
   position: absolute;
@@ -9,27 +9,13 @@
   justify-content: space-around;
 }
 
-.fa-trash-o:before {
+.trash {
   font-size: 25px;
   color: lightgray;
 }
 
-.fa-star:before {
-  font-size: 25px;
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: white;
-}
-
-#note-document .fa-star:before {
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: lightgray;
-}
-
-.favorite-item.fa-star:before{
-  -webkit-text-fill-color: purple;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: purple;
+.favorite-item{
+  color: #577d8b;
 }
 
 .thumbnail-photo {
