@@ -13,9 +13,9 @@ export default class Toolbar extends React.Component {
     // Render on note-items and note; Not on notebook-item
     if (this.props.itemType != 'notebook-item') {
       if (this.props.favoriteIds && this.props.favoriteIds.includes(this.props.noteId)){
-        this.favorite = <i className="material-icons favorite-item" onClick={this.toggleFav}>star</i>
+        this.favorite = <i className="material-icons favorite favorite-item" onClick={this.toggleFav}>star</i>
       } else {
-        this.favorite = <i className="material-icons" onClick={this.toggleFav}>star</i>
+        this.favorite = <i className="material-icons favorite" onClick={this.toggleFav}>star</i>
       }
     }
   }
@@ -48,7 +48,7 @@ export default class Toolbar extends React.Component {
 
       return (
         <div className="toolbar">
-          <i className="material-icons" onClick={this.deleteItem}>delete</i>
+          <i className="material-icons trash" onClick={this.deleteItem}>delete</i>
           {this.favorite}
         </div>
       )

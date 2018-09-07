@@ -15,16 +15,21 @@
 
 .trash {
   font-size: 25px;
-  color: lightgray;
 }
 
 .trash:hover {
-  color: red;
+  color: #eac0c0;
 }
 
-.favorite-item{
+
+.favorite:hover{
+  color: #c0d7ea;
+}
+
+.favorite-item, .favorite-item:hover{
   color: #577d8b;
 }
+
 
 .thumbnail-photo {
   position: absolute;
