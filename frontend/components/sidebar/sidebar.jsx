@@ -76,7 +76,7 @@ export default class Sidebar extends React.Component {
             Books
           </div>
           <div className="shortcuts-btn" onClick={toggleFavorites}>
-            <i class="material-icons">bookmark</i>
+            <i class="material-icons">star</i>
             Saved
           </div>
         </div>

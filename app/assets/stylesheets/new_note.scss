@@ -1,7 +1,7 @@
 .note-show {
   position: fixed;
   left: 425px;
-  background-color: white;
+  background-color: lightgrey;
   border: 1px solid lightgray;
   height: 100%;
   width: calc(100% - 425px);
@@ -9,7 +9,8 @@
 
 .note-form {
   height: 100%;
-  margin: 0px 50px;
+  width: 100%;
+  background-color: #3187b1;
 }
 
 .notebook-title input {
@@ -81,9 +82,6 @@ select[class*="-dropdown"] {
   text-align: left;
 }
 
-.new-note-header {
-  height: 25px;
-}
 
 .form-group {
   height: 100%;
@@ -105,11 +103,14 @@ select[class*="-dropdown"] {
 
 .form-group .note-title {
   width: 90%;
+  background-color: #3885bbb5;
 }
 
+
 .new-note-header {
-  border-bottom: 1px solid lightgray;
   padding: 20px;
+  height: 25px;
+  background-color: #284d73;
 }
 
 .font-toolbar {
@@ -126,7 +127,7 @@ select[class*="-dropdown"] {
   width: 90%;
   font-family: 'Montserrat', sans-serif;
   font-size: 28px;
-  color: purple;
+  color: white;
   border: none;
   margin: 30px 40px;
   outline: none;
@@ -142,5 +143,5 @@ select[class*="-dropdown"] {
 }
 
 ::placeholder {
-  color: purple;
+  color: white;
 }
