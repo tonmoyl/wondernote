@@ -9,9 +9,17 @@
   justify-content: space-around;
 }
 
+.new-note-header .toolbar:hover{
+  color: lightgray;
+}
+
 .trash {
   font-size: 25px;
   color: lightgray;
+}
+
+.trash:hover {
+  color: red;
 }
 
 .favorite-item{
