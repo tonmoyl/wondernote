@@ -45,8 +45,6 @@ input[type="file"], .gray{
   width: 80%;
   background-color: white;
   margin: auto;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
 }
 
 .ql-container.ql-snow, .ql-toolbar.ql-snow {
@@ -55,11 +53,9 @@ input[type="file"], .gray{
 
 .ql-toolbar.ql-snow {
   text-align: center;
-  background-color: #88b2c5;
-}
-
-.ql-container.ql-snow {
-  background-color: #eeeeee;
+  border-bottom: 1px solid lightgray;
+  width: 80%;
+  margin: auto;
 }
 
 ::-webkit-file-upload-button {
@@ -76,4 +72,10 @@ input[type="file"], .gray{
 
 .ql-formats button:hover {
   background-color: #6c91a2;
+}
+
+.notebook-dropdown {
+  position: fixed;
+  top: 9px;
+  right: 220px;
 }

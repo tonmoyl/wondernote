@@ -10,7 +10,7 @@
 .note-form {
   height: 100%;
   width: 100%;
-  background-color: #3187b1;
+  background-color: white;
 }
 
 .notebook-title input {
@@ -103,14 +103,14 @@ select[class*="-dropdown"] {
 
 .form-group .note-title {
   width: 90%;
-  background-color: #3885bbb5;
+  background-color: white;
 }
 
 
 .new-note-header {
   padding: 20px;
   height: 25px;
-  background-color: #284d73;
+  background-color: white;
 }
 
 .font-toolbar {
@@ -127,7 +127,7 @@ select[class*="-dropdown"] {
   width: 90%;
   font-family: 'Montserrat', sans-serif;
   font-size: 28px;
-  color: white;
+  color: #577d8b;
   border: none;
   margin: 30px 40px;
   outline: none;
@@ -143,5 +143,5 @@ select[class*="-dropdown"] {
 }
 
 ::placeholder {
-  color: white;
+  color: #577d8b;
 }
