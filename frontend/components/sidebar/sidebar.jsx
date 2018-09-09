@@ -53,13 +53,13 @@ export default class Sidebar extends React.Component {
         <div className="button-list sidebar-top">
             <Link  to="/main/new" onClick={this.closeOtherWindows}>
               <div className="new-note-btn" >
-                <i class="material-icons">note_add</i>
+                <i className="material-icons">note_add</i>
                 New
               </div>
             </Link>
 
             <div className="search-btn" onClick={toggleSearch}>
-              <i class="material-icons">search</i>
+              <i className="material-icons">search</i>
               Search
             </div>
         </div>
@@ -67,16 +67,16 @@ export default class Sidebar extends React.Component {
         <div className="button-list sidebar-middle">
             <Link to={`/main/${this.props.match.params.noteId}`}  onClick={this.closeOtherWindows}>
               <div className="notes-btn">
-                <i class="material-icons">library_books</i>
+                <i className="material-icons">library_books</i>
                 Notes
               </div>
             </Link>
           <div className="notebooks-btn" onClick={toggleNavNotebook}>
-            <i class="material-icons">book</i>
+            <i className="material-icons">book</i>
             Books
           </div>
           <div className="shortcuts-btn" onClick={toggleFavorites}>
-            <i class="material-icons">star</i>
+            <i className="material-icons">star</i>
             Saved
           </div>
         </div>
@@ -101,7 +101,7 @@ export default class Sidebar extends React.Component {
             </a>
           </div>
           <div className="logout" onClick={this.handleSubmit}>
-            <i class="material-icons">motorcycle</i>
+            <i className="material-icons">motorcycle</i>
             Logout
           </div>
         </div>
