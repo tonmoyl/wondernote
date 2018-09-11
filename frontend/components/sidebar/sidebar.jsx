@@ -7,9 +7,6 @@ export default class Sidebar extends React.Component {
   constructor(props){
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.toggleNavNotebook = toggleNavNotebook.bind(this);
-    // this.toggleSearch = toggleSearch.bind(this);
-    // this.openNotebookIndex = this.openNotebookIndex.bind(this);
   };
 
   componentDidMount() {
@@ -22,31 +19,16 @@ export default class Sidebar extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.logout();
-    // this.props.history.push(`/login`);
-    // this.toggleNavNotebook();
   }
 
   closeOtherWindows() {
     const sidebarSearch = document.getElementById("search-form").style.width;
     if (sidebarSearch === "100%") {
       document.getElementById("search-form").style.width = "0px";
-      // document.getElementById("search-form").style.visibility = "hidden";
     }
   }
 
-  // openNotebookIndex(){
-  //   this.toggleNavNotebook();
-  // }
-
   render(){
-
-    // buttons to include:
-    // <div className="new-meeting-btn"></div>
-    // <div className="workchat-btn"></div>
-
-    // <div className="tags-btn"></div>
-
-
 
     return(
       <div className="sidebar">
