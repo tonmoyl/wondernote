@@ -22,9 +22,19 @@ export default class Toolbar extends React.Component {
 
   deleteItem() {
     if (this.props.itemType === 'note' || this.props.itemType === 'note-item') {
-      this.props.deleteNote(this.props.noteId).then( ()=> {
-        this.props.history.push('/main/new');
-      });
+      var noteItem = document.getElementById(this.props.noteId);
+      let deleteItem = this.props.deleteNote;
+      noteItem.style.height = "0px";
+
+      setTimeout( () => {
+          this.props.deleteNote(this.props.noteId).then( ()=> {
+            if (this.props.match.params.noteId !== 'new'){
+              this.props.history.push('/main/new');
+            }
+          })
+      },500
+      );
+
     }
     else if (this.props.itemType === 'notebook-item') {
       this.props.deleteNotebook(this.props.notebookId).then( ()=> {

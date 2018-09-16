@@ -97,10 +97,10 @@ export default class NoteItem extends React.Component{
       }
 
       return (
-        <div className={`note-item ${newItem}`}>
+        <div className={`note-item ${newItem} ${selected}`} id={`${this.props.note.id}`}>
           <ToolbarContainer itemType="note-item" display="false" noteId={`${this.props.note.id}`}/>
           <Link to={followLink}>
-            <div className={`list-item ${selected}`}>
+            <div className={`list-item`}>
               <h3>{title}</h3>
               <h4>{timeAgo}</h4>
               <h5>{renderBody}</h5>
