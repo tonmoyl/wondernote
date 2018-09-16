@@ -90,3 +90,9 @@
 .note-list li:hover .toolbar .fa-trash-o:before, .notebook-index li:hover .toolbar .fa-trash-o:before{
   color: white;
 }
+
+.new-note-item {
+  height: 0px;
+  overflow: hidden;
+  transition: 0.5s ease-in;
+}

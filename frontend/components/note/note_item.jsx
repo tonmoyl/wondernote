@@ -11,12 +11,14 @@ export default class NoteItem extends React.Component{
       this.parseData = JSON.parse(props.note.body);
     }
     this.renderImage = this.renderImage.bind(this);
+    this.parseTime = this.parseTime.bind(this);
   }
 
   parseTime() {
     const updateTime = this.props.note.updated_at;
     const currentTime = Date.now();
     const differenceInMS = 1 + currentTime - Date.parse(updateTime);
+    this.time = differenceInMS;
 
     const sec = Math.floor((differenceInMS / 1000) % 60);
     const min = Math.floor((differenceInMS / 1000 / 60) % 60);
@@ -33,6 +35,7 @@ export default class NoteItem extends React.Component{
       idx ++;
       showTime = time[idx];
     }
+
 
     if (showTime) {
       return `${showTime} ${timeStr[idx]} AGO`;
@@ -79,13 +82,22 @@ export default class NoteItem extends React.Component{
       let timeAgo = this.parseTime();
       let title = this.props.note.title;
       let selected = "unselected";
+      let newItem = "old-note";
+
+      if (this.time < 1000) {
+        newItem = 'new-note-item';
+        setTimeout( ()=> {
+          let note = document.getElementsByClassName('new-note-item');
+          note[0].style.height = "120px";
+        }, 50 )
+      }
 
       if (this.props.currentNoteId == this.props.note.id) {
         selected = "selected";
       }
 
       return (
-        <div className="note-item">
+        <div className={`note-item ${newItem}`}>
           <ToolbarContainer itemType="note-item" display="false" noteId={`${this.props.note.id}`}/>
           <Link to={followLink}>
             <div className={`list-item ${selected}`}>
