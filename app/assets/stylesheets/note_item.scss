@@ -42,7 +42,7 @@
   color: black;
 }
 
-.list-item:hover, .list-item:hover h3, .list-item:hover h4, .list-item:hover h5, .toolbar:hover{
+.note-item:hover, .note-item:hover h3, .note-item:hover h4, .note-item:hover h5, .toolbar:hover{
   color: white;
 }
 
@@ -63,6 +63,7 @@
 .note-list li:hover, .notebook-index li:hover {
   background-color: #8bb6dc;
   border: none;
+  color: white;
   -webkit-transition: background-color 200ms linear;
   -ms-transition: background-color 200ms linear;
   transition: background-color 200ms linear;
