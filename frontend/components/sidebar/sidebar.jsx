@@ -13,7 +13,6 @@ export default class Sidebar extends React.Component {
     document.getElementById("search-form").style.width = "0px";
     document.getElementById("notebook-side").style.width = "0px";
     document.getElementById("favorite-index").style.width = "0px";
-
   }
 
   handleSubmit(e) {
@@ -29,12 +28,17 @@ export default class Sidebar extends React.Component {
   }
 
   render(){
+    let new_selected;
+    if (this.props.noteId === "new") {
+      new_selected = "selected";
+    }
+
 
     return(
       <div className="sidebar">
         <div className="button-list sidebar-top">
             <Link  to="/main/new" onClick={this.closeOtherWindows}>
-              <div className="new-note-btn" >
+              <div className={`new-note-btn ${new_selected}`} >
                 <i className="material-icons">note_add</i>
                 New
               </div>

@@ -67,3 +67,8 @@
   width: 60px;
   font-size: 8px;
 }
+
+a .selected, a .selected:hover {
+  color: #5c7c8c;
+  background-color: white;
+}

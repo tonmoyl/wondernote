@@ -4,7 +4,11 @@ import { logout } from '../../actions/session_actions';
 import Sidebar from './sidebar';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = null;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    noteId: ownProps.match.params.noteId
+  }
+};
 
 const mapDispatchToProps = dispatch => {
   return {
