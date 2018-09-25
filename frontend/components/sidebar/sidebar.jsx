@@ -40,13 +40,13 @@ export default class Sidebar extends React.Component {
             <Link  to="/main/new" onClick={this.closeOtherWindows}>
               <div className={`new-note-btn ${new_selected}`} >
                 <i className="material-icons">note_add</i>
-                New
+                <span>New</span>
               </div>
             </Link>
 
             <div className="search-btn" id="search-side" onClick={toggleSearch}>
               <i className="material-icons">search</i>
-              Search
+              <span>Search</span>
             </div>
         </div>
 
@@ -54,16 +54,16 @@ export default class Sidebar extends React.Component {
             <Link to={`/main/${this.props.match.params.noteId}`}  onClick={this.closeOtherWindows}>
               <div className="notes-btn">
                 <i className="material-icons">library_books</i>
-                Notes
+                <span>Notes</span>
               </div>
             </Link>
           <div className="notebooks-btn" onClick={toggleNavNotebook}>
             <i className="material-icons">book</i>
-            Books
+            <span>Books</span>
           </div>
           <div className="shortcuts-btn" onClick={toggleFavorites}>
             <i className="material-icons">star</i>
-            Saved
+            <span>Saved</span>
           </div>
         </div>
 
@@ -71,24 +71,24 @@ export default class Sidebar extends React.Component {
           <a href="http://lifazul.com">
             <div>
               <i className="material-icons">public</i>
-              web
+              <span>web</span>
             </div>
           </a>
           <div>
             <a href="https://github.com/tonmoyl">
               <i className="material-icons">code</i>
-              github
+              <span>github</span>
             </a>
           </div>
           <div>
             <a href="https://www.linkedin.com/in/lifazultonmoy/">
               <i className="material-icons">people_outline</i>
-              linkedin
+              <span>linkedin</span>
             </a>
           </div>
           <div className="logout" onClick={this.handleSubmit}>
             <i className="material-icons">motorcycle</i>
-            Logout
+            <span>Logout</span>
           </div>
         </div>
 

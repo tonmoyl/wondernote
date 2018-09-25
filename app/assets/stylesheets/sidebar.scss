@@ -27,14 +27,16 @@
 
 .button-list div {
   color: white;
-  display: block;
+  display: flex;
   height: 30px;
   width: 30px;
   margin: 10px auto;
   padding: 10px;
   cursor: pointer;
   transition: background-color 1s ease;
-  border-radius: 10%
+  border-radius: 10%;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .button-list div:hover {
