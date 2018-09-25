@@ -44,7 +44,7 @@ export default class Sidebar extends React.Component {
               </div>
             </Link>
 
-            <div className="search-btn" onClick={toggleSearch}>
+            <div className="search-btn" id="search-side" onClick={toggleSearch}>
               <i className="material-icons">search</i>
               Search
             </div>
