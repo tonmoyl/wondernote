@@ -29,8 +29,11 @@ export default class Sidebar extends React.Component {
 
   render(){
     let new_selected;
+    let note_selected;
     if (this.props.noteId === "new") {
       new_selected = "selected";
+    } else if (parseInt(this.props.noteId)) {
+      note_selected = "selected";
     }
 
 
@@ -52,16 +55,16 @@ export default class Sidebar extends React.Component {
 
         <div className="button-list sidebar-middle">
             <Link to={`/main/${this.props.match.params.noteId}`}  onClick={this.closeOtherWindows}>
-              <div className="notes-btn">
+              <div className={`notes-btn ${note_selected}`}>
                 <i className="material-icons">library_books</i>
                 <span>Notes</span>
               </div>
             </Link>
-          <div className="notebooks-btn" onClick={toggleNavNotebook}>
+          <div className="notebooks-btn" id="books-side" onClick={toggleNavNotebook}>
             <i className="material-icons">book</i>
             <span>Books</span>
           </div>
-          <div className="shortcuts-btn" onClick={toggleFavorites}>
+          <div className="shortcuts-btn" id="favorite-side" onClick={toggleFavorites}>
             <i className="material-icons">star</i>
             <span>Saved</span>
           </div>

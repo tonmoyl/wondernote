@@ -9,8 +9,10 @@ export const toggleNavNotebook = () => {
   if (sidebarWidth === "0px") {
     closeOtherWindows();
     document.getElementById("notebook-side").style.width = "430px";
+    document.getElementById("books-side").classList.add('selected');
   } else {
     document.getElementById("notebook-side").style.width = "0px";
+    document.getElementById("books-side").classList.remove('selected');
   };
 };
 
@@ -19,8 +21,10 @@ export const toggleFavorites = () => {
   if (sidebarWidth === "0px") {
     closeOtherWindows();
     document.getElementById("favorite-index").style.width = "430px";
+    document.getElementById("favorite-side").classList.add('selected');
   } else {
     document.getElementById("favorite-index").style.width = "0px";
+    document.getElementById("favorite-side").classList.remove('selected');
   };
 };
 
@@ -33,6 +37,7 @@ export const toggleSearch = () => {
     // document.getElementById("search-form").style.visibility = "visible";
   } else {
     document.getElementById("search-form").style.width = "0px";
+    document.getElementById("search-side").classList.remove('selected');
     // document.getElementById("search-form").style.visibility = "hidden";
   }
 }
