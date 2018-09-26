@@ -101,9 +101,6 @@ export default class SessionForm extends React.Component {
             <button className="demo submit-btn" onClick={this.demoLogin}>Demo Login</button>
           </div>
         </form>
-        <footer className="session-footer">
-          {footer}
-        </footer>
       </div>
     )
   }

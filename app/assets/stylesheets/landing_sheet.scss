@@ -14,16 +14,26 @@
   position: relative;
   transition: left 0.5s linear;
   overflow: hidden;
-  // display: flex;
-  // justify-content: center;
+}
+
+@keyframes bounceRight {
+  0% { left: 5%; }
+  50% { left: calc(100% - 400px); }
+  100% { left: calc(95% - 400px); }
+}
+
+@keyframes bounceLeft {
+  0% { left: calc(95% - 400px); }
+  50% { left: 0%; }
+  100% { left: 5%; }
 }
 
 .left {
-  left: 5%;
+  animation: bounceLeft 1s forwards;
 }
 
 .right {
-  left: calc(95% - 400px);
+  animation: bounceRight 1s forwards;
 }
 
 .login-form {
