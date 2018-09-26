@@ -1,5 +1,5 @@
 .landing {
-  background-color: blue;
+  background-color: lightgray;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -8,12 +8,13 @@
 }
 
 .movable {
-  background-color: red;
+  background-color: white;
   width: 400px;
   height: 700px;
   position: relative;
   transition: left 0.5s linear;
   overflow: hidden;
+  text-align: center;
 }
 
 @keyframes bounceRight {
@@ -53,16 +54,6 @@
   transition: left 0.5s linear;
 
 }
-
-// .fade {
-//   height: 100%;
-//   width: 100%;
-//   background-color: white;
-//   position: absolute;
-//   z-index: -1;
-//   opacity: 0;
-//   transition: opacity 0.25s ease-in-out;
-// }
 
 .displayForm {
   z-index: 1;

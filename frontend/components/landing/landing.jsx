@@ -56,14 +56,16 @@ export default class Landing extends React.Component{
 
           <div className="login-form" id="login-form">
             <LoginFormContainer />
-              Don't have an account?
+              <p>Don't have an account?</p>
+              <br />
               <button className="change-form btn" onClick={this.changeForm}>
                 Sign Up
               </button>
           </div>
           <div className="signup-form" id="signup-form">
             <SignupFormContainer />
-              Already have an account?
+              <p>Already have an account?</p>
+              <br />
               <button className="change-form btn" onClick={this.changeForm}>
                 Log in
               </button>

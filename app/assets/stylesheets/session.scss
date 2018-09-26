@@ -10,28 +10,41 @@ body {
 }
 
 .session-form {
-  background-color: white;
+  // background-color: white;
   width: 400px;
   margin: auto;
-  border: 1px solid lightgray;
+  // border: 1px solid lightgray;
+  // border: 1px solid white;
   padding: 30px 0px;
 }
 
 .session-form input {
   display: flex;
   margin: auto;
-  border-radius: 7px;
-  border: 1px solid lightgray;
+  // border-radius: 7px;
+  border-bottom: lightgray 1px solid;
+  background-color: white;
+  color: white;
+  border: none;
   padding: 9.5px 12px;
   width: 300px;
   justify-content: center;
+  background-color: none;
+}
+
+.session-form input.session-submit {
+  background-color: #849da9;
+}
+
+.session-input, .password-input {
+  border: 1px solid gray;
 }
 
 .session-form .demo{
   display: flex;
   margin: auto;
   border-radius: 7px;
-  border: 1px solid lightgray;
+  // border: 1px solid lightgray;
   padding: 9.5px 12px;
   width: 300px;
   margin-top: 20px;
@@ -73,4 +86,9 @@ body {
   position: fixed;
   bottom: 0px;
   left: 8px;
+}
+
+.session-submit {
+  background-color: #576f82;
+  color: white;
 }
