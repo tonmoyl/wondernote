@@ -9,17 +9,51 @@
 
 .movable {
   background-color: red;
-  width: 500px;
+  width: 400px;
   height: 700px;
+  position: relative;
+  transition: left 0.5s linear;
+  overflow: hidden;
+  // display: flex;
+  // justify-content: center;
+}
+
+.left {
+  left: 5%;
+}
+
+.right {
+  left: calc(95% - 400px);
+}
+
+.login-form {
+  position: absolute;
+  left: 0px;
+  transition: left 0.5s linear;
+}
+
+.signup-form {
+  position: absolute;
+  left: 400%;
+  transition: left 0.5s linear;
+}
+
+.change-form {
   position: relative;
   transition: left 0.5s linear;
 
 }
 
-.left {
-  left: 5%
-}
+// .fade {
+//   height: 100%;
+//   width: 100%;
+//   background-color: white;
+//   position: absolute;
+//   z-index: -1;
+//   opacity: 0;
+//   transition: opacity 0.25s ease-in-out;
+// }
 
-.right {
-  left: calc(95% - 500px);
+.displayForm {
+  z-index: 1;
 }
