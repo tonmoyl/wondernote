@@ -59,7 +59,10 @@ export default class Landing extends React.Component{
               <p>Don't have an account?</p>
               <br />
               <button className="change-form btn" onClick={this.changeForm}>
-                Sign Up
+                <p>Sign Up</p>
+                <i className="material-icons">
+                  arrow_forward
+                </i>
               </button>
           </div>
           <div className="signup-form" id="signup-form">
@@ -67,6 +70,9 @@ export default class Landing extends React.Component{
               <p>Already have an account?</p>
               <br />
               <button className="change-form btn" onClick={this.changeForm}>
+                <i className="material-icons">
+                  arrow_back
+                </i>
                 Log in
               </button>
           </div>

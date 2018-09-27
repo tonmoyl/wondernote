@@ -58,3 +58,14 @@
 .displayForm {
   z-index: 1;
 }
+
+.change-form.btn {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  width: 200px;
+  justify-content: space-around;
+  background-color: #4a4b66;
+  color: white;
+  height: 40px;
+}
