@@ -2,6 +2,10 @@ var closeOtherWindows = () => {
   document.getElementById("notebook-side").style.width = "0px";
   document.getElementById("favorite-index").style.width = "0px";
   document.getElementById("search-form").style.width = "0px";
+  document.getElementById("books-side").classList.remove('selected');
+  document.getElementById("favorite-side").classList.remove('selected');
+  document.getElementById("search-side").classList.remove('selected');
+
 }
 
 export const toggleNavNotebook = () => {
