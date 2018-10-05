@@ -5,8 +5,10 @@ import Sidebar from './sidebar';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
+  var allNoteIds = Object.keys(state.entities.notes)
   return {
-    noteId: ownProps.match.params.noteId
+    noteId: ownProps.match.params.noteId,
+    lastNoteId: allNoteIds[allNoteIds.length-1]
   }
 };
 

@@ -9,6 +9,7 @@ export default class Sidebar extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
+
   componentDidMount() {
     document.getElementById("search-form").style.width = "0px";
     document.getElementById("notebook-side").style.width = "0px";
@@ -54,7 +55,7 @@ export default class Sidebar extends React.Component {
         </div>
 
         <div className="button-list sidebar-middle">
-            <Link to={`/main/${this.props.match.params.noteId}`}  onClick={this.closeOtherWindows}>
+            <Link to={`/main/${this.props.lastNoteId}`}  onClick={this.closeOtherWindows}>
               <div className={`notes-btn ${note_selected}`}>
                 <i className="material-icons">library_books</i>
                 <span>Notes</span>
