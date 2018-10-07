@@ -58,12 +58,11 @@
   background-color: white;
 }
 
-.new-note-btn, .notes-btn, .new-note-btn:hover, .notes-btn:hover {
-  border: 2px solid #484c65;
-}
+// .new-note-btn, .notes-btn, .new-note-btn:hover, .notes-btn:hover {
+//   border: 2px solid #484c65;
+// }
 
 .new-note-btn.selected, .notes-btn.selected {
-  color: #5c7c8c;
-  background-color: white;
-  border: 2px solid #5c7c8c;
+  color: white;
+  background-color: #84acae;
 }
