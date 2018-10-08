@@ -62,7 +62,7 @@
 //   border: 2px solid #484c65;
 // }
 
-.new-note-btn.selected, .notes-btn.selected {
+.new-note-btn.selected, .notes-btn.selected, .new-note-btn.selected:hover, .notes-btn.selected:hover  {
   color: white;
   background-color: #84acae;
 }
